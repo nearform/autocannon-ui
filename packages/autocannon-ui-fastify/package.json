@@ -1,0 +1,45 @@
+{
+  "name": "@nearform/autocannon-ui-fastify",
+  "version": "1.0.0",
+  "author": {
+    "name": "Sameer Srivastava",
+    "email": "sameer.srivastava@nearform.com"
+  },
+  "repository": "nearform/autocannon-ui",
+  "main": "index.js",
+  "scripts": {
+    "dev": "yarn start",
+    "start": "node index.js",
+    "test": "tap",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "env-schema": "^2.0.1",
+    "eslint-plugin-promise": "^5.1.0",
+    "fastify": "^3.8.0",
+    "fastify-cli": "^2.5.1",
+    "fastify-cors": "^5.0.0",
+    "fastify-plugin": "^3.0.0",
+    "fastify-static": "^4.0.0",
+    "fluent-json-schema": "^2.0.4"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-config-standard": "^16.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "lint-staged": "^10.5.2",
+    "prettier": "^2.1.2"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix"
+    ]
+  }
+}
