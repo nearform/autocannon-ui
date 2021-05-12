@@ -8,8 +8,8 @@
   "repository": "nearform/autocannon-ui",
   "main": "index.js",
   "scripts": {
-    "dev": "yarn start",
-    "start": "node index.js",
+    "dev": "fastify start -P -l info -p 5001 -w .",
+    "start": "fastify start -p 5001 .",
     "test": "tap",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

@@ -9,6 +9,8 @@ import Icon from '@material-ui/core/Icon'
 import ResultsView from './ResultsView.jsx'
 import './TestOptions.css'
 
+const messageRegex = /^(\w+):(.+)/
+
 export default function TestOptions() {
   const [url, setUrl] = useState('https://google.com')
   const [connections, setConnections] = useState(10)
@@ -17,20 +19,21 @@ export default function TestOptions() {
   const [method, setMethod] = useState('GET')
   const [progress, setProgress] = useState(0)
   const [progressStatus, setProgressStatus] = useState('active')
-  const [testResults, setTestResults] = useState('')
+  const [testResults, setTestResults] = useState()
   const [isTestRunning, setIsTestRunning] = useState(false)
 
-  const RunTestHandler = async event => {
+  function resetState() {
+    setIsTestRunning(true)
+    setProgressStatus('active')
+    setProgress(0)
+    setTestResults()
+  }
+
+  const runTest = async event => {
     event.preventDefault()
 
-    function resetState() {
-      setIsTestRunning(true)
-      setProgressStatus('active')
-      setProgress(0)
-      setTestResults('')
-    }
-
     resetState()
+
     const response = await fetch('/execute', {
       method: 'POST',
       headers: {
@@ -44,21 +47,24 @@ export default function TestOptions() {
 
     while (true) {
       const { value, done } = await reader.read()
-      if (done) break
-      // change this logic
-      let receivedvalue
-      if (value.includes('duration')) {
-        receivedvalue = value.replace('{"progress":90}', '')
-      } else {
-        receivedvalue = JSON.parse(value)
+      if (done) {
+        break
       }
-      if (Number.isInteger(receivedvalue.progress)) {
-        setProgress(JSON.parse(value).progress)
-      } else {
-        setProgress(100)
-        setProgressStatus('success')
-        setTestResults(receivedvalue)
-        setIsTestRunning(false)
+
+      const [, type, payload] = messageRegex.exec(value)
+
+      switch (type) {
+        case 'progress': {
+          setProgress(+payload)
+          break
+        }
+        case 'result': {
+          setProgress(100)
+          setProgressStatus('success')
+          setTestResults(JSON.parse(payload))
+          setIsTestRunning(false)
+          break
+        }
       }
     }
   }
@@ -168,11 +174,8 @@ export default function TestOptions() {
                   variant="contained"
                   color="secondary"
                   disabled={isTestRunning}
-                  // className={classes.button}
                   endIcon={<Icon>send</Icon>}
-                  onClick={e => {
-                    RunTestHandler(e)
-                  }}
+                  onClick={runTest}
                 >
                   Run Test
                 </Button>

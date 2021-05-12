@@ -4,12 +4,16 @@ const { startBench } = require('../../services/autocannon')
 
 module.exports = async function (fastify) {
   fastify.post('/execute', function (request, reply) {
-    const options = request.body
-    const runOptions = {
-      url: options.url,
-      connections: options.connections || 10,
-      pipelining: options.pipelining || 1,
-      duration: options.duration || 10,
+    const { body } = request
+
+    reply.raw.setHeader('content-type', 'text/event-stream')
+    reply.raw.flushHeaders()
+
+    const options = {
+      url: body.url,
+      connections: body.connections || 10,
+      pipelining: body.pipelining || 1,
+      duration: body.duration || 10,
       renderProgressBar: false,
       renderLatencyTable: false,
       renderResultsTable: false,
@@ -18,26 +22,26 @@ module.exports = async function (fastify) {
 
     function finishedBench(err, result) {
       if (err) {
-        return reply.code(500).send('Something went wrong')
+        return reply.code(500).send()
       }
-      if (!reply.sent) {
-        return reply.raw.end(JSON.stringify(result))
-      }
+
+      reply.raw.end(`result:${JSON.stringify(result)}\n\n`)
     }
 
     let count = 0
+
     function getProgress() {
-      let ratio = count / runOptions.duration
-      ratio = Math.min(Math.max(ratio, 0), 1)
-      const percent = Math.floor(ratio * 100)
-      count++
-      return percent
+      const ratio = Math.min(Math.max(++count / options.duration, 0), 1)
+      return Math.floor(ratio * 100)
     }
 
-    const autoInstance = startBench(runOptions, finishedBench)
-    autoInstance.on('tick', data => {
-      const currentProgress = getProgress(0)
-      reply.raw.write(JSON.stringify({ progress: currentProgress }))
+    const autoInstance = startBench(options, finishedBench)
+    autoInstance.on('tick', () => {
+      const progress = getProgress()
+
+      if (progress < 100) {
+        reply.raw.write(`progress:${progress}\n\n`)
+      }
     })
   })
 }

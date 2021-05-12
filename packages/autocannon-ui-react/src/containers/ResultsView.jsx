@@ -13,42 +13,29 @@ import PropTypes from 'prop-types'
 import prettyBytes from 'pretty-bytes'
 import { percentiles } from 'hdr-histogram-percentiles-obj'
 
-export default function ResultsView({ data }) {
-  if (!data) {
-    return null
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650
   }
-  ResultsView.propTypes = {
-    data: PropTypes.string
-  }
+})
 
-  const allData = JSON.parse(data)
-  const latencyData = allData.latency
-  const requestsData = allData.requests
-  const useStyles = makeStyles({
-    table: {
-      minWidth: 650
-    }
-  })
-  const classes = useStyles()
+function asBytes(stat) {
+  const result = Object.create(stat)
 
-  function asBytes(stat) {
-    const result = Object.create(stat)
-
-    for (const p of percentiles) {
-      const key = `p${p}`.replace('.', '_')
-      result[key] = prettyBytes(stat[key])
-    }
-
-    result.average = prettyBytes(stat.average)
-    result.stddev = prettyBytes(stat.stddev)
-    result.max = prettyBytes(stat.max)
-    result.min = prettyBytes(stat.min)
-    return result
+  for (const p of percentiles) {
+    const key = `p${p}`.replace('.', '_')
+    result[key] = prettyBytes(stat[key])
   }
 
-  const bytesData = asBytes(allData.throughput)
+  result.average = prettyBytes(stat.average)
+  result.stddev = prettyBytes(stat.stddev)
+  result.max = prettyBytes(stat.max)
+  result.min = prettyBytes(stat.min)
+  return result
+}
 
-  function createLatencyTable(
+function createLatencyTable(stat, p2_5, p50, p97_5, p99, average, stddev, max) {
+  return {
     stat,
     p2_5,
     p50,
@@ -57,20 +44,11 @@ export default function ResultsView({ data }) {
     average,
     stddev,
     max
-  ) {
-    return {
-      stat,
-      p2_5,
-      p50,
-      p97_5,
-      p99,
-      average,
-      stddev,
-      max
-    }
   }
+}
 
-  function createRequestsTable(
+function createRequestsTable(stat, p1, p2_5, p50, p97_5, average, stddev, min) {
+  return {
     stat,
     p1,
     p2_5,
@@ -79,38 +57,19 @@ export default function ResultsView({ data }) {
     average,
     stddev,
     min
-  ) {
-    return {
-      stat,
-      p1,
-      p2_5,
-      p50,
-      p97_5,
-      average,
-      stddev,
-      min
-    }
+  }
+}
+
+export default function ResultsView({ data }) {
+  const classes = useStyles()
+
+  if (!data) {
+    return null
   }
 
-  function createPercentileTable() {
-    return [
-      { 0.001: latencyData.p0_001 },
-      { 0.01: latencyData.p0_01 },
-      { 0.1: latencyData.p0_1 },
-      { 1: latencyData.p1 },
-      { 2.5: latencyData.p2_5 },
-      { 10: latencyData.p10 },
-      { 25: latencyData.p25 },
-      { 50: latencyData.p50 },
-      { 75: latencyData.p75 },
-      { 90: latencyData.p90 },
-      { 97.5: latencyData.p97_5 },
-      { 99: latencyData.p99 },
-      { 99.9: latencyData.p99_9 },
-      { 99.99: latencyData.p99_99 },
-      { 99.999: latencyData.p99_999 }
-    ]
-  }
+  const latencyData = data.latency
+  const requestsData = data.requests
+  const bytesData = asBytes(data.throughput)
 
   const latencyRows = [
     createLatencyTable(
@@ -151,7 +110,23 @@ export default function ResultsView({ data }) {
     )
   ]
 
-  const percentileRows = createPercentileTable('Percentile', 'Latency ms')
+  const percentileRows = [
+    { 0.001: latencyData.p0_001 },
+    { 0.01: latencyData.p0_01 },
+    { 0.1: latencyData.p0_1 },
+    { 1: latencyData.p1 },
+    { 2.5: latencyData.p2_5 },
+    { 10: latencyData.p10 },
+    { 25: latencyData.p25 },
+    { 50: latencyData.p50 },
+    { 75: latencyData.p75 },
+    { 90: latencyData.p90 },
+    { 97.5: latencyData.p97_5 },
+    { 99: latencyData.p99 },
+    { 99.9: latencyData.p99_9 },
+    { 99.99: latencyData.p99_99 },
+    { 99.999: latencyData.p99_999 }
+  ]
 
   return (
     <React.Fragment>
@@ -274,4 +249,8 @@ export default function ResultsView({ data }) {
       </Container>
     </React.Fragment>
   )
+}
+
+ResultsView.propTypes = {
+  data: PropTypes.object
 }
