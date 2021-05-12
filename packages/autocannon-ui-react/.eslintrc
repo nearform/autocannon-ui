@@ -1,0 +1,27 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "plugins": ["import"],
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "rules": {
+    "react-hooks/rules-of-hooks": "off",
+    "no-constant-condition": ["error", { "checkLoops": false }],
+    "no-undef": "warn",
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always"
+      }
+    ]
+  }
+}

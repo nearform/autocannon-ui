@@ -1,0 +1,36 @@
+{
+  "name": "autocannon-ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Graphical user interface for autocannon providing the same user experience",
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": "nearform/autocannon-ui",
+  "main": "index.js",
+  "scripts": {
+    "dev": "lerna run dev --parallel",
+    "test": "lerna run test --stream",
+    "version:safe": "lerna version --no-git-tag-version --no-push",
+    "pre-commit": "lerna run --concurrency 1 --stream precommit --since HEAD --exclude-dependents",
+    "toc": "markdown-toc README.md -i"
+  },
+  "author": {
+    "name": "Sameer Srivastava",
+    "email": "sameer.srivastava@nearform.com"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.0.0",
+    "@commitlint/config-conventional": "^12.0.0",
+    "husky": "^6.0.0",
+    "lerna": "^4.0.0",
+    "markdown-toc": "^1.2.0",
+    "autocannon": "^7.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "yarn pre-commit && yarn toc && git add README.md"
+    }
+  }
+}
