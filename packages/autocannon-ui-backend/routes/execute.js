@@ -6,7 +6,7 @@ const execute = require('../services/autocannon')
 
 const schema = {
   body: S.object()
-    .prop('url', S.string().required())
+    .prop('url', S.string().format('url').required())
     .prop('connections', S.integer().default(10))
     .prop('duration', S.anyOf([S.number(), S.string()]).default(10))
     .prop('pipelining', S.integer().default(1))
