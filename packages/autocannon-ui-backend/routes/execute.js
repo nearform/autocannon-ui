@@ -1,20 +1,25 @@
 'use strict'
 
+const S = require('fluent-json-schema')
+
 const execute = require('../services/autocannon')
 
-module.exports = async function (fastify) {
-  fastify.post('/api/execute', function (request, reply) {
-    const { body } = request
+const schema = {
+  body: S.object()
+    .prop('url', S.string().required())
+    .prop('connections', S.integer().default(10))
+    .prop('duration', S.anyOf([S.number(), S.string()]).default(10))
+    .prop('pipelining', S.integer().default(1))
+    .prop('method', S.string().default('GET'))
+}
 
+module.exports = async function (fastify) {
+  fastify.post('/api/execute', { schema }, function (request, reply) {
     reply.raw.setHeader('content-type', 'text/event-stream')
     reply.raw.flushHeaders()
 
     const options = {
-      method: body.method,
-      url: body.url,
-      connections: body.connections || 10,
-      pipelining: body.pipelining || 1,
-      duration: body.duration || 10,
+      ...request.body,
       renderProgressBar: false,
       renderLatencyTable: false,
       renderResultsTable: false,
