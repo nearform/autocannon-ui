@@ -16,7 +16,8 @@
     "test": "lerna run test --stream",
     "version:safe": "lerna version --no-git-tag-version --no-push",
     "pre-commit": "lerna run --concurrency 1 --stream precommit --since HEAD --exclude-dependents",
-    "toc": "markdown-toc README.md -i"
+    "toc": "markdown-toc README.md -i",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.0.0",
@@ -24,11 +25,5 @@
     "husky": "^6.0.0",
     "lerna": "^4.0.0",
     "markdown-toc": "^1.2.0"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn pre-commit && yarn toc && git add README.md"
-    }
   }
 }

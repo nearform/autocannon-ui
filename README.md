@@ -5,14 +5,13 @@
 
 This monorepo contains packages and applications which provide a GUI for using autocannon while maintaining the same user experience.
 
-
 <!-- toc -->
 
 - [Getting started](#getting-started)
 - [Development](#development)
 - [Packages](#packages)
-  * [`autocannon-fastify`](#autocannon-frontend)
-  * [`autocannon-react`](#autocannon-react)
+  * [`autocannon-frontend`](#autocannon-frontend)
+  * [`autocannon-backend`](#autocannon-backend)
 
 <!-- tocstop -->
 
