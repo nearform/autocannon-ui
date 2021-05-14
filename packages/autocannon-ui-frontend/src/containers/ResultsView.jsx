@@ -1,5 +1,5 @@
-import Grid from '@material-ui/core/Grid'
 import React from 'react'
+import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core/styles'
 import Table from '@material-ui/core/Table'
@@ -9,7 +9,7 @@ import TableContainer from '@material-ui/core/TableContainer'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import prettyBytes from 'pretty-bytes'
 import { percentiles } from 'hdr-histogram-percentiles-obj'
 
@@ -252,5 +252,5 @@ export default function ResultsView({ data }) {
 }
 
 ResultsView.propTypes = {
-  data: PropTypes.object
+  data: T.object
 }

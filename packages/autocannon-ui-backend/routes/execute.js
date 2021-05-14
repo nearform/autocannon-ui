@@ -1,9 +1,9 @@
 'use strict'
 
-const { startBench } = require('../../services/autocannon')
+const execute = require('../services/autocannon')
 
 module.exports = async function (fastify) {
-  fastify.post('/execute', function (request, reply) {
+  fastify.post('/api/execute', function (request, reply) {
     const { body } = request
 
     reply.raw.setHeader('content-type', 'text/event-stream')
@@ -20,7 +20,7 @@ module.exports = async function (fastify) {
       json: true
     }
 
-    function finishedBench(err, result) {
+    function callback(err, result) {
       if (err) {
         return reply.code(500).send()
       }
@@ -35,8 +35,9 @@ module.exports = async function (fastify) {
       return Math.floor(ratio * 100)
     }
 
-    const autoInstance = startBench(options, finishedBench)
-    autoInstance.on('tick', () => {
+    const instance = execute(options, callback)
+
+    instance.on('tick', () => {
       const progress = getProgress()
 
       if (progress < 100) {

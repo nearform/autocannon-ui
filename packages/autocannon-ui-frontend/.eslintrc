@@ -9,19 +9,10 @@
   ],
   "plugins": ["import"],
   "env": {
-    "node": true,
     "browser": true,
     "es6": true
   },
-  "rules": {
-    "react-hooks/rules-of-hooks": "off",
-    "no-constant-condition": ["error", { "checkLoops": false }],
-    "no-undef": "warn",
-    "import/order": [
-      "error",
-      {
-        "newlines-between": "always"
-      }
-    ]
+  "globals": {
+    "TextDecoderStream": true
   }
 }

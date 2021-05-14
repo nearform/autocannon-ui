@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import Grid from '@material-ui/core/Grid'
 import { Progress } from 'react-sweet-progress'
-import 'react-sweet-progress/lib/style.css'
 import Container from '@material-ui/core/Container'
 import Button from '@material-ui/core/Button'
 import Icon from '@material-ui/core/Icon'
+import 'react-sweet-progress/lib/style.css'
 
 import ResultsView from './ResultsView.jsx'
 import './TestOptions.css'
@@ -34,7 +34,7 @@ export default function TestOptions() {
 
     resetState()
 
-    const response = await fetch('/execute', {
+    const response = await fetch('/api/execute', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ export default function TestOptions() {
       .pipeThrough(new TextDecoderStream())
       .getReader()
 
-    while (true) {
+    for (;;) {
       const { value, done } = await reader.read()
       if (done) {
         break

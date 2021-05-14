@@ -11,16 +11,14 @@ This monorepo contains packages and applications which provide a GUI for using a
 - [Getting started](#getting-started)
 - [Development](#development)
 - [Packages](#packages)
-  * [`autocannon-fastify`](#autocannon-fastify)
+  * [`autocannon-fastify`](#autocannon-frontend)
   * [`autocannon-react`](#autocannon-react)
 
 <!-- tocstop -->
 
 ## Getting started
 
-You'll need yarn and lerna installed globally:
-
-- `npm i -g yarn lerna`
+- `yarn`
 
 The easiest way to try this out is to run:
 
@@ -37,15 +35,15 @@ yarn dev
 
 This will run:
 
-- `autocannon-react` build in watch mode so you can change the React components and see the result immediately
-- `autocannon-fastify` in standalone mode to have a server running
+- `autocannon-frontend` build in watch mode so you can change the React components and see the result immediately
+- `autocannon-backend` in standalone mode to have a server running
 
 ## Packages
 
-### `autocannon-react`
+### `autocannon-frontend`
 
 A library of React components which provide the UI.
 
-### `autocannon-fastify`
+### `autocannon-backend`
 
-- a standalone Fastify application
+A standalone Fastify application.
