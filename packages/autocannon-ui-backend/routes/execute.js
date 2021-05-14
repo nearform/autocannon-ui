@@ -10,6 +10,7 @@ module.exports = async function (fastify) {
     reply.raw.flushHeaders()
 
     const options = {
+      method: body.method,
       url: body.url,
       connections: body.connections || 10,
       pipelining: body.pipelining || 1,
