@@ -2879,6 +2879,11 @@ dotenv@^8.2.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.5.1.tgz#e3a4c7862daba51b92bce0da5c349f11faa28663"
   integrity sha512-qC1FbhCH7UH7B+BcRNUDhAk04d/n+tnGGB1ctwndZkVFeehYJOn39pRWWzmdzpFqImyX1KB8tO0DCHLf8yRaYQ==
 
+dotenv@^9.0.0:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-9.0.2.tgz#dacc20160935a37dea6364aa1bef819fb9b6ab05"
+  integrity sha512-I9OvvrHp4pIARv4+x9iuewrWycX6CcZtoAu1XrzPxc5UygMJXJZYmBsynku8IkrJwgypE5DGNjDPmPRhDCptUg==
+
 drawille-blessed-contrib@>=0.0.1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/drawille-blessed-contrib/-/drawille-blessed-contrib-1.0.0.tgz#15c27934f57a0056ad13596e1561637bc941f0b7"
@@ -3385,9 +3390,9 @@ fast-safe-stringify@^2.0.7:
   integrity sha512-Utm6CdzT+6xsDk2m8S6uL8VHxNwI6Jub+e9NYTcAms28T84pTa25GJQV9j0CY0N1rM8hK4x6grpF2BQf+2qwVA==
 
 fastify-cli@^2.5.1:
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/fastify-cli/-/fastify-cli-2.10.0.tgz#fc4cde63e120113e0516ad5a130b0eef6e5ed5be"
-  integrity sha512-5uWB9gofQJoMTY6RmERgtPQ7CkmE9I90DIA6hqYPVGnqhhAKcUSkm6R9qsNqvxwQSlePaWPzrJsXJv2a/Qia3Q==
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/fastify-cli/-/fastify-cli-2.11.0.tgz#1cc68390325d8c04221d40722b4496153fd15aa5"
+  integrity sha512-PTYDd7vM8rm5beHRuEqAgzzlS+NiGnFvVow6YrCfxFkdXsO6HeH6dZwWSkYIbEB19hwuYglLs5oLp2RNFZNq7Q==
   dependencies:
     blessed "^0.1.81"
     blessed-contrib "^4.8.18"
@@ -3395,7 +3400,7 @@ fastify-cli@^2.5.1:
     chokidar "^3.3.1"
     close-with-grace "^1.0.0"
     commist "^1.0.0"
-    dotenv "^8.2.0"
+    dotenv "^9.0.0"
     fastify "^3.0.0"
     generify "^4.0.0"
     help-me "^2.0.0"
