@@ -1,0 +1,1482 @@
+{
+	"info": {
+		"_postman_id": "6fbb196f-6d5c-405c-b30d-08d5c4f70354",
+		"name": "Autocannon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "valid",
+			"item": [
+				{
+					"name": "Execute",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"GET\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/execute",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"execute"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Execute-SucessResponse",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"GET\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/execute",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"execute"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "text/event-stream"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 14 May 2021 09:00:43 GMT"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								},
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:00:43.768Z\",\"finish\":\"2021-05-14T09:00:54.780Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":141,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":141}},\"latency\":{\"average\":740.49,\"mean\":740.49,\"stddev\":265,\"min\":401,\"max\":1738,\"p0_001\":401,\"p0_01\":401,\"p0_1\":401,\"p1\":415,\"p2_5\":440,\"p10\":466,\"p25\":562,\"p50\":646,\"p75\":912,\"p90\":1123,\"p97_5\":1339,\"p99\":1502,\"p99_9\":1738,\"p99_99\":1738,\"p99_999\":1738,\"totalCount\":141},\"requests\":{\"average\":12.82,\"mean\":12.82,\"stddev\":4.53,\"min\":3,\"max\":19,\"total\":141,\"p0_001\":3,\"p0_01\":3,\"p0_1\":3,\"p1\":3,\"p2_5\":3,\"p10\":10,\"p25\":10,\"p50\":11,\"p75\":18,\"p90\":18,\"p97_5\":19,\"p99\":19,\"p99_9\":19,\"p99_99\":19,\"p99_999\":19,\"sent\":151},\"throughput\":{\"average\":8170170.19,\"mean\":8170170.19,\"stddev\":2886670.77,\"min\":1912015,\"max\":12109422,\"total\":89865455,\"p0_001\":1912831,\"p0_01\":1912831,\"p0_1\":1912831,\"p1\":1912831,\"p2_5\":1912831,\"p10\":6377471,\"p25\":6377471,\"p50\":7012351,\"p75\":11476991,\"p90\":11476991,\"p97_5\":12115967,\"p99\":12115967,\"p99_9\":12115967,\"p99_99\":12115967,\"p99_999\":12115967}}\n\n"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "in-valid",
+			"item": [
+				{
+					"name": "Pass",
+					"item": [
+						{
+							"name": "Invalid HTTP method - POST Minimum Boundary Values",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 1,\n    \"method\": \"POST\",\n    \"duration\": \"1\",\n    \"pipelining\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/execute",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"execute"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Execute-SucessResponse",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"GET\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:00:43 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:00:43.768Z\",\"finish\":\"2021-05-14T09:00:54.780Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":141,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":141}},\"latency\":{\"average\":740.49,\"mean\":740.49,\"stddev\":265,\"min\":401,\"max\":1738,\"p0_001\":401,\"p0_01\":401,\"p0_1\":401,\"p1\":415,\"p2_5\":440,\"p10\":466,\"p25\":562,\"p50\":646,\"p75\":912,\"p90\":1123,\"p97_5\":1339,\"p99\":1502,\"p99_9\":1738,\"p99_99\":1738,\"p99_999\":1738,\"totalCount\":141},\"requests\":{\"average\":12.82,\"mean\":12.82,\"stddev\":4.53,\"min\":3,\"max\":19,\"total\":141,\"p0_001\":3,\"p0_01\":3,\"p0_1\":3,\"p1\":3,\"p2_5\":3,\"p10\":10,\"p25\":10,\"p50\":11,\"p75\":18,\"p90\":18,\"p97_5\":19,\"p99\":19,\"p99_9\":19,\"p99_99\":19,\"p99_999\":19,\"sent\":151},\"throughput\":{\"average\":8170170.19,\"mean\":8170170.19,\"stddev\":2886670.77,\"min\":1912015,\"max\":12109422,\"total\":89865455,\"p0_001\":1912831,\"p0_01\":1912831,\"p0_1\":1912831,\"p1\":1912831,\"p2_5\":1912831,\"p10\":6377471,\"p25\":6377471,\"p50\":7012351,\"p75\":11476991,\"p90\":11476991,\"p97_5\":12115967,\"p99\":12115967,\"p99_9\":12115967,\"p99_99\":12115967,\"p99_999\":12115967}}\n\n"
+								},
+								{
+									"name": "Invalid HTTP method - POST",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"POST\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:16:04 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:16:04.850Z\",\"finish\":\"2021-05-14T09:16:15.863Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":175,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":175}},\"latency\":{\"average\":610.35,\"mean\":610.35,\"stddev\":89.24,\"min\":330,\"max\":856,\"p0_001\":330,\"p0_01\":330,\"p0_1\":330,\"p1\":333,\"p2_5\":378,\"p10\":518,\"p25\":567,\"p50\":615,\"p75\":670,\"p90\":716,\"p97_5\":762,\"p99\":831,\"p99_9\":856,\"p99_99\":856,\"p99_999\":856,\"totalCount\":175},\"requests\":{\"average\":15.91,\"mean\":15.91,\"stddev\":2.97,\"min\":10,\"max\":20,\"total\":175,\"p0_001\":10,\"p0_01\":10,\"p0_1\":10,\"p1\":10,\"p2_5\":10,\"p10\":12,\"p25\":15,\"p50\":16,\"p75\":19,\"p90\":20,\"p97_5\":20,\"p99\":20,\"p99_9\":20,\"p99_99\":20,\"p99_999\":20,\"sent\":185},\"throughput\":{\"average\":10125684.37,\"mean\":10125684.37,\"stddev\":1888834.42,\"min\":6364770,\"max\":12729400,\"total\":111382240,\"p0_001\":6365183,\"p0_01\":6365183,\"p0_1\":6365183,\"p1\":6365183,\"p2_5\":6365183,\"p10\":7639039,\"p25\":9551871,\"p50\":10190847,\"p75\":12099583,\"p90\":12730367,\"p97_5\":12730367,\"p99\":12730367,\"p99_9\":12730367,\"p99_99\":12730367,\"p99_999\":12730367}}\n\n"
+								}
+							]
+						},
+						{
+							"name": "Invalid HTTP method - POST Maximum Boundary Values",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 21,\n    \"method\": \"POST\",\n    \"duration\": \"20\",\n    \"pipelining\": 21\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/execute",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"execute"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Invalid HTTP method - POST",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"POST\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:16:04 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:16:04.850Z\",\"finish\":\"2021-05-14T09:16:15.863Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":175,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":175}},\"latency\":{\"average\":610.35,\"mean\":610.35,\"stddev\":89.24,\"min\":330,\"max\":856,\"p0_001\":330,\"p0_01\":330,\"p0_1\":330,\"p1\":333,\"p2_5\":378,\"p10\":518,\"p25\":567,\"p50\":615,\"p75\":670,\"p90\":716,\"p97_5\":762,\"p99\":831,\"p99_9\":856,\"p99_99\":856,\"p99_999\":856,\"totalCount\":175},\"requests\":{\"average\":15.91,\"mean\":15.91,\"stddev\":2.97,\"min\":10,\"max\":20,\"total\":175,\"p0_001\":10,\"p0_01\":10,\"p0_1\":10,\"p1\":10,\"p2_5\":10,\"p10\":12,\"p25\":15,\"p50\":16,\"p75\":19,\"p90\":20,\"p97_5\":20,\"p99\":20,\"p99_9\":20,\"p99_99\":20,\"p99_999\":20,\"sent\":185},\"throughput\":{\"average\":10125684.37,\"mean\":10125684.37,\"stddev\":1888834.42,\"min\":6364770,\"max\":12729400,\"total\":111382240,\"p0_001\":6365183,\"p0_01\":6365183,\"p0_1\":6365183,\"p1\":6365183,\"p2_5\":6365183,\"p10\":7639039,\"p25\":9551871,\"p50\":10190847,\"p75\":12099583,\"p90\":12730367,\"p97_5\":12730367,\"p99\":12730367,\"p99_9\":12730367,\"p99_99\":12730367,\"p99_999\":12730367}}\n\n"
+								},
+								{
+									"name": "Execute-SucessResponse",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"GET\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:00:43 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:00:43.768Z\",\"finish\":\"2021-05-14T09:00:54.780Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":141,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":141}},\"latency\":{\"average\":740.49,\"mean\":740.49,\"stddev\":265,\"min\":401,\"max\":1738,\"p0_001\":401,\"p0_01\":401,\"p0_1\":401,\"p1\":415,\"p2_5\":440,\"p10\":466,\"p25\":562,\"p50\":646,\"p75\":912,\"p90\":1123,\"p97_5\":1339,\"p99\":1502,\"p99_9\":1738,\"p99_99\":1738,\"p99_999\":1738,\"totalCount\":141},\"requests\":{\"average\":12.82,\"mean\":12.82,\"stddev\":4.53,\"min\":3,\"max\":19,\"total\":141,\"p0_001\":3,\"p0_01\":3,\"p0_1\":3,\"p1\":3,\"p2_5\":3,\"p10\":10,\"p25\":10,\"p50\":11,\"p75\":18,\"p90\":18,\"p97_5\":19,\"p99\":19,\"p99_9\":19,\"p99_99\":19,\"p99_999\":19,\"sent\":151},\"throughput\":{\"average\":8170170.19,\"mean\":8170170.19,\"stddev\":2886670.77,\"min\":1912015,\"max\":12109422,\"total\":89865455,\"p0_001\":1912831,\"p0_01\":1912831,\"p0_1\":1912831,\"p1\":1912831,\"p2_5\":1912831,\"p10\":6377471,\"p25\":6377471,\"p50\":7012351,\"p75\":11476991,\"p90\":11476991,\"p97_5\":12115967,\"p99\":12115967,\"p99_9\":12115967,\"p99_99\":12115967,\"p99_999\":12115967}}\n\n"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Fail",
+					"item": [
+						{
+							"name": "Invalid HTTP method - Wrong URL parameter",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"dgjhsdhgj\",\n    \"connections\": 10,\n    \"method\": \"POST\",\n    \"duration\": \"10\",\n    \"pipelining\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/execute",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"execute"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Invalid HTTP method - POST",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"POST\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:16:04 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:16:04.850Z\",\"finish\":\"2021-05-14T09:16:15.863Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":175,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":175}},\"latency\":{\"average\":610.35,\"mean\":610.35,\"stddev\":89.24,\"min\":330,\"max\":856,\"p0_001\":330,\"p0_01\":330,\"p0_1\":330,\"p1\":333,\"p2_5\":378,\"p10\":518,\"p25\":567,\"p50\":615,\"p75\":670,\"p90\":716,\"p97_5\":762,\"p99\":831,\"p99_9\":856,\"p99_99\":856,\"p99_999\":856,\"totalCount\":175},\"requests\":{\"average\":15.91,\"mean\":15.91,\"stddev\":2.97,\"min\":10,\"max\":20,\"total\":175,\"p0_001\":10,\"p0_01\":10,\"p0_1\":10,\"p1\":10,\"p2_5\":10,\"p10\":12,\"p25\":15,\"p50\":16,\"p75\":19,\"p90\":20,\"p97_5\":20,\"p99\":20,\"p99_9\":20,\"p99_99\":20,\"p99_999\":20,\"sent\":185},\"throughput\":{\"average\":10125684.37,\"mean\":10125684.37,\"stddev\":1888834.42,\"min\":6364770,\"max\":12729400,\"total\":111382240,\"p0_001\":6365183,\"p0_01\":6365183,\"p0_1\":6365183,\"p1\":6365183,\"p2_5\":6365183,\"p10\":7639039,\"p25\":9551871,\"p50\":10190847,\"p75\":12099583,\"p90\":12730367,\"p97_5\":12730367,\"p99\":12730367,\"p99_9\":12730367,\"p99_99\":12730367,\"p99_999\":12730367}}\n\n"
+								},
+								{
+									"name": "Execute-SucessResponse",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"GET\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:00:43 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:00:43.768Z\",\"finish\":\"2021-05-14T09:00:54.780Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":141,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":141}},\"latency\":{\"average\":740.49,\"mean\":740.49,\"stddev\":265,\"min\":401,\"max\":1738,\"p0_001\":401,\"p0_01\":401,\"p0_1\":401,\"p1\":415,\"p2_5\":440,\"p10\":466,\"p25\":562,\"p50\":646,\"p75\":912,\"p90\":1123,\"p97_5\":1339,\"p99\":1502,\"p99_9\":1738,\"p99_99\":1738,\"p99_999\":1738,\"totalCount\":141},\"requests\":{\"average\":12.82,\"mean\":12.82,\"stddev\":4.53,\"min\":3,\"max\":19,\"total\":141,\"p0_001\":3,\"p0_01\":3,\"p0_1\":3,\"p1\":3,\"p2_5\":3,\"p10\":10,\"p25\":10,\"p50\":11,\"p75\":18,\"p90\":18,\"p97_5\":19,\"p99\":19,\"p99_9\":19,\"p99_99\":19,\"p99_999\":19,\"sent\":151},\"throughput\":{\"average\":8170170.19,\"mean\":8170170.19,\"stddev\":2886670.77,\"min\":1912015,\"max\":12109422,\"total\":89865455,\"p0_001\":1912831,\"p0_01\":1912831,\"p0_1\":1912831,\"p1\":1912831,\"p2_5\":1912831,\"p10\":6377471,\"p25\":6377471,\"p50\":7012351,\"p75\":11476991,\"p90\":11476991,\"p97_5\":12115967,\"p99\":12115967,\"p99_9\":12115967,\"p99_99\":12115967,\"p99_999\":12115967}}\n\n"
+								}
+							]
+						},
+						{
+							"name": "Invalid HTTP method - Method as POST",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"POST\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/execute",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"execute"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Invalid HTTP method - POST",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"POST\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:16:04 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:16:04.850Z\",\"finish\":\"2021-05-14T09:16:15.863Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":175,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":175}},\"latency\":{\"average\":610.35,\"mean\":610.35,\"stddev\":89.24,\"min\":330,\"max\":856,\"p0_001\":330,\"p0_01\":330,\"p0_1\":330,\"p1\":333,\"p2_5\":378,\"p10\":518,\"p25\":567,\"p50\":615,\"p75\":670,\"p90\":716,\"p97_5\":762,\"p99\":831,\"p99_9\":856,\"p99_99\":856,\"p99_999\":856,\"totalCount\":175},\"requests\":{\"average\":15.91,\"mean\":15.91,\"stddev\":2.97,\"min\":10,\"max\":20,\"total\":175,\"p0_001\":10,\"p0_01\":10,\"p0_1\":10,\"p1\":10,\"p2_5\":10,\"p10\":12,\"p25\":15,\"p50\":16,\"p75\":19,\"p90\":20,\"p97_5\":20,\"p99\":20,\"p99_9\":20,\"p99_99\":20,\"p99_999\":20,\"sent\":185},\"throughput\":{\"average\":10125684.37,\"mean\":10125684.37,\"stddev\":1888834.42,\"min\":6364770,\"max\":12729400,\"total\":111382240,\"p0_001\":6365183,\"p0_01\":6365183,\"p0_1\":6365183,\"p1\":6365183,\"p2_5\":6365183,\"p10\":7639039,\"p25\":9551871,\"p50\":10190847,\"p75\":12099583,\"p90\":12730367,\"p97_5\":12730367,\"p99\":12730367,\"p99_9\":12730367,\"p99_99\":12730367,\"p99_999\":12730367}}\n\n"
+								},
+								{
+									"name": "Execute-SucessResponse",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"GET\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:00:43 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:00:43.768Z\",\"finish\":\"2021-05-14T09:00:54.780Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":141,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":141}},\"latency\":{\"average\":740.49,\"mean\":740.49,\"stddev\":265,\"min\":401,\"max\":1738,\"p0_001\":401,\"p0_01\":401,\"p0_1\":401,\"p1\":415,\"p2_5\":440,\"p10\":466,\"p25\":562,\"p50\":646,\"p75\":912,\"p90\":1123,\"p97_5\":1339,\"p99\":1502,\"p99_9\":1738,\"p99_99\":1738,\"p99_999\":1738,\"totalCount\":141},\"requests\":{\"average\":12.82,\"mean\":12.82,\"stddev\":4.53,\"min\":3,\"max\":19,\"total\":141,\"p0_001\":3,\"p0_01\":3,\"p0_1\":3,\"p1\":3,\"p2_5\":3,\"p10\":10,\"p25\":10,\"p50\":11,\"p75\":18,\"p90\":18,\"p97_5\":19,\"p99\":19,\"p99_9\":19,\"p99_99\":19,\"p99_999\":19,\"sent\":151},\"throughput\":{\"average\":8170170.19,\"mean\":8170170.19,\"stddev\":2886670.77,\"min\":1912015,\"max\":12109422,\"total\":89865455,\"p0_001\":1912831,\"p0_01\":1912831,\"p0_1\":1912831,\"p1\":1912831,\"p2_5\":1912831,\"p10\":6377471,\"p25\":6377471,\"p50\":7012351,\"p75\":11476991,\"p90\":11476991,\"p97_5\":12115967,\"p99\":12115967,\"p99_9\":12115967,\"p99_99\":12115967,\"p99_999\":12115967}}\n\n"
+								}
+							]
+						},
+						{
+							"name": "Invalid HTTP method - No Get Method parameter",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/execute",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"execute"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Invalid HTTP method - POST",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"POST\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:16:04 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:16:04.850Z\",\"finish\":\"2021-05-14T09:16:15.863Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":175,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":175}},\"latency\":{\"average\":610.35,\"mean\":610.35,\"stddev\":89.24,\"min\":330,\"max\":856,\"p0_001\":330,\"p0_01\":330,\"p0_1\":330,\"p1\":333,\"p2_5\":378,\"p10\":518,\"p25\":567,\"p50\":615,\"p75\":670,\"p90\":716,\"p97_5\":762,\"p99\":831,\"p99_9\":856,\"p99_99\":856,\"p99_999\":856,\"totalCount\":175},\"requests\":{\"average\":15.91,\"mean\":15.91,\"stddev\":2.97,\"min\":10,\"max\":20,\"total\":175,\"p0_001\":10,\"p0_01\":10,\"p0_1\":10,\"p1\":10,\"p2_5\":10,\"p10\":12,\"p25\":15,\"p50\":16,\"p75\":19,\"p90\":20,\"p97_5\":20,\"p99\":20,\"p99_9\":20,\"p99_99\":20,\"p99_999\":20,\"sent\":185},\"throughput\":{\"average\":10125684.37,\"mean\":10125684.37,\"stddev\":1888834.42,\"min\":6364770,\"max\":12729400,\"total\":111382240,\"p0_001\":6365183,\"p0_01\":6365183,\"p0_1\":6365183,\"p1\":6365183,\"p2_5\":6365183,\"p10\":7639039,\"p25\":9551871,\"p50\":10190847,\"p75\":12099583,\"p90\":12730367,\"p97_5\":12730367,\"p99\":12730367,\"p99_9\":12730367,\"p99_99\":12730367,\"p99_999\":12730367}}\n\n"
+								},
+								{
+									"name": "Execute-SucessResponse",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"GET\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:00:43 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:00:43.768Z\",\"finish\":\"2021-05-14T09:00:54.780Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":141,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":141}},\"latency\":{\"average\":740.49,\"mean\":740.49,\"stddev\":265,\"min\":401,\"max\":1738,\"p0_001\":401,\"p0_01\":401,\"p0_1\":401,\"p1\":415,\"p2_5\":440,\"p10\":466,\"p25\":562,\"p50\":646,\"p75\":912,\"p90\":1123,\"p97_5\":1339,\"p99\":1502,\"p99_9\":1738,\"p99_99\":1738,\"p99_999\":1738,\"totalCount\":141},\"requests\":{\"average\":12.82,\"mean\":12.82,\"stddev\":4.53,\"min\":3,\"max\":19,\"total\":141,\"p0_001\":3,\"p0_01\":3,\"p0_1\":3,\"p1\":3,\"p2_5\":3,\"p10\":10,\"p25\":10,\"p50\":11,\"p75\":18,\"p90\":18,\"p97_5\":19,\"p99\":19,\"p99_9\":19,\"p99_99\":19,\"p99_999\":19,\"sent\":151},\"throughput\":{\"average\":8170170.19,\"mean\":8170170.19,\"stddev\":2886670.77,\"min\":1912015,\"max\":12109422,\"total\":89865455,\"p0_001\":1912831,\"p0_01\":1912831,\"p0_1\":1912831,\"p1\":1912831,\"p2_5\":1912831,\"p10\":6377471,\"p25\":6377471,\"p50\":7012351,\"p75\":11476991,\"p90\":11476991,\"p97_5\":12115967,\"p99\":12115967,\"p99_9\":12115967,\"p99_99\":12115967,\"p99_999\":12115967}}\n\n"
+								}
+							]
+						},
+						{
+							"name": "Invalid HTTP method - No connection parameter",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"method\": \"POST\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/execute",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"execute"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Invalid HTTP method - POST",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"POST\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:16:04 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:16:04.850Z\",\"finish\":\"2021-05-14T09:16:15.863Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":175,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":175}},\"latency\":{\"average\":610.35,\"mean\":610.35,\"stddev\":89.24,\"min\":330,\"max\":856,\"p0_001\":330,\"p0_01\":330,\"p0_1\":330,\"p1\":333,\"p2_5\":378,\"p10\":518,\"p25\":567,\"p50\":615,\"p75\":670,\"p90\":716,\"p97_5\":762,\"p99\":831,\"p99_9\":856,\"p99_99\":856,\"p99_999\":856,\"totalCount\":175},\"requests\":{\"average\":15.91,\"mean\":15.91,\"stddev\":2.97,\"min\":10,\"max\":20,\"total\":175,\"p0_001\":10,\"p0_01\":10,\"p0_1\":10,\"p1\":10,\"p2_5\":10,\"p10\":12,\"p25\":15,\"p50\":16,\"p75\":19,\"p90\":20,\"p97_5\":20,\"p99\":20,\"p99_9\":20,\"p99_99\":20,\"p99_999\":20,\"sent\":185},\"throughput\":{\"average\":10125684.37,\"mean\":10125684.37,\"stddev\":1888834.42,\"min\":6364770,\"max\":12729400,\"total\":111382240,\"p0_001\":6365183,\"p0_01\":6365183,\"p0_1\":6365183,\"p1\":6365183,\"p2_5\":6365183,\"p10\":7639039,\"p25\":9551871,\"p50\":10190847,\"p75\":12099583,\"p90\":12730367,\"p97_5\":12730367,\"p99\":12730367,\"p99_9\":12730367,\"p99_99\":12730367,\"p99_999\":12730367}}\n\n"
+								},
+								{
+									"name": "Execute-SucessResponse",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"GET\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:00:43 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:00:43.768Z\",\"finish\":\"2021-05-14T09:00:54.780Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":141,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":141}},\"latency\":{\"average\":740.49,\"mean\":740.49,\"stddev\":265,\"min\":401,\"max\":1738,\"p0_001\":401,\"p0_01\":401,\"p0_1\":401,\"p1\":415,\"p2_5\":440,\"p10\":466,\"p25\":562,\"p50\":646,\"p75\":912,\"p90\":1123,\"p97_5\":1339,\"p99\":1502,\"p99_9\":1738,\"p99_99\":1738,\"p99_999\":1738,\"totalCount\":141},\"requests\":{\"average\":12.82,\"mean\":12.82,\"stddev\":4.53,\"min\":3,\"max\":19,\"total\":141,\"p0_001\":3,\"p0_01\":3,\"p0_1\":3,\"p1\":3,\"p2_5\":3,\"p10\":10,\"p25\":10,\"p50\":11,\"p75\":18,\"p90\":18,\"p97_5\":19,\"p99\":19,\"p99_9\":19,\"p99_99\":19,\"p99_999\":19,\"sent\":151},\"throughput\":{\"average\":8170170.19,\"mean\":8170170.19,\"stddev\":2886670.77,\"min\":1912015,\"max\":12109422,\"total\":89865455,\"p0_001\":1912831,\"p0_01\":1912831,\"p0_1\":1912831,\"p1\":1912831,\"p2_5\":1912831,\"p10\":6377471,\"p25\":6377471,\"p50\":7012351,\"p75\":11476991,\"p90\":11476991,\"p97_5\":12115967,\"p99\":12115967,\"p99_9\":12115967,\"p99_99\":12115967,\"p99_999\":12115967}}\n\n"
+								}
+							]
+						},
+						{
+							"name": "Invalid HTTP method - No duration parameter",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"POST\",\n    \"pipelining\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/execute",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"execute"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Invalid HTTP method - POST",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"POST\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:16:04 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:16:04.850Z\",\"finish\":\"2021-05-14T09:16:15.863Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":175,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":175}},\"latency\":{\"average\":610.35,\"mean\":610.35,\"stddev\":89.24,\"min\":330,\"max\":856,\"p0_001\":330,\"p0_01\":330,\"p0_1\":330,\"p1\":333,\"p2_5\":378,\"p10\":518,\"p25\":567,\"p50\":615,\"p75\":670,\"p90\":716,\"p97_5\":762,\"p99\":831,\"p99_9\":856,\"p99_99\":856,\"p99_999\":856,\"totalCount\":175},\"requests\":{\"average\":15.91,\"mean\":15.91,\"stddev\":2.97,\"min\":10,\"max\":20,\"total\":175,\"p0_001\":10,\"p0_01\":10,\"p0_1\":10,\"p1\":10,\"p2_5\":10,\"p10\":12,\"p25\":15,\"p50\":16,\"p75\":19,\"p90\":20,\"p97_5\":20,\"p99\":20,\"p99_9\":20,\"p99_99\":20,\"p99_999\":20,\"sent\":185},\"throughput\":{\"average\":10125684.37,\"mean\":10125684.37,\"stddev\":1888834.42,\"min\":6364770,\"max\":12729400,\"total\":111382240,\"p0_001\":6365183,\"p0_01\":6365183,\"p0_1\":6365183,\"p1\":6365183,\"p2_5\":6365183,\"p10\":7639039,\"p25\":9551871,\"p50\":10190847,\"p75\":12099583,\"p90\":12730367,\"p97_5\":12730367,\"p99\":12730367,\"p99_9\":12730367,\"p99_99\":12730367,\"p99_999\":12730367}}\n\n"
+								},
+								{
+									"name": "Execute-SucessResponse",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"GET\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:00:43 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:00:43.768Z\",\"finish\":\"2021-05-14T09:00:54.780Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":141,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":141}},\"latency\":{\"average\":740.49,\"mean\":740.49,\"stddev\":265,\"min\":401,\"max\":1738,\"p0_001\":401,\"p0_01\":401,\"p0_1\":401,\"p1\":415,\"p2_5\":440,\"p10\":466,\"p25\":562,\"p50\":646,\"p75\":912,\"p90\":1123,\"p97_5\":1339,\"p99\":1502,\"p99_9\":1738,\"p99_99\":1738,\"p99_999\":1738,\"totalCount\":141},\"requests\":{\"average\":12.82,\"mean\":12.82,\"stddev\":4.53,\"min\":3,\"max\":19,\"total\":141,\"p0_001\":3,\"p0_01\":3,\"p0_1\":3,\"p1\":3,\"p2_5\":3,\"p10\":10,\"p25\":10,\"p50\":11,\"p75\":18,\"p90\":18,\"p97_5\":19,\"p99\":19,\"p99_9\":19,\"p99_99\":19,\"p99_999\":19,\"sent\":151},\"throughput\":{\"average\":8170170.19,\"mean\":8170170.19,\"stddev\":2886670.77,\"min\":1912015,\"max\":12109422,\"total\":89865455,\"p0_001\":1912831,\"p0_01\":1912831,\"p0_1\":1912831,\"p1\":1912831,\"p2_5\":1912831,\"p10\":6377471,\"p25\":6377471,\"p50\":7012351,\"p75\":11476991,\"p90\":11476991,\"p97_5\":12115967,\"p99\":12115967,\"p99_9\":12115967,\"p99_99\":12115967,\"p99_999\":12115967}}\n\n"
+								}
+							]
+						},
+						{
+							"name": "Invalid HTTP method - No pipeline parameter",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"POST\",\n    \"duration\": \"11\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/execute",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"execute"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Execute-SucessResponse",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"GET\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:00:43 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:00:43.768Z\",\"finish\":\"2021-05-14T09:00:54.780Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":141,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":141}},\"latency\":{\"average\":740.49,\"mean\":740.49,\"stddev\":265,\"min\":401,\"max\":1738,\"p0_001\":401,\"p0_01\":401,\"p0_1\":401,\"p1\":415,\"p2_5\":440,\"p10\":466,\"p25\":562,\"p50\":646,\"p75\":912,\"p90\":1123,\"p97_5\":1339,\"p99\":1502,\"p99_9\":1738,\"p99_99\":1738,\"p99_999\":1738,\"totalCount\":141},\"requests\":{\"average\":12.82,\"mean\":12.82,\"stddev\":4.53,\"min\":3,\"max\":19,\"total\":141,\"p0_001\":3,\"p0_01\":3,\"p0_1\":3,\"p1\":3,\"p2_5\":3,\"p10\":10,\"p25\":10,\"p50\":11,\"p75\":18,\"p90\":18,\"p97_5\":19,\"p99\":19,\"p99_9\":19,\"p99_99\":19,\"p99_999\":19,\"sent\":151},\"throughput\":{\"average\":8170170.19,\"mean\":8170170.19,\"stddev\":2886670.77,\"min\":1912015,\"max\":12109422,\"total\":89865455,\"p0_001\":1912831,\"p0_01\":1912831,\"p0_1\":1912831,\"p1\":1912831,\"p2_5\":1912831,\"p10\":6377471,\"p25\":6377471,\"p50\":7012351,\"p75\":11476991,\"p90\":11476991,\"p97_5\":12115967,\"p99\":12115967,\"p99_9\":12115967,\"p99_99\":12115967,\"p99_999\":12115967}}\n\n"
+								},
+								{
+									"name": "Invalid HTTP method - POST",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"POST\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:16:04 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:16:04.850Z\",\"finish\":\"2021-05-14T09:16:15.863Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":175,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":175}},\"latency\":{\"average\":610.35,\"mean\":610.35,\"stddev\":89.24,\"min\":330,\"max\":856,\"p0_001\":330,\"p0_01\":330,\"p0_1\":330,\"p1\":333,\"p2_5\":378,\"p10\":518,\"p25\":567,\"p50\":615,\"p75\":670,\"p90\":716,\"p97_5\":762,\"p99\":831,\"p99_9\":856,\"p99_99\":856,\"p99_999\":856,\"totalCount\":175},\"requests\":{\"average\":15.91,\"mean\":15.91,\"stddev\":2.97,\"min\":10,\"max\":20,\"total\":175,\"p0_001\":10,\"p0_01\":10,\"p0_1\":10,\"p1\":10,\"p2_5\":10,\"p10\":12,\"p25\":15,\"p50\":16,\"p75\":19,\"p90\":20,\"p97_5\":20,\"p99\":20,\"p99_9\":20,\"p99_99\":20,\"p99_999\":20,\"sent\":185},\"throughput\":{\"average\":10125684.37,\"mean\":10125684.37,\"stddev\":1888834.42,\"min\":6364770,\"max\":12729400,\"total\":111382240,\"p0_001\":6365183,\"p0_01\":6365183,\"p0_1\":6365183,\"p1\":6365183,\"p2_5\":6365183,\"p10\":7639039,\"p25\":9551871,\"p50\":10190847,\"p75\":12099583,\"p90\":12730367,\"p97_5\":12730367,\"p99\":12730367,\"p99_9\":12730367,\"p99_99\":12730367,\"p99_999\":12730367}}\n\n"
+								}
+							]
+						},
+						{
+							"name": "Invalid HTTP method - No URL",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"connections\": 10,\n    \"method\": \"POST\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/execute",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"execute"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Invalid HTTP method - POST",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"POST\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:16:04 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:16:04.850Z\",\"finish\":\"2021-05-14T09:16:15.863Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":175,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":175}},\"latency\":{\"average\":610.35,\"mean\":610.35,\"stddev\":89.24,\"min\":330,\"max\":856,\"p0_001\":330,\"p0_01\":330,\"p0_1\":330,\"p1\":333,\"p2_5\":378,\"p10\":518,\"p25\":567,\"p50\":615,\"p75\":670,\"p90\":716,\"p97_5\":762,\"p99\":831,\"p99_9\":856,\"p99_99\":856,\"p99_999\":856,\"totalCount\":175},\"requests\":{\"average\":15.91,\"mean\":15.91,\"stddev\":2.97,\"min\":10,\"max\":20,\"total\":175,\"p0_001\":10,\"p0_01\":10,\"p0_1\":10,\"p1\":10,\"p2_5\":10,\"p10\":12,\"p25\":15,\"p50\":16,\"p75\":19,\"p90\":20,\"p97_5\":20,\"p99\":20,\"p99_9\":20,\"p99_99\":20,\"p99_999\":20,\"sent\":185},\"throughput\":{\"average\":10125684.37,\"mean\":10125684.37,\"stddev\":1888834.42,\"min\":6364770,\"max\":12729400,\"total\":111382240,\"p0_001\":6365183,\"p0_01\":6365183,\"p0_1\":6365183,\"p1\":6365183,\"p2_5\":6365183,\"p10\":7639039,\"p25\":9551871,\"p50\":10190847,\"p75\":12099583,\"p90\":12730367,\"p97_5\":12730367,\"p99\":12730367,\"p99_9\":12730367,\"p99_99\":12730367,\"p99_999\":12730367}}\n\n"
+								},
+								{
+									"name": "Execute-SucessResponse",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"GET\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:00:43 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:00:43.768Z\",\"finish\":\"2021-05-14T09:00:54.780Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":141,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":141}},\"latency\":{\"average\":740.49,\"mean\":740.49,\"stddev\":265,\"min\":401,\"max\":1738,\"p0_001\":401,\"p0_01\":401,\"p0_1\":401,\"p1\":415,\"p2_5\":440,\"p10\":466,\"p25\":562,\"p50\":646,\"p75\":912,\"p90\":1123,\"p97_5\":1339,\"p99\":1502,\"p99_9\":1738,\"p99_99\":1738,\"p99_999\":1738,\"totalCount\":141},\"requests\":{\"average\":12.82,\"mean\":12.82,\"stddev\":4.53,\"min\":3,\"max\":19,\"total\":141,\"p0_001\":3,\"p0_01\":3,\"p0_1\":3,\"p1\":3,\"p2_5\":3,\"p10\":10,\"p25\":10,\"p50\":11,\"p75\":18,\"p90\":18,\"p97_5\":19,\"p99\":19,\"p99_9\":19,\"p99_99\":19,\"p99_999\":19,\"sent\":151},\"throughput\":{\"average\":8170170.19,\"mean\":8170170.19,\"stddev\":2886670.77,\"min\":1912015,\"max\":12109422,\"total\":89865455,\"p0_001\":1912831,\"p0_01\":1912831,\"p0_1\":1912831,\"p1\":1912831,\"p2_5\":1912831,\"p10\":6377471,\"p25\":6377471,\"p50\":7012351,\"p75\":11476991,\"p90\":11476991,\"p97_5\":12115967,\"p99\":12115967,\"p99_9\":12115967,\"p99_99\":12115967,\"p99_999\":12115967}}\n\n"
+								}
+							]
+						},
+						{
+							"name": "Invalid HTTP method - POST Negative Boundary Values",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 1,\n    \"method\": \"POST\",\n    \"duration\": \"1\",\n    \"pipelining\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/execute",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"execute"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Invalid HTTP method - POST",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"POST\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:16:04 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:16:04.850Z\",\"finish\":\"2021-05-14T09:16:15.863Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":175,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":175}},\"latency\":{\"average\":610.35,\"mean\":610.35,\"stddev\":89.24,\"min\":330,\"max\":856,\"p0_001\":330,\"p0_01\":330,\"p0_1\":330,\"p1\":333,\"p2_5\":378,\"p10\":518,\"p25\":567,\"p50\":615,\"p75\":670,\"p90\":716,\"p97_5\":762,\"p99\":831,\"p99_9\":856,\"p99_99\":856,\"p99_999\":856,\"totalCount\":175},\"requests\":{\"average\":15.91,\"mean\":15.91,\"stddev\":2.97,\"min\":10,\"max\":20,\"total\":175,\"p0_001\":10,\"p0_01\":10,\"p0_1\":10,\"p1\":10,\"p2_5\":10,\"p10\":12,\"p25\":15,\"p50\":16,\"p75\":19,\"p90\":20,\"p97_5\":20,\"p99\":20,\"p99_9\":20,\"p99_99\":20,\"p99_999\":20,\"sent\":185},\"throughput\":{\"average\":10125684.37,\"mean\":10125684.37,\"stddev\":1888834.42,\"min\":6364770,\"max\":12729400,\"total\":111382240,\"p0_001\":6365183,\"p0_01\":6365183,\"p0_1\":6365183,\"p1\":6365183,\"p2_5\":6365183,\"p10\":7639039,\"p25\":9551871,\"p50\":10190847,\"p75\":12099583,\"p90\":12730367,\"p97_5\":12730367,\"p99\":12730367,\"p99_9\":12730367,\"p99_99\":12730367,\"p99_999\":12730367}}\n\n"
+								},
+								{
+									"name": "Execute-SucessResponse",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"GET\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/execute",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"execute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "content-type",
+											"value": "text/event-stream"
+										},
+										{
+											"key": "date",
+											"value": "Fri, 14 May 2021 09:00:43 GMT"
+										},
+										{
+											"key": "connection",
+											"value": "close"
+										},
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "progress:9\n\nprogress:18\n\nprogress:27\n\nprogress:36\n\nprogress:45\n\nprogress:54\n\nprogress:63\n\nprogress:72\n\nprogress:81\n\nprogress:90\n\nresult:{\"url\":\"https://www.bbc.co.uk/news\",\"connections\":10,\"pipelining\":1,\"duration\":11.01,\"start\":\"2021-05-14T09:00:43.768Z\",\"finish\":\"2021-05-14T09:00:54.780Z\",\"errors\":0,\"timeouts\":0,\"mismatches\":0,\"non2xx\":0,\"resets\":0,\"1xx\":0,\"2xx\":141,\"3xx\":0,\"4xx\":0,\"5xx\":0,\"statusCodeStats\":{\"200\":{\"count\":141}},\"latency\":{\"average\":740.49,\"mean\":740.49,\"stddev\":265,\"min\":401,\"max\":1738,\"p0_001\":401,\"p0_01\":401,\"p0_1\":401,\"p1\":415,\"p2_5\":440,\"p10\":466,\"p25\":562,\"p50\":646,\"p75\":912,\"p90\":1123,\"p97_5\":1339,\"p99\":1502,\"p99_9\":1738,\"p99_99\":1738,\"p99_999\":1738,\"totalCount\":141},\"requests\":{\"average\":12.82,\"mean\":12.82,\"stddev\":4.53,\"min\":3,\"max\":19,\"total\":141,\"p0_001\":3,\"p0_01\":3,\"p0_1\":3,\"p1\":3,\"p2_5\":3,\"p10\":10,\"p25\":10,\"p50\":11,\"p75\":18,\"p90\":18,\"p97_5\":19,\"p99\":19,\"p99_9\":19,\"p99_99\":19,\"p99_999\":19,\"sent\":151},\"throughput\":{\"average\":8170170.19,\"mean\":8170170.19,\"stddev\":2886670.77,\"min\":1912015,\"max\":12109422,\"total\":89865455,\"p0_001\":1912831,\"p0_01\":1912831,\"p0_1\":1912831,\"p1\":1912831,\"p2_5\":1912831,\"p10\":6377471,\"p25\":6377471,\"p50\":7012351,\"p75\":11476991,\"p90\":11476991,\"p97_5\":12115967,\"p99\":12115967,\"p99_9\":12115967,\"p99_99\":12115967,\"p99_999\":12115967}}\n\n"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
