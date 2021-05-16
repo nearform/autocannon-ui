@@ -1876,9 +1876,9 @@ auto-bind@^4.0.0:
   integrity sha512-Hdw8qdNiqdJ8LqT0iK0sVzkFbzg6fhnQqqfWhBDxcHZvU75+B+ayzTy8x+k5Ix0Y92XOhOUlx74ps+bA6BeYMQ==
 
 autocannon@^7.2.0:
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/autocannon/-/autocannon-7.2.0.tgz#63b6f5321c8d26cf8360d9931dbcde6e61494121"
-  integrity sha512-yMXnHdGcHiz+dk/VHsgIXHBn7qK5hIaRS5yKbLzGTvn3REbEJA37xFI7+KkCEAtSOGnMLhd6VTZ69g9GReCClQ==
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/autocannon/-/autocannon-7.3.0.tgz#8e52bb3f07926b573dcf401d3fe365393fbab808"
+  integrity sha512-RuyTU8fQE1FC6BDgslofLCeI4y9y9RRnnZtvoQ+onwQl+B2rsiGpcCi84/Si0rq3VRkkMFnmPulY3z59zYhX9g==
   dependencies:
     chalk "^4.1.0"
     char-spinner "^1.0.1"
@@ -3554,10 +3554,10 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.1.1.tgz#c4b489e80096d9df1dfc97c79871aea7c617c469"
   integrity sha512-zAoAQiudy+r5SvnSw3KJy5os/oRJYHzrzja/tBDqrZtNhUw8bt6y8OBzMWcjWr+8liV8Eb6yOhw8WZ7VFZ5ZzA==
 
-fluent-json-schema@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/fluent-json-schema/-/fluent-json-schema-2.0.4.tgz#85481631fdfb10b5e0a35e37c2662e5de100ee1b"
-  integrity sha512-SJKgDCCsCSfd7itgcCJ/94Zau03fVowqo7un7iqQVilAXMyz4C+6WGN3+2anIEtgFylzWyRvLw3pS+JmyoClOw==
+fluent-json-schema@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/fluent-json-schema/-/fluent-json-schema-3.0.0.tgz#ab49f60e7e224f37fbb81f049c57f1b7ad7c679d"
+  integrity sha512-1PtpaxFuv24139zzV3qZ7YgDx8U3SuORjcxX4UxrusDl3xB+yUkg8Gk2MwFGnaut4brbJdNczcZD+K7arWc43Q==
   dependencies:
     deepmerge "^4.2.2"
 
