@@ -26,6 +26,20 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-
+    
+    # Install newman
+    - name: Install newman
+      run: | 
+       npm install -g newman
+       npm install -g newman-reporter-htmlextra
+    - name: Make Directory for results
+      run: mkdir -p testResults  
+    
+    # Run POSTMAN collection and output the file as html
+    - name: Run POSTMAN collection
+      run: |
+       newman run ./automation-tests/apis/postman/Autocannon.postman_collection.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme  > testResults/runreport1.html       
+     
       - run: npx lerna bootstrap
       - run: npx lerna run lint
       - run: npx lerna run test
