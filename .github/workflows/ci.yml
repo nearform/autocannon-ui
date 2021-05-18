@@ -26,7 +26,12 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-
-              
+  
+    # Install Node.js environment
+    - name: set up node
+      uses: actions/setup-node@v1
+      with:
+          node-version: '12.x'
     - name: Install newman
       run: | 
        npm install -g newman
