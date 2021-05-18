@@ -37,7 +37,7 @@ jobs:
         run: mkdir -p testResults
       - name: Run POSTMAN collection
         run: |
-         newman run ./automation-tests/apis/postman/Autocannon.postman_collection.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme  > testResults/runreport1.html
+         newman run ./packages/automation-tests/apis/postman/Autocannon.postman_collection.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme  > testResults/runreport1.html
 
       - run: npx lerna bootstrap
       - run: npx lerna run lint
