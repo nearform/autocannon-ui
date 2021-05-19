@@ -21,6 +21,10 @@ const useStyles = makeStyles(theme => ({
 export default function RunOptions(props) {
   const classes = useStyles()
 
+  function onOptionChange(option, value) {
+    props.onOptionsChange({ ...props.options, [option]: value })
+  }
+
   return (
     <React.Fragment>
       <Container maxWidth="sm">
@@ -33,8 +37,8 @@ export default function RunOptions(props) {
                 id="url"
                 label="Test URL"
                 variant="outlined"
-                value={props.url}
-                onChange={e => props.onUrlChange(e.target.value)}
+                value={props.options.url}
+                onChange={e => onOptionChange('url', e.target.value)}
                 fullWidth
                 required
               />
@@ -44,8 +48,8 @@ export default function RunOptions(props) {
                 id="method"
                 label="Method"
                 variant="outlined"
-                value={props.method}
-                onChange={e => props.onMethodChange(e.target.value)}
+                value={props.options.method}
+                onChange={e => onOptionChange('method', e.target.value)}
                 fullWidth
               />
             </Grid>
@@ -56,8 +60,8 @@ export default function RunOptions(props) {
                 variant="outlined"
                 type="number"
                 InputProps={{ inputProps: { min: 0 } }}
-                value={props.connections}
-                onChange={e => props.onConnectionsChange(e.target.value)}
+                value={props.options.connections}
+                onChange={e => onOptionChange('connections', e.target.value)}
                 fullWidth
               />
             </Grid>
@@ -68,8 +72,8 @@ export default function RunOptions(props) {
                 variant="outlined"
                 type="number"
                 InputProps={{ inputProps: { min: 0 } }}
-                value={props.pipelining}
-                onChange={e => props.onPipeliningChange(e.target.value)}
+                value={props.options.pipelining}
+                onChange={e => onOptionChange('pipelining', e.target.value)}
                 fullWidth
               />
             </Grid>
@@ -80,8 +84,8 @@ export default function RunOptions(props) {
                 variant="outlined"
                 type="number"
                 InputProps={{ inputProps: { min: 0 } }}
-                value={props.duration}
-                onChange={e => props.onDurationChange(e.target.value)}
+                value={props.options.duration}
+                onChange={e => onOptionChange('duration', e.target.value)}
                 fullWidth
               />
             </Grid>
@@ -93,14 +97,6 @@ export default function RunOptions(props) {
 }
 
 RunOptions.propTypes = {
-  url: T.string,
-  onUrlChange: T.func,
-  connections: T.number,
-  onConnectionsChange: T.func,
-  pipelining: T.number,
-  onPipeliningChange: T.func,
-  duration: T.number,
-  onDurationChange: T.func,
-  method: T.string,
-  onMethodChange: T.func
+  options: T.object,
+  onOptionsChange: T.func
 }

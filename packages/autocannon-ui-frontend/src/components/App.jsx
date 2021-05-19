@@ -38,11 +38,13 @@ const useStyles = makeStyles(theme => ({
 function App() {
   const classes = useStyles()
 
-  const [url, setUrl] = useState('https://google.com')
-  const [connections, setConnections] = useState(10)
-  const [pipelining, setPipelining] = useState(1)
-  const [duration, setDuration] = useState(10)
-  const [method, setMethod] = useState('GET')
+  const [options, setOptions] = useState({
+    url: 'https://google.com',
+    connections: 10,
+    pipelining: 1,
+    duration: 10,
+    method: 'GET'
+  })
 
   const [progress, setProgress] = useState(0)
   const [results, setResults] = useState()
@@ -61,7 +63,7 @@ function App() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ url, connections, pipelining, duration, method })
+      body: JSON.stringify(options)
     })
     const reader = response.body
       .pipeThrough(new TextDecoderStream())
@@ -90,18 +92,7 @@ function App() {
       <Container component="main" maxWidth="md">
         <CssBaseline />
 
-        <RunOptions
-          url={url}
-          onUrlChange={setUrl}
-          connections={connections}
-          onConnectionsChange={setConnections}
-          pipelining={pipelining}
-          onPipeliningChange={setPipelining}
-          duration={duration}
-          onDurationChange={setDuration}
-          method={method}
-          onMethodChange={setMethod}
-        />
+        <RunOptions options={options} onOptionsChange={setOptions} />
 
         <Container maxWidth="sm" className={classes.actionSection}>
           <Box display="flex" justifyContent="center">
