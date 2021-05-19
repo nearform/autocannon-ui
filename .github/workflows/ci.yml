@@ -11,14 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-      - name: Use Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: '14.x'
-      - name: Get yarm cache directory
-        id: yarn-cache-dir-path
+      - id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - uses: actions/cache@v2
         with:
@@ -29,19 +26,14 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-
-      - name: Install newman
-        run: |
-         npm install -g newman
-         npm install -g newman-reporter-htmlextra
-      - name: Make Directory for results
-        run: mkdir -p testResults
-      - name: Run POSTMAN collection
-        run: |
-         newman run ./packages/automation-tests/apis/postman/Autocannon.postman_collection.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme  > testResults/runreport1.html
-
       - run: npx lerna bootstrap
-      - run: npx lerna run lint
-      - run: npx lerna run test
+      - run: yarn lint
+      - run: yarn test
+      - run: yarn dev & yarn test:qa
+      - uses: actions/upload-artifact@v2
+        with:
+          name: qa-reports
+          path: packages/**/.test_results/
 
   automerge:
     needs: build

@@ -1,5 +1,6 @@
 .vscode/
-.nyc_output
+.nyc_output/
+.test_results/
 node_modules/
 coverage/
 
