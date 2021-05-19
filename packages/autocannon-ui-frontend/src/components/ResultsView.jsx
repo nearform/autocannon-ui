@@ -131,7 +131,7 @@ export default function ResultsView({ data }) {
   return (
     <React.Fragment>
       <Container maxWidth="lg">
-        <br></br>
+        <br />
         <Grid container item xs={12}>
           <Grid item xs={12}>
             <label>Test Results</label>
@@ -170,7 +170,7 @@ export default function ResultsView({ data }) {
               </Table>
             </TableContainer>
           </Grid>
-          <br></br>
+          <br />
           <Grid item xs={12}>
             <TableContainer component={Paper}>
               <Table className={classes.table} aria-label="simple table">
