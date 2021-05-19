@@ -6,6 +6,7 @@
     "dev": "npm start -- -P -l info -w",
     "start": "fastify start -p 3001 .",
     "test": "tap",
+    "test:qa": "newman run ./test/automation/Autocannon.postman_collection.json --bail -r cli,htmlextra --reporter-htmlextra-export .test_results/qa.html --reporter-htmlextra-darkTheme",
     "lint": "eslint .",
     "precommit": "lint-staged"
   },
@@ -25,6 +26,8 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^5.1.0",
     "lint-staged": "^11.0.0",
+    "newman": "^5.2.3",
+    "newman-reporter-htmlextra": "^1.20.4",
     "prettier": "^2.1.2",
     "tap": "^15.0.9"
   },

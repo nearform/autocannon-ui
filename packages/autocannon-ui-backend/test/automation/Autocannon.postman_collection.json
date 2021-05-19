@@ -1,0 +1,435 @@
+{
+	"info": {
+		"_postman_id": "6b40c82a-485a-4667-a664-12ef0f1ae342",
+		"name": "Autocannon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "valid",
+			"item": [
+				{
+					"name": "Execute",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Validate response body\", function () {",
+									"    var eventResponse = pm.response.text();",
+									"    var splittedObj = eventResponse.split(\"result:\");",
+									"",
+									"     console.log('splittedObj 0= '+ splittedObj[0]);",
+									"     console.log('splittedObj 1= '+ splittedObj[1]);",
+									"     console.log('eventResponse= '+ eventResponse);",
+									"     var jsonObject = JSON.parse(splittedObj[1]);",
+									"     console.log('url= '+ jsonObject.url);",
+									"     pm.expect(jsonObject.url).to.eql('https://www.bbc.co.uk/news');",
+									"     pm.expect(jsonObject.connections).to.eql(10);",
+									"     pm.expect(jsonObject.pipelining).to.eql(10);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"GET\",\n    \"duration\": 10,\n    \"pipelining\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/execute",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"execute"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "invalid",
+			"item": [
+				{
+					"name": "Invalid HTTP method - POST Minimum Boundary Values",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Validate response body\", function () {",
+									"    var eventResponse = pm.response.text();",
+									"    var splittedObj = eventResponse.split(\"result:\");",
+									"",
+									"     console.log('splittedObj 0= '+ splittedObj[0]);",
+									"     console.log('splittedObj 1= '+ splittedObj[1]);",
+									"     console.log('eventResponse= '+ eventResponse);",
+									"     var jsonObject = JSON.parse(splittedObj[1]);",
+									"     console.log('url= '+ jsonObject.url);",
+									"     pm.expect(jsonObject.url).to.eql('https://www.bbc.co.uk/news');",
+									"     pm.expect(jsonObject.connections).to.eql(1);",
+									"     pm.expect(jsonObject.pipelining).to.eql(1);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 1,\n    \"method\": \"GET\",\n    \"duration\": \"1\",\n    \"pipelining\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/execute",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"execute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid HTTP method - POST Maximum Boundary Values",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Validate response body\", function () {",
+									"    var eventResponse = pm.response.text();",
+									"    var splittedObj = eventResponse.split(\"result:\");",
+									"",
+									"     //console.log('splittedObj 0= '+ splittedObj[0]);",
+									"     //console.log('splittedObj 1= '+ splittedObj[1]);",
+									"     //console.log('eventResponse= '+ eventResponse);",
+									"     var jsonObject = JSON.parse(splittedObj[1]);",
+									"     //console.log('url= '+ jsonObject.url);",
+									"     pm.expect(jsonObject.url).to.eql('https://www.bbc.co.uk/news');",
+									"     pm.expect(jsonObject.connections).to.eql(121);",
+									"     pm.expect(jsonObject.pipelining).to.eql(121);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 121,\n    \"method\": \"GET\",\n    \"duration\": 20,\n    \"pipelining\": 121\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/execute",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"execute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid HTTP method - No connection parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Validate response body\", function () {",
+									"    var eventResponse = pm.response.text();",
+									"    var splittedObj = eventResponse.split(\"result:\");",
+									"",
+									"    // console.log('splittedObj 0= '+ splittedObj[0]);",
+									"    // console.log('splittedObj 1= '+ splittedObj[1]);",
+									"    // console.log('eventResponse= '+ eventResponse);",
+									"     var jsonObject = JSON.parse(splittedObj[1]);",
+									"    // console.log('url= '+ jsonObject.url);",
+									"     pm.expect(jsonObject.connections).to.eql(10);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"method\": \"GET\",\n    \"duration\": 11,\n    \"pipelining\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/execute",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"execute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid HTTP method - No URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Validate response data\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.statusCode).to.eql(400);",
+									"    pm.expect(jsonData.error).to.eql(\"Bad Request\");",
+									"    pm.expect(jsonData.message).to.eql(\"body should have required property 'url'\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"connections\": 10,\n    \"method\": \"GET\",\n    \"duration\": \"11\",\n    \"pipelining\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/execute",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"execute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid HTTP method - Wrong URL parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Validate response data\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.statusCode).to.eql(400);",
+									"    pm.expect(jsonData.error).to.eql(\"Bad Request\");",
+									"    pm.expect(jsonData.message).to.eql(\"body.url should match format \\\"url\\\"\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"dgjhsdhgj\",\n    \"connections\": 10,\n    \"method\": \"GET\",\n    \"duration\": \"10\",\n    \"pipelining\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/execute",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"execute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid HTTP method - No pipeline parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Validate response body\", function () {",
+									"    var eventResponse = pm.response.text();",
+									"    var splittedObj = eventResponse.split(\"result:\");",
+									"",
+									"    // console.log('splittedObj 0= '+ splittedObj[0]);",
+									"    // console.log('splittedObj 1= '+ splittedObj[1]);",
+									"    // console.log('eventResponse= '+ eventResponse);",
+									"     var jsonObject = JSON.parse(splittedObj[1]);",
+									"    // console.log('url= '+ jsonObject.url);",
+									"     pm.expect(jsonObject.pipelining).to.eql(1);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"https://www.bbc.co.uk/news\",\n    \"connections\": 10,\n    \"method\": \"POST\",\n    \"duration\": \"11\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/execute",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"execute"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

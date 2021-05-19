@@ -27,8 +27,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-
       - run: npx lerna bootstrap
-      - run: npx lerna run lint
-      - run: npx lerna run test
+      - run: yarn lint
+      - run: yarn test
+      - run: yarn dev & yarn test:qa
+      - uses: actions/upload-artifact@v2
+        with:
+          name: qa-reports
+          path: packages/**/.test_results/
 
   automerge:
     needs: build
