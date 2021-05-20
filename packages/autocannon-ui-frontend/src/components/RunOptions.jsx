@@ -1,7 +1,8 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { Grid, Container, TextField } from '@material-ui/core'
+import { Grid, Container, TextField, Tooltip } from '@material-ui/core'
 import T from 'prop-types'
+import HelpIcon from '@material-ui/icons/Help'
 
 import logo from '../assets/autocannon-banner.png'
 
@@ -15,6 +16,10 @@ const useStyles = makeStyles(theme => ({
     display: 'block',
     margin: 'auto',
     padding: '10px'
+  },
+  helpIcon: {
+    fontSize: 'medium',
+    cursor: 'default'
   }
 }))
 
@@ -50,6 +55,13 @@ export default function RunOptions(props) {
                 variant="outlined"
                 value={props.options.method}
                 onChange={e => onOptionChange('method', e.target.value)}
+                InputProps={{
+                  endAdornment: (
+                    <Tooltip title="The http method to use.">
+                      <HelpIcon color="primary" className={classes.helpIcon} />
+                    </Tooltip>
+                  )
+                }}
                 fullWidth
               />
             </Grid>
@@ -59,7 +71,14 @@ export default function RunOptions(props) {
                 label="Connections"
                 variant="outlined"
                 type="number"
-                InputProps={{ inputProps: { min: 0 } }}
+                InputProps={{
+                  endAdornment: (
+                    <Tooltip title=" The number of concurrent connections.">
+                      <HelpIcon color="primary" className={classes.helpIcon} />
+                    </Tooltip>
+                  ),
+                  inputProps: { min: 0 }
+                }}
                 value={props.options.connections}
                 onChange={e => onOptionChange('connections', e.target.value)}
                 fullWidth
@@ -71,7 +90,14 @@ export default function RunOptions(props) {
                 label="Pipelining"
                 variant="outlined"
                 type="number"
-                InputProps={{ inputProps: { min: 0 } }}
+                InputProps={{
+                  endAdornment: (
+                    <Tooltip title="The number of pipelined requests for each connection. Will cause the Client API to throw when greater than 1.">
+                      <HelpIcon color="primary" className={classes.helpIcon} />
+                    </Tooltip>
+                  ),
+                  inputProps: { min: 0 }
+                }}
                 value={props.options.pipelining}
                 onChange={e => onOptionChange('pipelining', e.target.value)}
                 fullWidth
@@ -83,7 +109,14 @@ export default function RunOptions(props) {
                 label="Duration"
                 variant="outlined"
                 type="number"
-                InputProps={{ inputProps: { min: 0 } }}
+                InputProps={{
+                  endAdornment: (
+                    <Tooltip title="The number of seconds to run the autocannon. Can be a timestring.">
+                      <HelpIcon color="primary" className={classes.helpIcon} />
+                    </Tooltip>
+                  ),
+                  inputProps: { min: 0 }
+                }}
                 value={props.options.duration}
                 onChange={e => onOptionChange('duration', e.target.value)}
                 fullWidth
