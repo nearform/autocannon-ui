@@ -27,7 +27,7 @@ export default function RunOptions(props) {
   const classes = useStyles()
 
   function onOptionChange(option, value) {
-    props.onOptionsChange({ ...props.options, [option]: value })
+    props.onOptionsChange(o => ({ ...o, [option]: value }))
   }
 
   return (
