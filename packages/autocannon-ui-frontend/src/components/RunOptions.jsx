@@ -1,6 +1,15 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { Grid, Container, TextField, Tooltip } from '@material-ui/core'
+import {
+  Grid,
+  Container,
+  TextField,
+  Tooltip,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem
+} from '@material-ui/core'
 import T from 'prop-types'
 import HelpIcon from '@material-ui/icons/Help'
 
@@ -49,21 +58,25 @@ export default function RunOptions(props) {
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                id="method"
-                label="Method"
-                variant="outlined"
-                value={props.options.method}
-                onChange={e => onOptionChange('method', e.target.value)}
-                InputProps={{
-                  endAdornment: (
-                    <Tooltip title="The http method to use.">
-                      <HelpIcon color="primary" className={classes.helpIcon} />
-                    </Tooltip>
-                  )
-                }}
-                fullWidth
-              />
+              <FormControl variant="outlined" fullWidth>
+                <InputLabel id="method-input-label">Method</InputLabel>
+                <Select
+                  labelId="method-input-label"
+                  id="method-input"
+                  value={props.options.method}
+                  onChange={e => onOptionChange('method', e.target.value)}
+                  label="Method"
+                >
+                  <MenuItem value="GET">GET</MenuItem>
+                  <MenuItem value="HEAD">HEAD</MenuItem>
+                  <MenuItem value="POST">POST</MenuItem>
+                  <MenuItem value="PUT">PUT</MenuItem>
+                  <MenuItem value="DELETE">DELETE</MenuItem>
+                  <MenuItem value="OPTIONS">OPTIONS</MenuItem>
+                  <MenuItem value="TRACE">TRACE</MenuItem>
+                  <MenuItem value="PATCH">PATCH</MenuItem>
+                </Select>
+              </FormControl>
             </Grid>
             <Grid item xs={4}>
               <TextField

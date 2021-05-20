@@ -7,7 +7,8 @@ import T from 'prop-types'
 
 const useStyles = makeStyles({
   root: {
-    width: '100%'
+    width: '70%',
+    padding: '30px'
   },
   bar: {
     height: '10px',

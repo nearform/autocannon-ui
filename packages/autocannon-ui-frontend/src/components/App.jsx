@@ -6,11 +6,20 @@ import {
   ThemeProvider
 } from '@material-ui/core/styles'
 
-import { CssBaseline, Container, Box, Button } from '@material-ui/core'
+import {
+  CssBaseline,
+  Container,
+  Box,
+  Grid,
+  Button
+} from '@material-ui/core'
+import {
+  Alert
+} from '@material-ui/lab'
 
 import RunOptions from './RunOptions.jsx'
 import ProgressBar from './ProgressBar.jsx'
-import ResultsView from './ResultsView.jsx'
+import ResultSet from './ResultSet.jsx'
 
 const theme = createMuiTheme({
   palette: {
@@ -32,6 +41,13 @@ const useStyles = makeStyles(theme => ({
   },
   actionSection: {
     padding: '20px 0px'
+  },
+  errorSection: {
+    padding: '20px',
+    borderRadius: '5px'
+  },
+  progressBar: {
+    padding: '30px'
   }
 }))
 
@@ -47,19 +63,38 @@ function App() {
   })
 
   const [progress, setProgress] = useState(0)
-  const [results, setResults] = useState()
+  const [results, setResults] = useState([])
   const [isTestRunning, setIsTestRunning] = useState(false)
+  const [request, setRequest] = useState()
+  const [errorMessage, setErrorMessage] = useState()
 
-  function resetState() {
+  const runButtonHandler = () => {
     setIsTestRunning(true)
     setProgress(0)
-    setResults()
+    setErrorMessage()
+
+    const controller = new AbortController()
+    const promise = runTest(controller.signal)
+    promise.cancel = () => controller.abort()
+    setRequest(promise)
+    promise
+      .then(result => {
+        setResults(results => [result, ...results])
+      })
+      .catch(e => {
+        if (e.name !== 'AbortError') {
+          setErrorMessage(e.message)
+        }
+      })
+      .finally(() => {
+        setIsTestRunning(false)
+      })
   }
 
-  const runTest = async () => {
-    resetState()
+  const runTest = async signal => {
     const response = await fetch('/api/execute', {
       method: 'POST',
+      signal,
       headers: {
         'Content-Type': 'application/json'
       },
@@ -75,15 +110,24 @@ function App() {
       if (done) {
         break
       }
+      if (!response.ok) {
+        const response = JSON.parse(value)
+        throw Error(response.message || response)
+      }
 
       const [, type, payload] = /^(\w+):(.+)/.exec(value)
       if (type === 'progress') {
         setProgress(+payload)
       } else {
         setProgress(100)
-        setResults(JSON.parse(payload))
-        setIsTestRunning(false)
+        return JSON.parse(payload)
       }
+    }
+  }
+
+  function cancelTest() {
+    if (request) {
+      request.cancel()
     }
   }
 
@@ -94,16 +138,35 @@ function App() {
 
         <RunOptions options={options} onOptionsChange={setOptions} />
 
+        {errorMessage && (
+          <Container maxWidth="sm" className={classes.errorSection}>
+            <Alert severity="error">{errorMessage}</Alert>
+          </Container>
+        )}
+
         <Container maxWidth="sm" className={classes.actionSection}>
           <Box display="flex" justifyContent="center">
-            {isTestRunning && <ProgressBar value={progress} />}
+            {isTestRunning && (
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="center"
+                spacing={3}
+              >
+                <ProgressBar value={progress} />
+                <Button variant="outlined" color="primary" onClick={cancelTest}>
+                  Cancel
+                </Button>
+              </Grid>
+            )}
             {!isTestRunning && (
               <Button
                 className={classes.runButton}
                 variant="contained"
                 color="primary"
                 size="large"
-                onClick={runTest}
+                onClick={runButtonHandler}
               >
                 Run Test
               </Button>
@@ -111,7 +174,26 @@ function App() {
           </Box>
         </Container>
 
-        <ResultsView data={results} />
+        {results.length > 0 && (
+          <Grid
+            container
+            direction="row"
+            justify="flex-end"
+            alignItems="center"
+          >
+            <Button
+              variant="outlined"
+              color="primary"
+              onClick={() => setResults([])}
+            >
+              Clear all
+            </Button>
+          </Grid>
+        )}
+
+        {results.map((resultSet, index) => {
+          return <ResultSet key={index} data={resultSet} />
+        })}
       </Container>
     </ThemeProvider>
   )
