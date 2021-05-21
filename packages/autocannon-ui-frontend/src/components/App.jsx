@@ -63,6 +63,7 @@ function App() {
               color="primary"
               className={classes.clearButton}
               onClick={() => setResults([])}
+              data-testid="clear-all-button"
             >
               Clear all
             </Button>
