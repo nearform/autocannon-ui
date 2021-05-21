@@ -1,0 +1,23 @@
+{
+  "name": "pptr",
+  "version": "1.0.0",
+  "description": "Automated software testing with Puppeteer\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --timeout=30000 ./test/autocannon.test.js"
+  },
+  "keywords": [
+    "Puppeteer",
+    "Mocha",
+    "Chai",
+    "Automation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.4.0",
+    "prettier": "^2.3.0",
+    "puppeteer": "^9.1.1"
+  }
+}
