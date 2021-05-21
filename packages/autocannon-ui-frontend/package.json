@@ -7,7 +7,7 @@
     "serve": "vite preview",
     "lint": "eslint .",
     "precommit": "lint-staged",
-    "test": "./node_modules/mocha/bin/mocha --timeout=30000 test/autocannon.test.js"
+    "test:qa": "./node_modules/mocha/bin/mocha --timeout=30000 test/autocannon.test.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
