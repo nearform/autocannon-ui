@@ -6,7 +6,7 @@ import {
   ThemeProvider
 } from '@material-ui/core/styles'
 
-import { CssBaseline, Container, Grid, Button, Box } from '@material-ui/core'
+import { CssBaseline, Container, Grid, Button } from '@material-ui/core'
 import '@fontsource/roboto'
 
 import RunOptionsForm from './RunOptionsForm.jsx'
