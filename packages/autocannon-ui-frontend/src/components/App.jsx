@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 function App() {
-  const classes = useStyles()
+  useStyles()
 
   const [results, setResults] = useState([])
 

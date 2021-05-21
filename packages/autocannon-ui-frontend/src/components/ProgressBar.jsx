@@ -5,16 +5,16 @@ import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import T from 'prop-types'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     width: '70%',
-    padding: '30px'
+    padding: theme.spacing(3)
   },
   bar: {
-    height: '10px',
-    borderRadius: '5px'
+    height: theme.spacing(1),
+    borderRadius: theme.spacing(1)
   }
-})
+}))
 
 export default function ProgressBar(props) {
   const classes = useStyles()

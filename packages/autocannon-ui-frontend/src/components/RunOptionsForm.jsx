@@ -28,24 +28,24 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '70%',
     display: 'block',
     margin: 'auto',
-    padding: '10px'
+    padding: theme.spacing(1)
   },
   helpIcon: {
     fontSize: 'medium',
     cursor: 'default'
   },
   runButton: {
-    borderRadius: '30px'
+    borderRadius: theme.spacing(2)
   },
   actionSection: {
-    padding: '20px 0px'
+    padding: theme.spacing(2)
   },
   progressBar: {
-    padding: '30px'
+    padding: theme.spacing(2)
   },
   errorSection: {
-    padding: '20px',
-    borderRadius: '5px'
+    padding: theme.spacing(2),
+    borderRadius: theme.spacing(1)
   }
 }))
 
@@ -80,7 +80,7 @@ export default function RunOptionsForm(props) {
     setOptions(o => ({ ...o, [option]: event.target.value }))
   }
 
-  const runButtonHandler = () => {
+  const runButtonHandler = async () => {
     setIsTestRunning(true)
     setProgress(0)
     setErrorMessage()
@@ -89,18 +89,16 @@ export default function RunOptionsForm(props) {
     const promise = runTest(controller.signal)
     promise.cancel = () => controller.abort()
     setRequest(promise)
-    promise
-      .then(result => {
-        props.onNewResults(result)
-      })
-      .catch(e => {
-        if (e.name !== 'AbortError') {
-          setErrorMessage(e.message)
-        }
-      })
-      .finally(() => {
-        setIsTestRunning(false)
-      })
+    try {
+      const result = await promise
+      props.onNewResults(result)
+    } catch (e) {
+      if (e.name !== 'AbortError') {
+        setErrorMessage(e.message)
+      }
+    } finally {
+      setIsTestRunning(false)
+    }
   }
 
   const runTest = async signal => {

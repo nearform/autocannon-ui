@@ -19,30 +19,30 @@ import T from 'prop-types'
 import prettyBytes from 'pretty-bytes'
 import HelpIcon from '@material-ui/icons/Help'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   table: {
     minWidth: 650,
-    padding: '30px'
+    padding: theme.spacing(3)
   },
   cardContainer: {
-    padding: '30px'
+    padding: theme.spacing(3)
   },
   helpIcon: {
     fontSize: 'medium',
     cursor: 'default'
   },
   tableHeader: {
-    padding: '15px'
+    padding: theme.spacing(2)
   },
   statHeader: {
     fontWeight: 'bold'
   },
   summary: {
     '&.Mui-expanded': {
-      borderBottom: '1px solid #eaeaea'
+      borderBottom: `1px solid ${theme.palette.divider}`
     }
   }
-})
+}))
 
 export default function ResultSet({ data }) {
   const classes = useStyles()
@@ -57,7 +57,7 @@ export default function ResultSet({ data }) {
         >
           <Typography>{new Date(data.start).toLocaleString()}</Typography>
         </AccordionSummary>
-        <Grid container xs={12} className={classes.cardContainer}>
+        <Grid container className={classes.cardContainer}>
           <Grid item xs={12}>
             <Typography variant="h6" className={classes.tableHeader}>
               <label>Latency</label>
