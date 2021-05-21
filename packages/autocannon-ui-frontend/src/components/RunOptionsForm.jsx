@@ -255,7 +255,12 @@ export default function RunOptionsForm(props) {
                 spacing={3}
               >
                 <ProgressBar value={progress} />
-                <Button variant="outlined" color="primary" onClick={cancelTest}>
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  onClick={cancelTest}
+                  data-testid="cancel-run-button"
+                >
                   Cancel
                 </Button>
               </Grid>
@@ -268,6 +273,7 @@ export default function RunOptionsForm(props) {
                 size="large"
                 disabled={invalid}
                 onClick={runButtonHandler}
+                data-testid="run-button"
               >
                 Run Test
               </Button>
