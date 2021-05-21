@@ -36,6 +36,11 @@ const useStyles = makeStyles({
   },
   statHeader: {
     fontWeight: 'bold'
+  },
+  summary: {
+    '&.Mui-expanded': {
+      borderBottom: '1px solid #eaeaea'
+    }
   }
 })
 
@@ -47,6 +52,7 @@ export default function ResultSet({ data }) {
       <Accordion defaultExpanded>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
+          className={classes.summary}
           data-id="result-accordion"
         >
           <Typography>{new Date(data.start).toLocaleString()}</Typography>
