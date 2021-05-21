@@ -6,16 +6,8 @@ import {
   ThemeProvider
 } from '@material-ui/core/styles'
 
-import {
-  CssBaseline,
-  Container,
-  Box,
-  Grid,
-  Button
-} from '@material-ui/core'
-import {
-  Alert
-} from '@material-ui/lab'
+import { CssBaseline, Container, Box, Grid, Button } from '@material-ui/core'
+import { Alert } from '@material-ui/lab'
 
 import RunOptions from './RunOptions.jsx'
 import ProgressBar from './ProgressBar.jsx'
@@ -155,7 +147,12 @@ function App() {
                 spacing={3}
               >
                 <ProgressBar value={progress} />
-                <Button variant="outlined" color="primary" onClick={cancelTest}>
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  onClick={cancelTest}
+                  data-testid="cancel-run-button"
+                >
                   Cancel
                 </Button>
               </Grid>
@@ -167,6 +164,7 @@ function App() {
                 color="primary"
                 size="large"
                 onClick={runButtonHandler}
+                data-testid="run-button"
               >
                 Run Test
               </Button>
@@ -185,6 +183,7 @@ function App() {
               variant="outlined"
               color="primary"
               onClick={() => setResults([])}
+              data-testid="clear-all-button"
             >
               Clear all
             </Button>
