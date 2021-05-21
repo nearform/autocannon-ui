@@ -30,7 +30,8 @@ const useStyles = makeStyles(theme => ({
   },
   helpIcon: {
     fontSize: 'medium',
-    cursor: 'default'
+    cursor: 'default',
+    marginLeft: theme.spacing(1)
   },
   tableHeader: {
     padding: theme.spacing(2)

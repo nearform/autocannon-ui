@@ -7,6 +7,7 @@ import {
 } from '@material-ui/core/styles'
 
 import { CssBaseline, Container, Grid, Button, Box } from '@material-ui/core'
+import '@fontsource/roboto'
 
 import RunOptionsForm from './RunOptionsForm.jsx'
 import ResultSet from './ResultSet.jsx'
@@ -25,16 +26,22 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center'
+  },
+  resultsGrid: {
+    flexDirection: 'column-reverse'
+  },
+  clearButton: {
+    margin: theme.spacing(2, 0)
   }
 }))
 
 function App() {
-  useStyles()
+  const classes = useStyles()
 
   const [results, setResults] = useState([])
 
   function resultsReceivedHandler(resultSet) {
-    setResults(results => [resultSet, ...results])
+    setResults(results => [...results, resultSet])
   }
 
   return (
@@ -51,21 +58,26 @@ function App() {
             justify="flex-end"
             alignItems="center"
           >
-            <Box p={3}>
-              <Button
-                variant="outlined"
-                color="primary"
-                onClick={() => setResults([])}
-              >
-                Clear all
-              </Button>
-            </Box>
+            <Button
+              variant="outlined"
+              color="primary"
+              className={classes.clearButton}
+              onClick={() => setResults([])}
+            >
+              Clear all
+            </Button>
           </Grid>
         )}
 
-        {results.map((resultSet, index) => {
-          return <ResultSet key={index} data={resultSet} />
-        })}
+        <Grid container justify="flex-start" className={classes.resultsGrid}>
+          {results.map((resultSet, index) => {
+            return (
+              <Grid item key={index}>
+                <ResultSet data={resultSet} />
+              </Grid>
+            )
+          })}
+        </Grid>
       </Container>
     </ThemeProvider>
   )
