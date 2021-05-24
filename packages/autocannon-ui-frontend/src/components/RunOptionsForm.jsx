@@ -15,9 +15,17 @@ import {
 import T from 'prop-types'
 import HelpIcon from '@material-ui/icons/Help'
 
-import ProgressBar from './ProgressBar.jsx'
+import ProgressBar from './ProgressBar'
 import logo from '../assets/autocannon-banner.png'
 import { Alert } from '@material-ui/lab'
+
+const DEFAULT_OPTIONS = {
+  url: 'https://google.com',
+  connections: 10,
+  pipelining: 1,
+  duration: 10,
+  method: 'GET'
+}
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -52,13 +60,7 @@ const useStyles = makeStyles(theme => ({
 export default function RunOptionsForm(props) {
   const classes = useStyles()
 
-  const [options, setOptions] = useState({
-    url: 'https://google.com',
-    connections: 10,
-    pipelining: 1,
-    duration: 10,
-    method: 'GET'
-  })
+  const [options, setOptions] = useState(DEFAULT_OPTIONS)
   const [progress, setProgress] = useState(0)
   const [isTestRunning, setIsTestRunning] = useState(false)
   const [request, setRequest] = useState()

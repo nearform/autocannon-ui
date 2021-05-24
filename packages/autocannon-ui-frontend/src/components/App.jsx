@@ -9,8 +9,8 @@ import {
 import { CssBaseline, Container, Grid, Button } from '@material-ui/core'
 import '@fontsource/roboto'
 
-import RunOptionsForm from './RunOptionsForm.jsx'
-import ResultSet from './ResultSet.jsx'
+import RunOptionsForm from './RunOptionsForm'
+import ResultSet from './ResultSet'
 
 const theme = createMuiTheme({
   palette: {
@@ -62,7 +62,6 @@ function App() {
             <Button
               variant="outlined"
               color="primary"
-              className={classes.clearButton}
               onClick={() => setResults([])}
               data-testid="clear-all-button"
             >
