@@ -5,16 +5,16 @@ import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import T from 'prop-types'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     width: '70%',
-    padding: '30px'
+    padding: theme.spacing(3)
   },
   bar: {
     height: '10px',
     borderRadius: '5px'
   }
-})
+}))
 
 export default function ProgressBar(props) {
   const classes = useStyles()
@@ -23,9 +23,11 @@ export default function ProgressBar(props) {
     <div className={classes.root}>
       <Box display="flex" alignItems="center" flexDirection="column">
         <Box minWidth={35}>
-          <Typography variant="body2" color="textSecondary">{`${Math.round(
-            props.value
-          )}%`}</Typography>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            align="center"
+          >{`${Math.round(props.value)}%`}</Typography>
         </Box>
         <Box width="100%" mr={1}>
           <LinearProgress
