@@ -28,10 +28,11 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center'
   },
   resultsGrid: {
-    flexDirection: 'column-reverse'
+    flexDirection: 'column-reverse',
+    marginBottom: theme.spacing(2)
   },
-  clearButton: {
-    margin: theme.spacing(2, 0)
+  resultsGridItem: {
+    marginTop: theme.spacing(2)
   }
 }))
 
@@ -73,7 +74,7 @@ function App() {
         <Grid container justify="flex-start" className={classes.resultsGrid}>
           {results.map((resultSet, index) => {
             return (
-              <Grid item key={index}>
+              <Grid item key={index} className={classes.resultsGridItem}>
                 <ResultSet data={resultSet} />
               </Grid>
             )

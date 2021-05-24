@@ -11,11 +11,8 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3)
   },
   bar: {
-    height: theme.spacing(1),
-    borderRadius: theme.spacing(1)
-  },
-  percentLabel: {
-    textAlign: 'center'
+    height: '10px',
+    borderRadius: '5px'
   }
 }))
 
@@ -29,7 +26,7 @@ export default function ProgressBar(props) {
           <Typography
             variant="body2"
             color="textSecondary"
-            className={classes.percentLabel}
+            align="center"
           >{`${Math.round(props.value)}%`}</Typography>
         </Box>
         <Box width="100%" mr={1}>
