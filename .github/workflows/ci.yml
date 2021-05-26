@@ -42,4 +42,3 @@ jobs:
       - uses: fastify/github-action-merge-dependabot@v2.0.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          api-url: https://fastify-dependabot-merge-app-5uewp47fja-uc.a.run.app/
