@@ -39,6 +39,9 @@ const useStyles = makeStyles(theme => ({
   statHeader: {
     fontWeight: 'bold'
   },
+  httpRowDetails:{
+    width: '15%'
+  },
   summary: {
     '&.Mui-expanded': {
       borderBottom: `1px solid ${theme.palette.divider}`
@@ -225,7 +228,7 @@ export default function ResultSet({ data }) {
               <TableContainer component={Paper} align={'left'} >
                 <Table className={classes.table}>
                   <TableHead>
-                  <TableRow>
+                  <TableRow className={classes.httpRowDetails}>
                       <TableCell>HTTP Status</TableCell>
                       {Object.keys(data.statusCodeStats).map((option) => 
                        <TableCell key={option}>{option}</TableCell>)
