@@ -167,6 +167,52 @@ export default function ResultSet({ data }) {
                 </Table>
               </TableContainer>
             </Grid>
+            <Grid item xs={12}>
+              <Typography variant="h6" className={classes.tableHeader}>
+                <label>HTTP Statuses</label>
+                <Tooltip title="Histogram statistics about HTTP Statuses count">
+                  <HelpIcon color="primary" className={classes.helpIcon} />
+                </Tooltip>
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <TableContainer component={Paper}>
+                <Table className={classes.table}>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Type</TableCell>
+                      <TableCell>Errors</TableCell>
+                      <TableCell>Timeouts</TableCell>
+                      <TableCell>Missmatches</TableCell>
+                      <TableCell>Resets</TableCell>
+                      <TableCell>Non2xx</TableCell>
+                      <TableCell>1xx</TableCell>
+                      <TableCell>2xx</TableCell>
+                      <TableCell>3xx</TableCell>
+                      <TableCell>4xx</TableCell>
+                      <TableCell>5xx</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell className={classes.statHeader}>
+                        Count
+                      </TableCell>
+                      <TableCell>{data.errors}</TableCell>
+                      <TableCell>{data.timeouts}</TableCell>
+                      <TableCell>{data.mismatches}</TableCell>
+                      <TableCell>{data.resets}</TableCell>
+                      <TableCell>{data.non2xx}</TableCell>
+                      <TableCell>{data['1xx']}</TableCell>
+                      <TableCell>{data['2xx']}</TableCell>
+                      <TableCell>{data['3xx']}</TableCell>
+                      <TableCell>{data['4xx']}</TableCell>
+                      <TableCell>{data['5xx']}</TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Grid>
           </Grid>
         </AccordionDetails>
       </Accordion>
