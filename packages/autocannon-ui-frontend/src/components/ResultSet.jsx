@@ -186,9 +186,8 @@ export default function ResultSet({ data }) {
                       <TableCell>Type</TableCell>
                       <TableCell>Errors</TableCell>
                       <TableCell>Timeouts</TableCell>
-                      <TableCell>Missmatches</TableCell>
+                      <TableCell>Mismatches</TableCell>
                       <TableCell>Resets</TableCell>
-                      <TableCell>Non2xx</TableCell>
                       <TableCell>1xx</TableCell>
                       <TableCell>2xx</TableCell>
                       <TableCell>3xx</TableCell>
@@ -205,7 +204,6 @@ export default function ResultSet({ data }) {
                       <TableCell>{data.timeouts}</TableCell>
                       <TableCell>{data.mismatches}</TableCell>
                       <TableCell>{data.resets}</TableCell>
-                      <TableCell>{data.non2xx}</TableCell>
                       <TableCell>{data['1xx']}</TableCell>
                       <TableCell>{data['2xx']}</TableCell>
                       <TableCell>{data['3xx']}</TableCell>
