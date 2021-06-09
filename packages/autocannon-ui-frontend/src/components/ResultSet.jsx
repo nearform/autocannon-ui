@@ -213,6 +213,38 @@ export default function ResultSet({ data }) {
                 </Table>
               </TableContainer>
             </Grid>
+            <Grid item xs={12}>
+              <Typography variant="h6" className={classes.tableHeader}>
+                <label>HTTP Statuses Details</label>
+                <Tooltip title="Histogram statistics about HTTP Statuses detail">
+                  <HelpIcon color="primary" className={classes.helpIcon} />
+                </Tooltip>
+              </Typography>
+            </Grid>
+            <Grid item xs={12} >
+              <TableContainer component={Paper} align={'left'} >
+                <Table className={classes.table}>
+                  <TableHead>
+                  <TableRow>
+                      <TableCell>HTTP Status</TableCell>
+                      {Object.keys(data.statusCodeStats).map((option) => 
+                       <TableCell key={option}>{option}</TableCell>)
+                      }
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell className={classes.statHeader}>
+                        Count
+                      </TableCell>
+                      {Object.keys(data.statusCodeStats).map((option) => 
+                       <TableCell key={option}>{data.statusCodeStats[option].count}</TableCell>)
+                      }
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Grid>
           </Grid>
         </AccordionDetails>
       </Accordion>
