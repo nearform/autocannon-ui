@@ -226,8 +226,8 @@ export default function ResultSet({ data }) {
               <TableContainer component={Paper} align={'left'} >
                 <Table className={classes.table}>
                   <TableHead>
-                  <TableRow className={classes.httpRowDetails}>
-                      <TableCell>HTTP Status</TableCell>
+                  <TableRow>
+                      <TableCell className={classes.httpRowDetails}>HTTP Status</TableCell>
                       {Object.keys(data.statusCodeStats).map((option) => 
                        <TableCell key={option}>{option}</TableCell>)
                       }
