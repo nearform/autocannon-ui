@@ -31,7 +31,7 @@ const DEFAULT_OPTIONS = {
   method: 'GET',
   timeout: 10,
   title: '',
-  header: '',
+  headers: '',
   body: ''
 }
 
@@ -64,7 +64,7 @@ const useStyles = makeStyles(theme => ({
     borderRadius: theme.spacing(1)
   },
   textArea: {
-    resize: "vertical",
+    resize: 'vertical',
     width: '100%'
   }
 }))
@@ -79,7 +79,7 @@ export default function RunOptionsForm(props) {
   const [errorMessage, setErrorMessage] = useState()
   const [invalid, setInvalid] = useState(false)
   const [validationResults, setValidationResults] = useState({})
-  const [showMore, setShowMore] = useState(false);
+  const [showMore, setShowMore] = useState(false)
 
   function onOptionChange(option, event) {
     if (event.target.required && !event.target.value) {
@@ -96,8 +96,8 @@ export default function RunOptionsForm(props) {
   }
 
   const handleShowMore = () => {
-    setShowMore((prev) => !prev);
-  };
+    setShowMore(prev => !prev)
+  }
 
   const runButtonHandler = async () => {
     setIsTestRunning(true)
@@ -268,7 +268,6 @@ export default function RunOptionsForm(props) {
                     className={classes.runButton}
                     color="primary"
                     variant="outlined"
-                    color="primary"
                     onClick={handleShowMore}
                   >
                     {!showMore ? 'Show More' : 'Show Less'}
@@ -276,7 +275,7 @@ export default function RunOptionsForm(props) {
                 </Box>
               </Container>
             </Grid>
-            <Grid item xs={12} hidden={!showMore} >
+            <Grid item xs={12} hidden={!showMore}>
               <Fade in={showMore}>
                 <Grid container spacing={3}>
                   <Grid item xs={8}>
@@ -299,7 +298,10 @@ export default function RunOptionsForm(props) {
                       InputProps={{
                         endAdornment: (
                           <Tooltip title="The number of seconds before timing out and resetting a connection.">
-                            <HelpIcon color="primary" className={classes.helpIcon} />
+                            <HelpIcon
+                              color="primary"
+                              className={classes.helpIcon}
+                            />
                           </Tooltip>
                         ),
                         inputProps: { min: 1 }
@@ -308,11 +310,7 @@ export default function RunOptionsForm(props) {
                       fullWidth
                     />
                   </Grid>
-                  <Grid
-                    item
-                    md={12}
-                    xs={12}
-                  >
+                  <Grid item md={12} xs={12}>
                     <Divider />
                   </Grid>
                   <Grid item xs={12}>
@@ -323,25 +321,20 @@ export default function RunOptionsForm(props) {
                       variant="h6"
                       m={0}
                     >
-                      Header
-                  </Typography>
+                      Headers
+                    </Typography>
                   </Grid>
                   <Grid item xs={12}>
                     <TextareaAutosize
-                      id="header"
-                      aria-label="header"
+                      id="headers"
+                      aria-label="headers"
                       placeholder="Insert Header"
                       rowsMin={4}
-                      onChange={e => onOptionChange('header', e)}
+                      onChange={e => onOptionChange('headers', e)}
                       className={classes.textArea}
                     />
-
                   </Grid>
-                  <Grid
-                    item
-                    md={12}
-                    xs={12}
-                  >
+                  <Grid item md={12} xs={12}>
                     <Divider />
                   </Grid>
                   <Grid item xs={12}>
@@ -353,7 +346,7 @@ export default function RunOptionsForm(props) {
                       m={0}
                     >
                       Body
-                  </Typography>
+                    </Typography>
                   </Grid>
                   <Grid item xs={12}>
                     <TextareaAutosize
