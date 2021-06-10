@@ -54,7 +54,7 @@ export default function ResultSet({ data }) {
   
   return (
     <React.Fragment>
-      {data != undefined ?
+      {data &&
       <Accordion defaultExpanded>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
