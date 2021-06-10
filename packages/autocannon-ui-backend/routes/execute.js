@@ -13,7 +13,7 @@ const schema = {
     .prop('method', S.string().default('GET'))
     .prop('timeout', S.integer().default(10))
     .prop('title', S.string())
-    .prop('header', S.string())
+    .prop('headers', S.string())
     .prop('body', S.string())
 }
 
