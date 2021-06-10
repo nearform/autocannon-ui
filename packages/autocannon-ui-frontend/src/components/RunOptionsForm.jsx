@@ -12,7 +12,8 @@ import {
   Box,
   Button,
   Divider,
-  TextareaAutosize
+  TextareaAutosize,
+  Fade
 } from '@material-ui/core'
 import T from 'prop-types'
 import HelpIcon from '@material-ui/icons/Help'
@@ -82,6 +83,7 @@ export default function RunOptionsForm(props) {
   const [errorMessage, setErrorMessage] = useState()
   const [invalid, setInvalid] = useState(false)
   const [validationResults, setValidationResults] = useState({})
+  const [showMore, setShowMore] = useState(false);
 
   function onOptionChange(option, event) {
     if (event.target.required && !event.target.value) {
@@ -96,6 +98,10 @@ export default function RunOptionsForm(props) {
     }
     setOptions(o => ({ ...o, [option]: event.target.value }))
   }
+
+  const handleShowMore = () => {
+    setShowMore((prev) => !prev);
+  };
 
   const runButtonHandler = async () => {
     setIsTestRunning(true)
@@ -279,66 +285,78 @@ export default function RunOptionsForm(props) {
                 fullWidth
               />
             </Grid>
-            <Grid
-              item
-              md={12}
-              xs={12}
-            >
-              <Divider />
-            </Grid>
             <Grid item xs={12}>
-              <TextField
-                id="title"
-                label="Title"
-                variant="outlined"
-                value={options.title}
-                onChange={e => onOptionChange('title', e)}
-                error={validationResults.url}
-                fullWidth
-              />
+              <Container maxWidth="sm" className={classes.actionSection}>
+                <Box display="flex" justifyContent="center">
+                  <Grid
+                    container
+                    direction="column"
+                    justify="center"
+                    alignItems="center"
+                    spacing={3}
+                  >
+                    <Button
+                      variant="outlined"
+                      color="primary"
+                      onClick={handleShowMore}
+                    >
+                      {!showMore ? 'Show More' : 'Show Less'}
+                  </Button>
+                  </Grid>
+                </Box>
+              </Container>
             </Grid>
-            <Grid
-              item
-              md={12}
-              xs={12}
-            >
-              <Divider />
-            </Grid>
-            <Grid
-              item
-              md={12}
-              xs={12}
-            >
-              <Divider />
-            </Grid>
-            <Grid item xs={12}>
-              <TextareaAutosize
-                id="header"
-                aria-label="header"
-                placeholder="Insert Header"
-                rowsMin={4}
-                onChange={e => onOptionChange('header', e)}
-                className={classes.textArea}
-              />
+            <Grid item xs={12} hidden={!showMore} >
+            <Fade in={showMore}>
+              <Grid container spacing={3}>
+                <Grid item xs={12}>
+                  <TextField
+                    id="title"
+                    label="Title"
+                    variant="outlined"
+                    value={options.title}
+                    onChange={e => onOptionChange('title', e)}
+                    error={validationResults.url}
+                    fullWidth
+                  />
+                </Grid>
+                <Grid
+                  item
+                  md={12}
+                  xs={12}
+                >
+                  <Divider />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextareaAutosize
+                    id="header"
+                    aria-label="header"
+                    placeholder="Insert Header"
+                    rowsMin={4}
+                    onChange={e => onOptionChange('header', e)}
+                    className={classes.textArea}
+                  />
 
-            </Grid>
-            <Grid
-              item
-              md={12}
-              xs={12}
-            >
-              <Divider />
-            </Grid>
-            <Grid item xs={12}>
-              <TextareaAutosize
-                id="body"
-                aria-label="body"
-                placeholder="Insert Body"
-                rowsMin={10}
-                onChange={e => onOptionChange('body', e)}
-                className={classes.textArea}
-              />
-
+                </Grid>
+                <Grid
+                  item
+                  md={12}
+                  xs={12}
+                >
+                  <Divider />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextareaAutosize
+                    id="body"
+                    aria-label="body"
+                    placeholder="Insert Body"
+                    rowsMin={10}
+                    onChange={e => onOptionChange('body', e)}
+                    className={classes.textArea}
+                  />
+                </Grid>
+              </Grid>
+            </Fade>
             </Grid>
           </Grid>
         </form>
