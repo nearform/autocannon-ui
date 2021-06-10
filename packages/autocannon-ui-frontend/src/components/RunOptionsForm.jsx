@@ -10,7 +10,10 @@ import {
   Select,
   MenuItem,
   Box,
-  Button
+  Button,
+  TextareaAutosize,
+  Fade,
+  Typography
 } from '@material-ui/core'
 import T from 'prop-types'
 import HelpIcon from '@material-ui/icons/Help'
@@ -24,7 +27,11 @@ const DEFAULT_OPTIONS = {
   connections: 10,
   pipelining: 1,
   duration: 10,
-  method: 'GET'
+  method: 'GET',
+  timeout: 10,
+  title: '',
+  headers: '',
+  body: ''
 }
 
 const useStyles = makeStyles(theme => ({
@@ -43,7 +50,8 @@ const useStyles = makeStyles(theme => ({
     cursor: 'default'
   },
   runButton: {
-    borderRadius: theme.spacing(2)
+    borderRadius: theme.spacing(2),
+    height: '2.8rem'
   },
   actionSection: {
     padding: theme.spacing(2)
@@ -54,6 +62,11 @@ const useStyles = makeStyles(theme => ({
   errorSection: {
     padding: theme.spacing(2),
     borderRadius: theme.spacing(1)
+  },
+  textArea: {
+    resize: 'vertical',
+    width: '100%',
+    padding: '0.8rem'
   }
 }))
 
@@ -67,6 +80,7 @@ export default function RunOptionsForm(props) {
   const [errorMessage, setErrorMessage] = useState()
   const [invalid, setInvalid] = useState(false)
   const [validationResults, setValidationResults] = useState({})
+  const [showMore, setShowMore] = useState(false)
 
   function onOptionChange(option, event) {
     if (event.target.required && !event.target.value) {
@@ -80,6 +94,10 @@ export default function RunOptionsForm(props) {
       setInvalid(Object.keys(validationResults).length > 0)
     }
     setOptions(o => ({ ...o, [option]: event.target.value }))
+  }
+
+  const handleShowMore = () => {
+    setShowMore(prev => !prev)
   }
 
   const runButtonHandler = async () => {
@@ -199,7 +217,7 @@ export default function RunOptionsForm(props) {
                       <HelpIcon color="primary" className={classes.helpIcon} />
                     </Tooltip>
                   ),
-                  inputProps: { min: 0 }
+                  inputProps: { min: 1 }
                 }}
                 value={options.connections}
                 onChange={e => onOptionChange('connections', e)}
@@ -218,7 +236,7 @@ export default function RunOptionsForm(props) {
                       <HelpIcon color="primary" className={classes.helpIcon} />
                     </Tooltip>
                   ),
-                  inputProps: { min: 0 }
+                  inputProps: { min: 1 }
                 }}
                 value={options.pipelining}
                 onChange={e => onOptionChange('pipelining', e)}
@@ -237,12 +255,95 @@ export default function RunOptionsForm(props) {
                       <HelpIcon color="primary" className={classes.helpIcon} />
                     </Tooltip>
                   ),
-                  inputProps: { min: 0 }
+                  inputProps: { min: 1 }
                 }}
                 value={options.duration}
                 onChange={e => onOptionChange('duration', e)}
                 fullWidth
               />
+            </Grid>
+            <Grid item xs={12}>
+              <Box display="flex" justifyContent="center">
+                <Button
+                  className={classes.runButton}
+                  color="primary"
+                  variant="outlined"
+                  onClick={handleShowMore}
+                >
+                  {!showMore ? 'Show More' : 'Show Less'}
+                </Button>
+              </Box>
+            </Grid>
+            <Grid item xs={12} hidden={!showMore}>
+              <Fade in={showMore}>
+                <Grid container spacing={3}>
+                  <Grid item xs={8}>
+                    <TextField
+                      id="title"
+                      label="Title"
+                      variant="outlined"
+                      value={options.title}
+                      onChange={e => onOptionChange('title', e)}
+                      error={validationResults.url}
+                      fullWidth
+                    />
+                  </Grid>
+                  <Grid item xs={4}>
+                    <TextField
+                      id="timeout"
+                      label="Timeout"
+                      variant="outlined"
+                      type="number"
+                      InputProps={{
+                        endAdornment: (
+                          <Tooltip title="The number of seconds before timing out and resetting a connection.">
+                            <HelpIcon
+                              color="primary"
+                              className={classes.helpIcon}
+                            />
+                          </Tooltip>
+                        ),
+                        inputProps: { min: 1 }
+                      }}
+                      value={options.timeout}
+                      onChange={e => onOptionChange('timeout', e)}
+                      fullWidth
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography align="left" color="textPrimary" variant="h6">
+                      Headers
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextareaAutosize
+                      id="headers"
+                      aria-label="headers"
+                      placeholder='Example: {"accept":"text/plain", "Content-Type":"application/json" }'
+                      rowsMin={4}
+                      onChange={e => onOptionChange('headers', e)}
+                      className={classes.textArea}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Box>
+                      <Typography align="left" color="textPrimary" variant="h5">
+                        Body
+                      </Typography>
+                    </Box>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextareaAutosize
+                      id="body"
+                      aria-label="body"
+                      placeholder='Example: {"key1":"value1", "key2":"value2"}'
+                      rowsMin={10}
+                      onChange={e => onOptionChange('body', e)}
+                      className={classes.textArea}
+                    />
+                  </Grid>
+                </Grid>
+              </Fade>
             </Grid>
           </Grid>
         </form>

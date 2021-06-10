@@ -8,6 +8,10 @@ function execute(options, cb) {
     connections,
     pipelining,
     duration,
+    timeout,
+    title,
+    headers,
+    body,
     renderProgressBar,
     renderLatencyTable,
     renderResultsTable
@@ -18,7 +22,11 @@ function execute(options, cb) {
       url,
       connections,
       pipelining,
-      duration
+      duration,
+      timeout,
+      title,
+      headers,
+      body
     },
     cb
   )
