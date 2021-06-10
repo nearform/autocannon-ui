@@ -11,7 +11,6 @@ import {
   MenuItem,
   Box,
   Button,
-  Divider,
   TextareaAutosize,
   Fade,
   Typography
@@ -51,7 +50,8 @@ const useStyles = makeStyles(theme => ({
     cursor: 'default'
   },
   runButton: {
-    borderRadius: theme.spacing(2)
+    borderRadius: theme.spacing(2),
+    height: '2.8rem'
   },
   actionSection: {
     padding: theme.spacing(2)
@@ -262,18 +262,16 @@ export default function RunOptionsForm(props) {
               />
             </Grid>
             <Grid item xs={12}>
-              <Container maxWidth="sm" className={classes.actionSection}>
-                <Box display="flex" justifyContent="center">
-                  <Button
-                    className={classes.runButton}
-                    color="primary"
-                    variant="outlined"
-                    onClick={handleShowMore}
-                  >
-                    {!showMore ? 'Show More' : 'Show Less'}
-                  </Button>
-                </Box>
-              </Container>
+              <Box display="flex" justifyContent="center">
+                <Button
+                  className={classes.runButton}
+                  color="primary"
+                  variant="outlined"
+                  onClick={handleShowMore}
+                >
+                  {!showMore ? 'Show More' : 'Show Less'}
+                </Button>
+              </Box>
             </Grid>
             <Grid item xs={12} hidden={!showMore}>
               <Fade in={showMore}>
@@ -310,17 +308,8 @@ export default function RunOptionsForm(props) {
                       fullWidth
                     />
                   </Grid>
-                  <Grid item md={12} xs={12}>
-                    <Divider />
-                  </Grid>
                   <Grid item xs={12}>
-                    <Typography
-                      align="left"
-                      color="textPrimary"
-                      gutterBottom
-                      variant="h6"
-                      m={0}
-                    >
+                    <Typography align="left" color="textPrimary" variant="h6">
                       Headers
                     </Typography>
                   </Grid>
@@ -328,31 +317,24 @@ export default function RunOptionsForm(props) {
                     <TextareaAutosize
                       id="headers"
                       aria-label="headers"
-                      placeholder="Insert Header"
+                      placeholder='Example: {"accept":"text/plain", "Content-Type":"application/json" }'
                       rowsMin={4}
                       onChange={e => onOptionChange('headers', e)}
                       className={classes.textArea}
                     />
                   </Grid>
-                  <Grid item md={12} xs={12}>
-                    <Divider />
-                  </Grid>
                   <Grid item xs={12}>
-                    <Typography
-                      align="left"
-                      color="textPrimary"
-                      gutterBottom
-                      variant="h6"
-                      m={0}
-                    >
-                      Body
-                    </Typography>
+                    <Box>
+                      <Typography align="left" color="textPrimary" variant="h5">
+                        Body
+                      </Typography>
+                    </Box>
                   </Grid>
                   <Grid item xs={12}>
                     <TextareaAutosize
                       id="body"
                       aria-label="body"
-                      placeholder="Insert Body"
+                      placeholder='Example: {"key1":"value1", "key2":"value2"}'
                       rowsMin={10}
                       onChange={e => onOptionChange('body', e)}
                       className={classes.textArea}
