@@ -249,8 +249,7 @@ export default function ResultSet({ data }) {
             </Grid>
           </Grid>
         </AccordionDetails>
-      </Accordion>
-      : <div/>}
+      </Accordion>}
     </React.Fragment>
   )
 }
