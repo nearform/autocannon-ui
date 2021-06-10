@@ -30,11 +30,6 @@ const DEFAULT_OPTIONS = {
   duration: 10,
   method: 'GET',
   timeout: 10,
-  maxConnectionRequests: undefined,
-  maxOverallRequests: undefined,
-  connectionRate: undefined,
-  overallRate: undefined,
-  reconnectRate: undefined,
   title: '',
   header: '',
   body: ''
