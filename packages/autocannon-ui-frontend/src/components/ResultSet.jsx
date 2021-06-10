@@ -48,8 +48,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function ResultSet({ data }) {
   const classes = useStyles()
-  console.log("data", data)
-
+  
   return (
     <React.Fragment>
       {data != undefined ?

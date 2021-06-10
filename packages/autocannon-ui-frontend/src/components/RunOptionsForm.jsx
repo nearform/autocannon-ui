@@ -13,7 +13,8 @@ import {
   Button,
   Divider,
   TextareaAutosize,
-  Fade
+  Fade,
+  Typography
 } from '@material-ui/core'
 import T from 'prop-types'
 import HelpIcon from '@material-ui/icons/Help'
@@ -125,8 +126,6 @@ export default function RunOptionsForm(props) {
   }
 
   const runTest = async signal => {
-    console.log("body", JSON.stringify(options))
-
     const response = await fetch('/api/execute', {
       method: 'POST',
       signal,
@@ -267,24 +266,6 @@ export default function RunOptionsForm(props) {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={4}>
-              <TextField
-                id="timeout"
-                label="Timeout"
-                variant="outlined"
-                type="number"
-                InputProps={{
-                  endAdornment: (
-                    <Tooltip title="The number of seconds before timing out and resetting a connection.">
-                      <HelpIcon color="primary" className={classes.helpIcon} />
-                    </Tooltip>
-                  ),
-                  inputProps: { min: 1 }
-                }}
-                onChange={e => onOptionChange('timeout', e)}
-                fullWidth
-              />
-            </Grid>
             <Grid item xs={12}>
               <Container maxWidth="sm" className={classes.actionSection}>
                 <Box display="flex" justifyContent="center">
@@ -296,67 +277,109 @@ export default function RunOptionsForm(props) {
                     spacing={3}
                   >
                     <Button
+                      className={classes.runButton}
+                      color="primary"
                       variant="outlined"
                       color="primary"
                       onClick={handleShowMore}
                     >
                       {!showMore ? 'Show More' : 'Show Less'}
-                  </Button>
+                    </Button>
                   </Grid>
                 </Box>
               </Container>
             </Grid>
             <Grid item xs={12} hidden={!showMore} >
-            <Fade in={showMore}>
-              <Grid container spacing={3}>
-                <Grid item xs={12}>
-                  <TextField
-                    id="title"
-                    label="Title"
-                    variant="outlined"
-                    value={options.title}
-                    onChange={e => onOptionChange('title', e)}
-                    error={validationResults.url}
-                    fullWidth
-                  />
-                </Grid>
-                <Grid
-                  item
-                  md={12}
-                  xs={12}
-                >
-                  <Divider />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextareaAutosize
-                    id="header"
-                    aria-label="header"
-                    placeholder="Insert Header"
-                    rowsMin={4}
-                    onChange={e => onOptionChange('header', e)}
-                    className={classes.textArea}
-                  />
+              <Fade in={showMore}>
+                <Grid container spacing={3}>
+                  <Grid item xs={8}>
+                    <TextField
+                      id="title"
+                      label="Title"
+                      variant="outlined"
+                      value={options.title}
+                      onChange={e => onOptionChange('title', e)}
+                      error={validationResults.url}
+                      fullWidth
+                    />
+                  </Grid>
+                  <Grid item xs={4}>
+                    <TextField
+                      id="timeout"
+                      label="Timeout"
+                      variant="outlined"
+                      type="number"
+                      InputProps={{
+                        endAdornment: (
+                          <Tooltip title="The number of seconds before timing out and resetting a connection.">
+                            <HelpIcon color="primary" className={classes.helpIcon} />
+                          </Tooltip>
+                        ),
+                        inputProps: { min: 1 }
+                      }}
+                      onChange={e => onOptionChange('timeout', e)}
+                      fullWidth
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    md={12}
+                    xs={12}
+                  >
+                    <Divider />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography
+                      align="left"
+                      color="textPrimary"
+                      gutterBottom
+                      variant="h6"
+                      m={0}
+                    >
+                      Header
+                  </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextareaAutosize
+                      id="header"
+                      aria-label="header"
+                      placeholder="Insert Header"
+                      rowsMin={4}
+                      onChange={e => onOptionChange('header', e)}
+                      className={classes.textArea}
+                    />
 
+                  </Grid>
+                  <Grid
+                    item
+                    md={12}
+                    xs={12}
+                  >
+                    <Divider />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography
+                      align="left"
+                      color="textPrimary"
+                      gutterBottom
+                      variant="h6"
+                      m={0}
+                    >
+                      Body
+                  </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextareaAutosize
+                      id="body"
+                      aria-label="body"
+                      placeholder="Insert Body"
+                      rowsMin={10}
+                      onChange={e => onOptionChange('body', e)}
+                      className={classes.textArea}
+                    />
+                  </Grid>
                 </Grid>
-                <Grid
-                  item
-                  md={12}
-                  xs={12}
-                >
-                  <Divider />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextareaAutosize
-                    id="body"
-                    aria-label="body"
-                    placeholder="Insert Body"
-                    rowsMin={10}
-                    onChange={e => onOptionChange('body', e)}
-                    className={classes.textArea}
-                  />
-                </Grid>
-              </Grid>
-            </Fade>
+              </Fade>
             </Grid>
           </Grid>
         </form>
