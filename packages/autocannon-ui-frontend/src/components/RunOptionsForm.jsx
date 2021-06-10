@@ -65,7 +65,8 @@ const useStyles = makeStyles(theme => ({
   },
   textArea: {
     resize: 'vertical',
-    width: '100%'
+    width: '100%',
+    padding: '0.8rem'
   }
 }))
 
@@ -304,6 +305,7 @@ export default function RunOptionsForm(props) {
                         ),
                         inputProps: { min: 1 }
                       }}
+                      value={options.timeout}
                       onChange={e => onOptionChange('timeout', e)}
                       fullWidth
                     />
