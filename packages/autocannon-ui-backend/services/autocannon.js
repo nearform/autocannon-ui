@@ -10,7 +10,7 @@ function execute(options, cb) {
     duration,
     timeout,
     title,
-    header,
+    headers,
     body,
     renderProgressBar,
     renderLatencyTable,
@@ -25,7 +25,7 @@ function execute(options, cb) {
       duration,
       timeout,
       title,
-      header,
+      headers,
       body
     },
     cb
