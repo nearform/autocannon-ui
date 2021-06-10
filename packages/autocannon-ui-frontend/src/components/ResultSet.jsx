@@ -48,9 +48,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function ResultSet({ data }) {
   const classes = useStyles()
+  console.log("data", data)
 
   return (
     <React.Fragment>
+      {data != undefined ?
       <Accordion defaultExpanded>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -170,6 +172,7 @@ export default function ResultSet({ data }) {
           </Grid>
         </AccordionDetails>
       </Accordion>
+      : <div/>}
     </React.Fragment>
   )
 }

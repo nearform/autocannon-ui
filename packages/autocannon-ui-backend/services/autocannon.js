@@ -14,6 +14,9 @@ function execute(options, cb) {
     connectionRate,
     overallRate,
     reconnectRate,
+    title,
+    header,
+    body,
     renderProgressBar,
     renderLatencyTable,
     renderResultsTable
@@ -30,7 +33,10 @@ function execute(options, cb) {
       maxOverallRequests,
       connectionRate,
       overallRate,
-      reconnectRate
+      reconnectRate,
+      title,
+      header,
+      body
     },
     cb
   )

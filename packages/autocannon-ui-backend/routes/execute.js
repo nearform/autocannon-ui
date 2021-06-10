@@ -13,11 +13,14 @@ const schema = {
     .prop('method', S.string().default('GET'))
     .prop('timeout', S.integer().default(10))
 
-    .prop('maxConnectionRequests', S.integer())
-    .prop('maxOverallRequests', S.integer())
-    .prop('connectionRate', S.integer())
-    .prop('overallRate', S.integer())
-    .prop('reconnectRate', S.integer())
+    .prop('maxConnectionRequests', S.integer().raw({ nullable: true }))
+    .prop('maxOverallRequests', S.integer().raw({ nullable: true }))
+    .prop('connectionRate', S.integer().raw({ nullable: true }))
+    .prop('overallRate', S.integer().raw({ nullable: true }))
+    .prop('reconnectRate', S.integer().raw({ nullable: true }))
+    .prop('title', S.string())
+    .prop('header', S.string())
+    .prop('body', S.string())
 }
 
 module.exports = async function (fastify) {

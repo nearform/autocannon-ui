@@ -11,7 +11,8 @@ import {
   MenuItem,
   Box,
   Button,
-  Divider
+  Divider,
+  TextareaAutosize
 } from '@material-ui/core'
 import T from 'prop-types'
 import HelpIcon from '@material-ui/icons/Help'
@@ -31,7 +32,10 @@ const DEFAULT_OPTIONS = {
   maxOverallRequests: undefined,
   connectionRate: undefined,
   overallRate: undefined,
-  reconnectRate: undefined
+  reconnectRate: undefined,
+  title: '',
+  header: '',
+  body: ''
 }
 
 const useStyles = makeStyles(theme => ({
@@ -61,6 +65,10 @@ const useStyles = makeStyles(theme => ({
   errorSection: {
     padding: theme.spacing(2),
     borderRadius: theme.spacing(1)
+  },
+  textArea: {
+    resize: "vertical",
+    width: '100%'
   }
 }))
 
@@ -111,6 +119,8 @@ export default function RunOptionsForm(props) {
   }
 
   const runTest = async signal => {
+    console.log("body", JSON.stringify(options))
+
     const response = await fetch('/api/execute', {
       method: 'POST',
       signal,
@@ -206,7 +216,7 @@ export default function RunOptionsForm(props) {
                       <HelpIcon color="primary" className={classes.helpIcon} />
                     </Tooltip>
                   ),
-                  inputProps: { min: 0 }
+                  inputProps: { min: 1 }
                 }}
                 value={options.connections}
                 onChange={e => onOptionChange('connections', e)}
@@ -225,7 +235,7 @@ export default function RunOptionsForm(props) {
                       <HelpIcon color="primary" className={classes.helpIcon} />
                     </Tooltip>
                   ),
-                  inputProps: { min: 0 }
+                  inputProps: { min: 1 }
                 }}
                 value={options.pipelining}
                 onChange={e => onOptionChange('pipelining', e)}
@@ -244,7 +254,7 @@ export default function RunOptionsForm(props) {
                       <HelpIcon color="primary" className={classes.helpIcon} />
                     </Tooltip>
                   ),
-                  inputProps: { min: 0 }
+                  inputProps: { min: 1 }
                 }}
                 value={options.duration}
                 onChange={e => onOptionChange('duration', e)}
@@ -263,10 +273,27 @@ export default function RunOptionsForm(props) {
                       <HelpIcon color="primary" className={classes.helpIcon} />
                     </Tooltip>
                   ),
-                  inputProps: { min: 0 }
+                  inputProps: { min: 1 }
                 }}
-                value={options.timeout}
                 onChange={e => onOptionChange('timeout', e)}
+                fullWidth
+              />
+            </Grid>
+            <Grid
+              item
+              md={12}
+              xs={12}
+            >
+              <Divider />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="title"
+                label="Title"
+                variant="outlined"
+                value={options.title}
+                onChange={e => onOptionChange('title', e)}
+                error={validationResults.url}
                 fullWidth
               />
             </Grid>
@@ -289,12 +316,11 @@ export default function RunOptionsForm(props) {
                       <HelpIcon color="primary" className={classes.helpIcon} />
                     </Tooltip>
                   ),
-                  inputProps: { min: 0 }
+                  inputProps: { min: options.connections }
                 }}
                 InputLabelProps={{
                   style: { width: '80%' },
                 }}
-                value={options.maxConnectionRequests}
                 onChange={e => onOptionChange('maxConnectionRequests', e)}
                 fullWidth
               />
@@ -312,12 +338,11 @@ export default function RunOptionsForm(props) {
                       <HelpIcon color="primary" className={classes.helpIcon} />
                     </Tooltip>
                   ),
-                  inputProps: { min: 0 }
+                  inputProps: { min: options.connections }
                 }}
                 InputLabelProps={{
                   style: { width: '80%' },
                 }}
-                value={options.maxOverallRequests}
                 onChange={e => onOptionChange('maxOverallRequests', e)}
                 fullWidth
               />
@@ -339,7 +364,6 @@ export default function RunOptionsForm(props) {
                 InputLabelProps={{
                   style: { width: '80%' },
                 }}
-                value={options.connectionRate}
                 onChange={e => onOptionChange('connectionRate', e)}
                 fullWidth
               />
@@ -361,7 +385,6 @@ export default function RunOptionsForm(props) {
                 InputLabelProps={{
                   style: { width: '80%' },
                 }}
-                value={options.overallRate}
                 onChange={e => onOptionChange('overallRate', e)}
                 fullWidth
               />
@@ -383,7 +406,6 @@ export default function RunOptionsForm(props) {
                 InputLabelProps={{
                   style: { width: '80%' },
                 }}
-                value={options.reconnectRate}
                 onChange={e => onOptionChange('reconnectRate', e)}
                 fullWidth
               />
@@ -394,6 +416,35 @@ export default function RunOptionsForm(props) {
               xs={12}
             >
               <Divider />
+            </Grid>
+            <Grid item xs={12}>
+              <TextareaAutosize
+                id="header"
+                aria-label="header"
+                placeholder="Insert Header"
+                rowsMin={4}
+                onChange={e => onOptionChange('header', e)}
+                className={classes.textArea}
+              />
+
+            </Grid>
+            <Grid
+              item
+              md={12}
+              xs={12}
+            >
+              <Divider />
+            </Grid>
+            <Grid item xs={12}>
+              <TextareaAutosize
+                id="body"
+                aria-label="body"
+                placeholder="Insert Body"
+                rowsMin={10}
+                onChange={e => onOptionChange('body', e)}
+                className={classes.textArea}
+              />
+
             </Grid>
           </Grid>
         </form>
