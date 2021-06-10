@@ -264,23 +264,15 @@ export default function RunOptionsForm(props) {
             <Grid item xs={12}>
               <Container maxWidth="sm" className={classes.actionSection}>
                 <Box display="flex" justifyContent="center">
-                  <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                    spacing={3}
+                  <Button
+                    className={classes.runButton}
+                    color="primary"
+                    variant="outlined"
+                    color="primary"
+                    onClick={handleShowMore}
                   >
-                    <Button
-                      className={classes.runButton}
-                      color="primary"
-                      variant="outlined"
-                      color="primary"
-                      onClick={handleShowMore}
-                    >
-                      {!showMore ? 'Show More' : 'Show Less'}
-                    </Button>
-                  </Grid>
+                    {!showMore ? 'Show More' : 'Show Less'}
+                  </Button>
                 </Box>
               </Container>
             </Grid>
