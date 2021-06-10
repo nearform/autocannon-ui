@@ -10,7 +10,8 @@ import {
   Select,
   MenuItem,
   Box,
-  Button
+  Button,
+  Divider
 } from '@material-ui/core'
 import T from 'prop-types'
 import HelpIcon from '@material-ui/icons/Help'
@@ -24,7 +25,13 @@ const DEFAULT_OPTIONS = {
   connections: 10,
   pipelining: 1,
   duration: 10,
-  method: 'GET'
+  method: 'GET',
+  timeout: 10,
+  maxConnectionRequests: undefined,
+  maxOverallRequests: undefined,
+  connectionRate: undefined,
+  overallRate: undefined,
+  reconnectRate: undefined
 }
 
 const useStyles = makeStyles(theme => ({
@@ -243,6 +250,150 @@ export default function RunOptionsForm(props) {
                 onChange={e => onOptionChange('duration', e)}
                 fullWidth
               />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField
+                id="timeout"
+                label="Timeout"
+                variant="outlined"
+                type="number"
+                InputProps={{
+                  endAdornment: (
+                    <Tooltip title="The number of seconds before timing out and resetting a connection.">
+                      <HelpIcon color="primary" className={classes.helpIcon} />
+                    </Tooltip>
+                  ),
+                  inputProps: { min: 0 }
+                }}
+                value={options.timeout}
+                onChange={e => onOptionChange('timeout', e)}
+                fullWidth
+              />
+            </Grid>
+            <Grid
+              item
+              md={12}
+              xs={12}
+            >
+              <Divider />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField
+                id="maxConnectionRequests"
+                label="Max Connection Requests"
+                variant="outlined"
+                type="number"
+                InputProps={{
+                  endAdornment: (
+                    <Tooltip title="The max number of requests to make per connection to the server.">
+                      <HelpIcon color="primary" className={classes.helpIcon} />
+                    </Tooltip>
+                  ),
+                  inputProps: { min: 0 }
+                }}
+                InputLabelProps={{
+                  style: { width: '80%' },
+                }}
+                value={options.maxConnectionRequests}
+                onChange={e => onOptionChange('maxConnectionRequests', e)}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField
+                id="maxOverallRequests"
+                label="Max Overall Requests"
+                variant="outlined"
+                padding="30px"
+                type="number"
+                InputProps={{
+                  endAdornment: (
+                    <Tooltip title="The max number of requests to make overall to the server.">
+                      <HelpIcon color="primary" className={classes.helpIcon} />
+                    </Tooltip>
+                  ),
+                  inputProps: { min: 0 }
+                }}
+                InputLabelProps={{
+                  style: { width: '80%' },
+                }}
+                value={options.maxOverallRequests}
+                onChange={e => onOptionChange('maxOverallRequests', e)}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField
+                id="connectionRate"
+                label="Connection Rate"
+                variant="outlined"
+                type="number"
+                InputProps={{
+                  endAdornment: (
+                    <Tooltip title="The max number of requests to make per second from an individual connection.">
+                      <HelpIcon color="primary" className={classes.helpIcon} />
+                    </Tooltip>
+                  ),
+                  inputProps: { min: 0 }
+                }}
+                InputLabelProps={{
+                  style: { width: '80%' },
+                }}
+                value={options.connectionRate}
+                onChange={e => onOptionChange('connectionRate', e)}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField
+                id="overallRate"
+                label="Overall Rate"
+                variant="outlined"
+                type="number"
+                InputProps={{
+                  endAdornment: (
+                    <Tooltip title="The max number of requests to make per second from all connections. Connection rate will take precedence if both are set.">
+                      <HelpIcon color="primary" className={classes.helpIcon} />
+                    </Tooltip>
+                  ),
+                  inputProps: { min: 0 }
+                }}
+                InputLabelProps={{
+                  style: { width: '80%' },
+                }}
+                value={options.overallRate}
+                onChange={e => onOptionChange('overallRate', e)}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField
+                id="reconnectRate"
+                label="Reconnect Rate"
+                variant="outlined"
+                type="number"
+                InputProps={{
+                  endAdornment: (
+                    <Tooltip title="Some number of requests to make before resetting a connections connection to the server.">
+                      <HelpIcon color="primary" className={classes.helpIcon} />
+                    </Tooltip>
+                  ),
+                  inputProps: { min: 0 }
+                }}
+                InputLabelProps={{
+                  style: { width: '80%' },
+                }}
+                value={options.reconnectRate}
+                onChange={e => onOptionChange('reconnectRate', e)}
+                fullWidth
+              />
+            </Grid>
+            <Grid
+              item
+              md={12}
+              xs={12}
+            >
+              <Divider />
             </Grid>
           </Grid>
         </form>

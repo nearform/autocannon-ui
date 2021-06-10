@@ -8,6 +8,12 @@ function execute(options, cb) {
     connections,
     pipelining,
     duration,
+    timeout,
+    maxConnectionRequests,
+    maxOverallRequests,
+    connectionRate,
+    overallRate,
+    reconnectRate,
     renderProgressBar,
     renderLatencyTable,
     renderResultsTable
@@ -18,7 +24,13 @@ function execute(options, cb) {
       url,
       connections,
       pipelining,
-      duration
+      duration,
+      timeout,
+      maxConnectionRequests,
+      maxOverallRequests,
+      connectionRate,
+      overallRate,
+      reconnectRate
     },
     cb
   )

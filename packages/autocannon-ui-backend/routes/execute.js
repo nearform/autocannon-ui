@@ -11,6 +11,13 @@ const schema = {
     .prop('duration', S.anyOf([S.number(), S.string()]).default(10))
     .prop('pipelining', S.integer().default(1))
     .prop('method', S.string().default('GET'))
+    .prop('timeout', S.integer().default(10))
+
+    .prop('maxConnectionRequests', S.integer())
+    .prop('maxOverallRequests', S.integer())
+    .prop('connectionRate', S.integer())
+    .prop('overallRate', S.integer())
+    .prop('reconnectRate', S.integer())
 }
 
 module.exports = async function (fastify) {
