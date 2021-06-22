@@ -14,6 +14,7 @@
   "scripts": {
     "dev": "lerna run dev --parallel",
     "lint": "lerna run lint --stream",
+    "desktop": "lerna run desktop --stream",
     "test": "lerna run test --stream",
     "test:qa": "lerna run test:qa --stream",
     "version:safe": "lerna version --no-git-tag-version --no-push",

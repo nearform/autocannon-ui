@@ -13,6 +13,7 @@ This monorepo contains packages and applications which provide a GUI for using a
 - [Packages](#packages)
   * [`autocannon-frontend`](#autocannon-frontend)
   * [`autocannon-backend`](#autocannon-backend)
+- [Running standalone application](#running-standalone-application)
 
 <!-- tocstop -->
 
@@ -47,3 +48,13 @@ A library of React components which provide the UI.
 ### `autocannon-backend`
 
 A standalone Fastify application.
+
+## Running standalone application
+
+The package can run as a standalone application via Electron wrapper that runs both frontend and backend on localhost.
+
+To run standalone application execute:
+
+```sh
+yarn desktop
+```
