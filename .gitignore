@@ -1,4 +1,5 @@
 .vscode/
+.idea/
 .nyc_output/
 .test_results/
 node_modules/
