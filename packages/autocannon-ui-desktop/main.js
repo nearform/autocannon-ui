@@ -21,8 +21,6 @@ async function startServer() {
   const fastify = Fastify()
   fastify.register(autocannonUiBackend)
 
-  require.resolve('autocannon-ui-frontend')
-
   const uiRoot = path.join(
     pkgDir.sync(require.resolve('autocannon-ui-frontend')),
     'dist'

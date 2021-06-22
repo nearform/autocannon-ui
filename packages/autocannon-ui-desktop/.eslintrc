@@ -1,10 +1,14 @@
 {
-  "extends": ["standard", "plugin:prettier/recommended"],
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "plugins": ["import"],
   "env": {
-    "node": true
+    "node": true,
+    "es6": true,
+    "browser": true
   },
   "parserOptions": {
-    "sourceType": "script"
+    "sourceType": "script",
+    "ecmaVersion": 2021
   },
   "rules": {
     "strict": ["error", "global"],
