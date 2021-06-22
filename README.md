@@ -11,8 +11,10 @@ This monorepo contains packages and applications which provide a GUI for using a
 - [Getting started](#getting-started)
 - [Development](#development)
 - [Packages](#packages)
-  * [`autocannon-frontend`](#autocannon-frontend)
-  * [`autocannon-backend`](#autocannon-backend)
+  * [`autocannon-ui-frontend`](#autocannon-ui-frontend)
+  * [`autocannon-ui-backend`](#autocannon-ui-backend)
+  * [`autocannon-ui-desktop`](#autocannon-ui-desktop)
+  * [`autocannon-ui-web`](#autocannon-ui-web)
 - [Running standalone application](#running-standalone-application)
 
 <!-- tocstop -->
@@ -41,20 +43,36 @@ This will run:
 
 ## Packages
 
-### `autocannon-frontend`
+### `autocannon-ui-frontend`
 
 A library of React components which provide the UI.
 
-### `autocannon-backend`
+### `autocannon-ui-backend`
 
 A standalone Fastify application.
 
+### `autocannon-ui-desktop`
+
+Electron wrapper for running both frontend and backend.
+
+### `autocannon-ui-web`
+
+Web wrapper for running both frontend and backend.
+
 ## Running standalone application
 
-The package can run as a standalone application via Electron wrapper that runs both frontend and backend on localhost.
+The application can be installed as a global npm package and run as a standalone tool from command line.
 
-To run standalone application execute:
+To install it and run:
 
 ```sh
-yarn desktop
+npm install -g autocannon-ui-desktop
+autocannon-ui-desktop
+```
+
+or for running web application:
+
+```sh
+npm install -g autocannon-ui-web
+autocannon-ui-web
 ```

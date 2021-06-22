@@ -1,12 +1,16 @@
 {
   "name": "autocannon-ui-desktop",
   "version": "1.0.0",
+  "description": "Desktop app for autocannon-ui tool",
   "author": {
     "name": "Grzegorz Ilach",
     "email": "grzegorz.ilach@nearform.com"
   },
   "repository": "nearform/autocannon-ui",
   "main": "main.js",
+  "bin": {
+    "autocannon-ui-desktop": "cli.js"
+  },
   "scripts": {
     "start": "electron .",
     "desktop": "npm run start",
