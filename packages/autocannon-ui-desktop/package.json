@@ -1,6 +1,6 @@
 {
   "name": "autocannon-ui-desktop",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Desktop app for autocannon-ui tool",
   "author": {
     "name": "Grzegorz Ilach",
@@ -19,8 +19,8 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
-    "autocannon-ui-backend": "^1.0.0",
-    "autocannon-ui-frontend": "^1.0.0",
+    "autocannon-ui-backend": "^1.1.0",
+    "autocannon-ui-frontend": "^1.1.0",
     "electron-store": "^8.0.0",
     "electron-util": "^0.16.0",
     "fastify": "^3.8.0",
