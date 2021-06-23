@@ -23,7 +23,7 @@
     "fastify-plugin": "^3.0.0",
     "fastify-static": "^4.0.0",
     "pino": "^6.5.0",
-    "pino-pretty": "^4.1.0",
+    "pino-pretty": "^5.0.2",
     "pkg-dir": "^5.0.0"
   },
   "devDependencies": {
