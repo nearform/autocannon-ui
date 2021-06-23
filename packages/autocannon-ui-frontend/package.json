@@ -8,8 +8,13 @@
     "lint": "eslint .",
     "precommit": "lint-staged",
     "_test:qa": "mocha --timeout=30000 test/autocannon.test.js",
-    "test:qa": "wait-on tcp:3000 && yarn _test:qa"
+    "test:qa": "wait-on tcp:3000 && yarn _test:qa",
+    "prepare": "npm run build"
   },
+  "files": [
+    "dist",
+    "index.js"
+  ],
   "dependencies": {
     "@fontsource/roboto": "^4.3.0",
     "@material-ui/core": "^4.11.4",

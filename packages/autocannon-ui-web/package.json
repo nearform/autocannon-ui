@@ -1,0 +1,42 @@
+{
+  "name": "autocannon-ui-web",
+  "version": "1.0.0",
+  "description": "Web application for autocannon-ui tool",
+  "author": {
+    "name": "Grzegorz Ilach",
+    "email": "grzegorz.ilach@nearform.com"
+  },
+  "repository": "nearform/autocannon-ui",
+  "main": "main.js",
+  "bin": {
+    "autocannon-ui-web": "cli.js"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+    "autocannon-ui-backend": "^1.0.0",
+    "autocannon-ui-frontend": "^1.0.0",
+    "pino": "^6.5.0",
+    "pino-pretty": "^4.1.0",
+    "fastify": "^3.8.0",
+    "fastify-plugin": "^3.0.0",
+    "fastify-static": "^4.0.0",
+    "pkg-dir": "^5.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.2.1"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix"
+    ]
+  }
+}
