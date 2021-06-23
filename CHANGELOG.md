@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/nearform/autocannon-ui/compare/v1.1.0...v1.1.1) (2021-06-23)
+
+
+### Bug Fixes
+
+* mark electron as a dependency of desktop app ([#69](https://github.com/nearform/autocannon-ui/issues/69)) ([5dd22c6](https://github.com/nearform/autocannon-ui/commit/5dd22c63eacdbecdd02a9b5fe3171f3a9d8852d5))
+
+
+
+
+
 # [1.1.0](https://github.com/nearform/autocannon-ui/compare/v1.0.0...v1.1.0) (2021-06-23)
 
 
