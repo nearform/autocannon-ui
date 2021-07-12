@@ -1857,16 +1857,6 @@ ajv@^6.10.0, ajv@^6.11.0, ajv@^6.12.2, ajv@^6.12.3, ajv@^6.12.4, ajv@^6.12.6:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-ajv@^7.1.1:
-  version "7.2.4"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-7.2.4.tgz#8e239d4d56cf884bccca8cca362f508446dc160f"
-  integrity sha512-nBeQgg/ZZA3u3SYxyaDvpvDtgZ/EZPF547ARgZBrG9Bhu1vKDwAIjtIf+sDtJUKa2zOcEbmRLBRSyMraS/Oy1A==
-  dependencies:
-    fast-deep-equal "^3.1.1"
-    json-schema-traverse "^1.0.0"
-    require-from-string "^2.0.2"
-    uri-js "^4.2.2"
-
 ajv@^8.0.0, ajv@^8.0.1, ajv@^8.1.0:
   version "8.6.0"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.6.0.tgz#60cc45d9c46a477d80d92c48076d972c342e5720"
@@ -3816,11 +3806,6 @@ dotenv@^10.0.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-10.0.0.tgz#3d4227b8fb95f81096cdd2b66653fb2c7085ba81"
   integrity sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
 
-dotenv@^8.2.0:
-  version "8.6.0"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.6.0.tgz#061af664d19f7f4d8fc6e4ff9b584ce237adcb8b"
-  integrity sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==
-
 drawille-blessed-contrib@>=0.0.1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/drawille-blessed-contrib/-/drawille-blessed-contrib-1.0.0.tgz#15c27934f57a0056ad13596e1561637bc941f0b7"
@@ -3957,12 +3942,12 @@ env-paths@^2.2.0, env-paths@^2.2.1:
   integrity sha512-+h1lkLKhZMTYjog1VEpJNG7NZJWcuc2DDk/qsqSTRRCOXiLjeQ1d1/udrUGhqMxUgAlwKNZ0cf2uqan5GLuS2A==
 
 env-schema@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/env-schema/-/env-schema-3.0.1.tgz#6bd70510931ef75f8c534b25f343949d28cbdd65"
-  integrity sha512-NvlNGY4VdtqiC+bFVLuA7EKDTekDwxRFq+0+gTw7gSdWDUvjZZ3Jq2aZibBz4iHFu2XOm13SGicyPzYFlbsdTg==
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/env-schema/-/env-schema-3.1.0.tgz#371b1162f9e1ce5c68d44f5498c8ca27c8b0edde"
+  integrity sha512-xwdKxT6JZLvUIcYFiueoOOrS47JlXV7rfrYC4L8MijA15qhGS/A/JXbpPvgc6VH5Fwivq3fQU48h8iz9KIyttw==
   dependencies:
-    ajv "^7.1.1"
-    dotenv "^8.2.0"
+    ajv "^8.0.0"
+    dotenv "^10.0.0"
     dotenv-expand "^5.1.0"
 
 envinfo@^7.3.1:
