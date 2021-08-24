@@ -2912,10 +2912,10 @@ chalk@^3.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.1.tgz#c80b3fab28bf6371e6863325eee67e618b77e6ad"
-  integrity sha512-diHzdDKxcU+bAsUboHLPEDQiw0qEe0qd7SYUn3HgcFlWgbDcfLGswOHYeGrHKzG9z6UYf01d9VFMfZxPM1xZSg==
+chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.1, chalk@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
+  integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
@@ -4683,10 +4683,15 @@ file-type@3.9.0:
   resolved "https://registry.yarnpkg.com/file-type/-/file-type-3.9.0.tgz#257a078384d1db8087bc449d107d52a52672b9e9"
   integrity sha1-JXoHg4TR24CHvESdEH1SpSZyuek=
 
-filesize@6.3.0, filesize@^6.3.0:
+filesize@6.3.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/filesize/-/filesize-6.3.0.tgz#dff53cfb3f104c9e422f346d53be8dbcc971bf11"
   integrity sha512-ytx0ruGpDHKWVoiui6+BY/QMNngtDQ/pJaFwfBpQif0J63+E8DLdFyqS3NkKQn7vIruUEpoGD9JUJSg7Kp+I0g==
+
+filesize@^6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/filesize/-/filesize-6.4.0.tgz#914f50471dd66fdca3cefe628bd0cde4ef769bcd"
+  integrity sha512-mjFIpOHC4jbfcTfoh4rkWpI31mF7viw9ikj/JyLoKzqlwG/YsefKfvYlYhdYdg/9mtK2z1AzgN/0LvVQ3zdlSQ==
 
 fill-range@^2.1.0:
   version "2.2.4"
@@ -7521,14 +7526,14 @@ new-github-issue-url@^0.2.1:
   integrity sha512-md4cGoxuT4T4d/HDOXbrUHkTKrp/vp+m3aOA7XXVYwNsUNMK49g3SQicTSeV5GIz/5QVGAeYRAOlyp9OvlgsYA==
 
 newman-reporter-htmlextra@^1.20.4:
-  version "1.21.0"
-  resolved "https://registry.yarnpkg.com/newman-reporter-htmlextra/-/newman-reporter-htmlextra-1.21.0.tgz#1e6c0425f3d18d8098f56e5f74e8d031c46b87f6"
-  integrity sha512-g2ES+tku/ihtQ9mIxiUN6w6y+ZRKzRqzO4v9N7VrqC1NJ5IDU1WEJQPwZWRrRAJJ+8YVoKgonwloi2EzAf8AeA==
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/newman-reporter-htmlextra/-/newman-reporter-htmlextra-1.22.0.tgz#b906187c29f30d573f41fcb4e874dadca7548548"
+  integrity sha512-Nnot/yp/SSpE8pgiBDbLbyDa+1N4ZQoMhO6gtKptEnvSuDMsSANKAuGtEMxqr0Gb+VxMCgR4w6MIqTh0ElNmvw==
   dependencies:
-    chalk "^4.1.1"
+    chalk "^4.1.2"
     cli-progress "^3.8.2"
     commander "^6.2.1"
-    filesize "^6.3.0"
+    filesize "^6.4.0"
     handlebars "^4.7.6"
     handlebars-helpers "^0.10.0"
     lodash "^4.17.20"
