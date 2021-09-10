@@ -3980,9 +3980,9 @@ env-paths@^2.2.0, env-paths@^2.2.1:
   integrity sha512-+h1lkLKhZMTYjog1VEpJNG7NZJWcuc2DDk/qsqSTRRCOXiLjeQ1d1/udrUGhqMxUgAlwKNZ0cf2uqan5GLuS2A==
 
 env-schema@^3.0.1:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/env-schema/-/env-schema-3.3.0.tgz#6392da55c38c1cb1da2f2559aa1cf35014830b28"
-  integrity sha512-jdcW5/h/U4IPVyvVQEgySO5VX4/0eaXEB6ieqvL3WqTgEJkh85p4j9GqjGizikRqTPEzH5+tvm24CsPIEH+yjw==
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/env-schema/-/env-schema-3.4.0.tgz#21d75be4d5cd7aa21603ac5f2d42aa2dea883d8c"
+  integrity sha512-6YN4STYKIRv5YisvjliQAwKoqPaL4S+jzX08G3BFSNc6y0MHWLy89BUaGy708oY3m2teEQJLRAAaXyJlUG4YRQ==
   dependencies:
     ajv "^8.0.0"
     dotenv "^10.0.0"
