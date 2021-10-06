@@ -4796,9 +4796,9 @@ fastify-plugin@^3.0.0:
   integrity sha512-ZdCvKEEd92DNLps5n0v231Bha8bkz1DjnPP/aEz37rz/q42Z5JVLmgnqR4DYuNn3NXAO3IDCPyRvgvxtJ4Ym4w==
 
 fastify-static@^4.0.0:
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/fastify-static/-/fastify-static-4.2.3.tgz#dc1876f3f876bbc78afd68ef8edae08752ed3e28"
-  integrity sha512-uFRgwYXZwLKyaMrByf10efO+HTjAPqyQOlUthoGljQKGCfbwUeTeE7EHadsDWeN7NMeqBE617RamVh9uqatuUw==
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/fastify-static/-/fastify-static-4.3.0.tgz#09a10a05c006b304af23f4be4979a43dc6f242aa"
+  integrity sha512-x/uTERPey7P/q4vseE8lsQJ2XTJeaX3jMVnZ+KBWOUXljHblTEC4l2d1L45Gkk5QfQ1X6f0RdzgmblKJqqOZ6Q==
   dependencies:
     content-disposition "^0.5.3"
     encoding-negotiator "^2.0.1"
