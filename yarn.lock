@@ -8746,9 +8746,9 @@ pkg-dir@^3.0.0:
     find-up "^3.0.0"
 
 pkg-dir@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-6.0.0.tgz#f78318fe7bd9f1b2915402d6b9e0b90ab45daa8d"
-  integrity sha512-x5JKouPc1VcyhD6MI5OvxjQQ2UhKVFzs6tg0wWnEszRTLdoZwh3f8aVxogsG5HXJ9eloRUzmxSdxVtGHYTyW5A==
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-6.0.1.tgz#8ec964cecaef98a2bdb9c164733f90a5bcd2352d"
+  integrity sha512-C9R+PTCKGA32HG0n5I4JMYkdLL58ZpayVuncQHQrGeKa8o26A4o2x0u6BKekHG+Au0jv5ZW7Xfq1Cj6lm9Ag4w==
   dependencies:
     find-up "^6.1.0"
 
