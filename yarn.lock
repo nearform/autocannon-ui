@@ -2457,14 +2457,13 @@ auto-bind@4.0.0, auto-bind@^4.0.0:
   integrity sha512-Hdw8qdNiqdJ8LqT0iK0sVzkFbzg6fhnQqqfWhBDxcHZvU75+B+ayzTy8x+k5Ix0Y92XOhOUlx74ps+bA6BeYMQ==
 
 autocannon@^7.2.0:
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/autocannon/-/autocannon-7.4.0.tgz#7e3ea188501d60162b7a0167c1d9bf90db870c2e"
-  integrity sha512-X0g/nkJ7oHkfn/B+LUzz9jPjG4nD48tPnu2E24m7LA7p8+Mvd/Clrb+FnHmPgI7pszXPRtzUYWz6QrSyMiEY6w==
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/autocannon/-/autocannon-7.5.0.tgz#4d625da45b3632d705a83d3a735ae03cdbe7e911"
+  integrity sha512-jl5UAnOqRQaczv2zQXBjYupXJgHBLEd5T7L1eYHXiu6XR8ZoxA082WDpj5pccMFg06F1y6cXcbP8roOibZOJhw==
   dependencies:
     chalk "^4.1.0"
     char-spinner "^1.0.1"
     cli-table3 "^0.6.0"
-    clone "^2.1.2"
     color-support "^1.1.1"
     cross-argv "^1.0.0"
     form-data "^4.0.0"
@@ -2473,6 +2472,7 @@ autocannon@^7.2.0:
     hdr-histogram-percentiles-obj "^3.0.0"
     http-parser-js "^0.5.2"
     hyperid "^2.0.3"
+    lodash.clonedeep "^4.5.0"
     manage-path "^2.0.0"
     on-net-listen "^1.1.1"
     pretty-bytes "^5.4.1"
@@ -3121,11 +3121,6 @@ clone@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
   integrity sha1-2jCcwmPfFZlMaIypAheco8fNfH4=
-
-clone@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
-  integrity sha1-G39Ln1kfHo+DZwQBYANFoCiHQ18=
 
 close-with-grace@^1.0.0:
   version "1.1.0"
