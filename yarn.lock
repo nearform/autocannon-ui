@@ -1898,17 +1898,7 @@ ajv@^6.10.0, ajv@^6.11.0, ajv@^6.12.2, ajv@^6.12.3, ajv@^6.12.4, ajv@^6.12.6:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-ajv@^8.0.0, ajv@^8.0.1:
-  version "8.6.0"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.6.0.tgz#60cc45d9c46a477d80d92c48076d972c342e5720"
-  integrity sha512-cnUG4NSBiM4YFBxgZIj/In3/6KX+rQ2l2YPRVcvAMQGWEPKuXoPIhxzwqh31jA3IPbI4qEOp/5ILI4ynioXsGQ==
-  dependencies:
-    fast-deep-equal "^3.1.1"
-    json-schema-traverse "^1.0.0"
-    require-from-string "^2.0.2"
-    uri-js "^4.2.2"
-
-ajv@^8.6.3:
+ajv@^8.0.0, ajv@^8.0.1, ajv@^8.6.3:
   version "8.6.3"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.6.3.tgz#11a66527761dc3e9a3845ea775d2d3c0414e8764"
   integrity sha512-SMJOdDP6LqTkD0Uq8qLi+gMwSt0imXLSV080qFVwJCpH9U6Mb+SUGHAXM0KNbcBPguytWyvFxcHgMLe2D2XSpw==
@@ -4047,9 +4037,9 @@ env-paths@^2.2.0, env-paths@^2.2.1:
   integrity sha512-+h1lkLKhZMTYjog1VEpJNG7NZJWcuc2DDk/qsqSTRRCOXiLjeQ1d1/udrUGhqMxUgAlwKNZ0cf2uqan5GLuS2A==
 
 env-schema@^3.0.1:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/env-schema/-/env-schema-3.4.0.tgz#21d75be4d5cd7aa21603ac5f2d42aa2dea883d8c"
-  integrity sha512-6YN4STYKIRv5YisvjliQAwKoqPaL4S+jzX08G3BFSNc6y0MHWLy89BUaGy708oY3m2teEQJLRAAaXyJlUG4YRQ==
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/env-schema/-/env-schema-3.5.0.tgz#595929ef7d47f8a501cf22a3a7126fc631e200bf"
+  integrity sha512-8zZl6PRD1icLv9JCjZjaJuDtvg3f+AyKitELURuaJ6opiplh+CE2m15nmMr8VbYpIVOR8q2elg5ZNiMplauDag==
   dependencies:
     ajv "^8.0.0"
     dotenv "^10.0.0"
