@@ -21,7 +21,7 @@
   "dependencies": {
     "autocannon-ui-backend": "^1.1.0",
     "autocannon-ui-frontend": "^1.1.0",
-    "electron": "^15.0.0",
+    "electron": "^16.0.0",
     "electron-store": "^8.0.0",
     "electron-util": "^0.17.0",
     "fastify": "^3.8.0",
