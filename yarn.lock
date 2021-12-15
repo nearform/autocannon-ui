@@ -4376,9 +4376,9 @@ eslint-plugin-import@^2.22.1:
     tsconfig-paths "^3.11.0"
 
 eslint-plugin-mocha@^10.0.1:
-  version "10.0.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-mocha/-/eslint-plugin-mocha-10.0.2.tgz#3752e1b9cb433cf716df55d2283cbb6d317f5cc9"
-  integrity sha512-xVHV9TbFvtLeQtbBNSRRpcqOdD22f5BBxO4vuylM2OkKza/SEEX2hZz7vDYWznnkuDis/2kVzVsmrcCfvyVAJw==
+  version "10.0.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-mocha/-/eslint-plugin-mocha-10.0.3.tgz#a4ecf2351828e852156316b7e936e7336fc0ff5e"
+  integrity sha512-9mM7PZGxfejpjey+MrG0Cu3Lc8MyA5E2s7eUCdHXgS4SY/H9zLuwa7wVAjnEaoDjbBilA+0bPEB+iMO7lBUPcg==
   dependencies:
     eslint-utils "^3.0.0"
     ramda "^0.27.1"
