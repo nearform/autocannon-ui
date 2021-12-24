@@ -2471,15 +2471,15 @@ auto-bind@4.0.0, auto-bind@^4.0.0:
   integrity sha512-Hdw8qdNiqdJ8LqT0iK0sVzkFbzg6fhnQqqfWhBDxcHZvU75+B+ayzTy8x+k5Ix0Y92XOhOUlx74ps+bA6BeYMQ==
 
 autocannon@^7.2.0:
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/autocannon/-/autocannon-7.5.0.tgz#4d625da45b3632d705a83d3a735ae03cdbe7e911"
-  integrity sha512-jl5UAnOqRQaczv2zQXBjYupXJgHBLEd5T7L1eYHXiu6XR8ZoxA082WDpj5pccMFg06F1y6cXcbP8roOibZOJhw==
+  version "7.5.1"
+  resolved "https://registry.yarnpkg.com/autocannon/-/autocannon-7.5.1.tgz#0b5c90f3a0ac35465a5535b7a27a94a0ab2c0adc"
+  integrity sha512-d66F31riFsclURyxH+1N4SSBS6EmpjUXJ6W0Xa1BV/Dwi4xjAvkPgyOcAfhf4kNHIgVXCZtdu9Sy97SpKDBgIg==
   dependencies:
     chalk "^4.1.0"
     char-spinner "^1.0.1"
     cli-table3 "^0.6.0"
     color-support "^1.1.1"
-    cross-argv "^1.0.0"
+    cross-argv "^2.0.0"
     form-data "^4.0.0"
     has-async-hooks "^1.0.0"
     hdr-histogram-js "^2.0.1"
@@ -3557,10 +3557,10 @@ create-require@^1.1.0:
   resolved "https://registry.yarnpkg.com/create-require/-/create-require-1.1.1.tgz#c1d7e8f1e5f6cfc9ff65f9cd352d37348756c333"
   integrity sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==
 
-cross-argv@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/cross-argv/-/cross-argv-1.0.0.tgz#e7221e9ff73092a80496c699c8c45efb20f6486c"
-  integrity sha512-uAVe/bgNHlPdP1VE4Sk08u9pAJ7o1x/tVQtX77T5zlhYhuwOWtVkPBEtHdvF5cq48VzeCG5i1zN4dQc8pwLYrw==
+cross-argv@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/cross-argv/-/cross-argv-2.0.0.tgz#2e7907ba3246f82c967623a3e8525925bbd6c0ad"
+  integrity sha512-YIaY9TR5Nxeb8SMdtrU8asWVM4jqJDNDYlKV21LxtYcfNJhp1kEsgSa6qXwXgzN0WQWGODps0+TlGp2xQSHwOg==
 
 cross-spawn@^6.0.0:
   version "6.0.5"
