@@ -3969,6 +3969,11 @@ dotenv@^10.0.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-10.0.0.tgz#3d4227b8fb95f81096cdd2b66653fb2c7085ba81"
   integrity sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
 
+dotenv@^11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-11.0.0.tgz#ee37feddf8ada6d348a79e198312d4a8abfd1c1e"
+  integrity sha512-Fp/b504Y5W+e+FpCxTFMUZ7ZEQkQYF0rx+KZtmwixJxGQbLHrhCwo3FjZgNC8vIfrSi29PABNbMoCGD9YoiXbQ==
+
 drawille-blessed-contrib@>=0.0.1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/drawille-blessed-contrib/-/drawille-blessed-contrib-1.0.0.tgz#15c27934f57a0056ad13596e1561637bc941f0b7"
@@ -4120,12 +4125,12 @@ env-paths@^2.2.0, env-paths@^2.2.1:
   integrity sha512-+h1lkLKhZMTYjog1VEpJNG7NZJWcuc2DDk/qsqSTRRCOXiLjeQ1d1/udrUGhqMxUgAlwKNZ0cf2uqan5GLuS2A==
 
 env-schema@^3.0.1:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/env-schema/-/env-schema-3.5.1.tgz#0d9ca21000b32f752754ebad5b2d41f02998a125"
-  integrity sha512-LMqChKRSuEHPdlXVvrxL5JNPUqzTx9dzbHWDqx6f0O1YT9KkaC/mVKSkpEeXCUQ2m+6OzlfCwqU0m2VXANb2wg==
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/env-schema/-/env-schema-3.5.2.tgz#c7aec9bef4256d1fd621f4ad275c6bdc472003be"
+  integrity sha512-mSCYvxQLrJ3Z641CpCSvU2UIFPjDNqZ9yUfqWdx2FMXfccWtYrJEa+pR9mc3YyINvmnlXdbmD5fBx1NSlipMfw==
   dependencies:
     ajv "^8.0.0"
-    dotenv "^10.0.0"
+    dotenv "^11.0.0"
     dotenv-expand "^5.1.0"
 
 envinfo@^7.3.1:
