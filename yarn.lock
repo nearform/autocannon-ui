@@ -2635,18 +2635,18 @@ bl@^4.0.3:
     inherits "^2.0.4"
     readable-stream "^3.4.0"
 
-blessed-contrib@^4.8.18:
-  version "4.8.21"
-  resolved "https://registry.yarnpkg.com/blessed-contrib/-/blessed-contrib-4.8.21.tgz#47c3df41dd5bd35e09dada830d41c38ff3d1cc97"
-  integrity sha512-zdQMO3UyfhdG0S+Zqn7YexI6BHlnO26qxBKc9jzgyZdIoq7nELiGM/V89CvrTPblZGQr3eMUqCy7pxlKm3vCYA==
+blessed-contrib@^4.10.1:
+  version "4.10.1"
+  resolved "https://registry.yarnpkg.com/blessed-contrib/-/blessed-contrib-4.10.1.tgz#e2d426cf59f1378ed1b9618f1eb6a44768c27a64"
+  integrity sha512-S3jE7riCbWnAK8OT+ta4Z8RX/X6nfISxzn0SDIMFYuY90qUwqx7w7e9fIsc2m2ODwma7dFcXNwGSjyayfKd1DQ==
   dependencies:
     ansi-term ">=0.0.2"
     chalk "^1.1.0"
     drawille-canvas-blessed-contrib ">=0.1.3"
-    lodash "~>=4.17.11"
+    lodash "~>=4.17.21"
     map-canvas ">=0.1.5"
-    marked "^0.7.0"
-    marked-terminal "^4.0.0"
+    marked "^2.1.1"
+    marked-terminal "^4.1.1"
     memory-streams "^0.1.0"
     memorystream "^0.3.1"
     picture-tuber "^1.0.1"
@@ -3034,10 +3034,25 @@ check-error@^1.0.2:
   resolved "https://registry.yarnpkg.com/check-error/-/check-error-1.0.2.tgz#574d312edd88bb5dd8912e9286dd6c0aed4aac82"
   integrity sha1-V00xLt2Iu13YkS6Sht1sCu1KrII=
 
-chokidar@3.5.2, chokidar@^3.3.0, chokidar@^3.3.1:
+chokidar@3.5.2:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.2.tgz#dba3976fcadb016f66fd365021d91600d01c1e75"
   integrity sha512-ekGhOnNVPgT77r4K/U3GDhu+FQ2S8TnK/s2KbIGXi0SZWuwkZ2QNyfWdZW+TVfn84DpEP7rLeCt2UI6bJ8GwbQ==
+  dependencies:
+    anymatch "~3.1.2"
+    braces "~3.0.2"
+    glob-parent "~5.1.2"
+    is-binary-path "~2.1.0"
+    is-glob "~4.0.1"
+    normalize-path "~3.0.0"
+    readdirp "~3.6.0"
+  optionalDependencies:
+    fsevents "~2.3.2"
+
+chokidar@^3.3.0, chokidar@^3.5.2:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
+  integrity sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==
   dependencies:
     anymatch "~3.1.2"
     braces "~3.0.2"
@@ -3109,13 +3124,6 @@ cli-table3@0.6.1, cli-table3@^0.6.0:
   optionalDependencies:
     colors "1.4.0"
 
-cli-table@^0.3.1:
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/cli-table/-/cli-table-0.3.6.tgz#e9d6aa859c7fe636981fd3787378c2a20bce92fc"
-  integrity sha512-ZkNZbnZjKERTY5NwC2SeMeLeifSPq/pubeRoTpdr3WchLlnZg6hEgvHkK5zL7KNFdd9PmHN8lxrENUwI3cE8vQ==
-  dependencies:
-    colors "1.0.3"
-
 cli-truncate@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/cli-truncate/-/cli-truncate-2.1.0.tgz#c39e28bf05edcde5be3b98992a22deed5a2b93c7"
@@ -3185,7 +3193,7 @@ clone@^1.0.2:
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
   integrity sha1-2jCcwmPfFZlMaIypAheco8fNfH4=
 
-close-with-grace@^1.0.0:
+close-with-grace@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/close-with-grace/-/close-with-grace-1.1.0.tgz#91a48cf2019b5ae6e67b0255a32abcfd9bbca233"
   integrity sha512-6cCp71Y5tKw1o9sGVBOa9OwY4vJ+YoLpFcWiTt9YCBhYlcQi0z68EiiN9mJ6/401Za6TZ5YOZg012IHHZt15lw==
@@ -3258,11 +3266,6 @@ colorette@^2.0.16, colorette@^2.0.7:
   version "2.0.16"
   resolved "https://registry.yarnpkg.com/colorette/-/colorette-2.0.16.tgz#713b9af84fdb000139f04546bd4a93f62a5085da"
   integrity sha512-hUewv7oMjCp+wkBv5Rm0v87eJhq4woh5rSR+42YSQJKecCqgIqNkZ6lAlQms/BwHPJA5NKMRlpxPRv0n8HQW6g==
-
-colors@1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/colors/-/colors-1.0.3.tgz#0433f44d809680fdeb60ed260f1b0c262e82a40b"
-  integrity sha1-BDP0TYCWgP3rYO0mDxsMJi6CpAs=
 
 colors@1.4.0:
   version "1.4.0"
@@ -3964,15 +3967,15 @@ dotenv-expand@^5.1.0:
   resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-5.1.0.tgz#3fbaf020bfd794884072ea26b1e9791d45a629f0"
   integrity sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==
 
-dotenv@^10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-10.0.0.tgz#3d4227b8fb95f81096cdd2b66653fb2c7085ba81"
-  integrity sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
-
 dotenv@^11.0.0:
   version "11.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-11.0.0.tgz#ee37feddf8ada6d348a79e198312d4a8abfd1c1e"
   integrity sha512-Fp/b504Y5W+e+FpCxTFMUZ7ZEQkQYF0rx+KZtmwixJxGQbLHrhCwo3FjZgNC8vIfrSi29PABNbMoCGD9YoiXbQ==
+
+dotenv@^14.2.0:
+  version "14.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-14.2.0.tgz#7e77fd5dd6cff5942c4496e1acf2d0f37a9e67aa"
+  integrity sha512-05POuPJyPpO6jqzTNweQFfAyMSD4qa4lvsMOWyTRTdpHKy6nnnN+IYWaXF+lHivhBH/ufDKlR4IWCAN3oPnHuw==
 
 drawille-blessed-contrib@>=0.0.1:
   version "1.0.0"
@@ -4822,28 +4825,28 @@ fast-safe-stringify@^2.0.7, fast-safe-stringify@^2.0.8:
   integrity sha512-lXatBjf3WPjmWD6DpIZxkeSsCOwqI0maYMpgDlx8g4U2qi4lbjA9oH/HD2a87G+KfsUmo5WbJFmqBZlPxtptag==
 
 fastify-cli@^2.5.1:
-  version "2.14.0"
-  resolved "https://registry.yarnpkg.com/fastify-cli/-/fastify-cli-2.14.0.tgz#dd826d68e0e6208d112226af3d1cf7dc76d3a5a6"
-  integrity sha512-ahd+b4N60XAe7wklMR8gx2gF/SXPVioVrGT2K9Q6l/kUZdmdJu6Ps86qfgu44ZWYf7+02/pdXrXp/an5HDnXdg==
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/fastify-cli/-/fastify-cli-2.15.0.tgz#69b6cce2e6b68aef0e7cde3ba2de5da8cb7ddc67"
+  integrity sha512-o5f1rEY8WFvaVEV1n7fNQw02VIulBuMKRUJohwSj86zhaEaQheNnpJ9QnAi5QQ5MDJoh2oFeo9ZyAI1aaVN42w==
   dependencies:
     blessed "^0.1.81"
-    blessed-contrib "^4.8.18"
-    chalk "^4.1.0"
-    chokidar "^3.3.1"
-    close-with-grace "^1.0.0"
+    blessed-contrib "^4.10.1"
+    chalk "^4.1.2"
+    chokidar "^3.5.2"
+    close-with-grace "^1.1.0"
     commist "^2.0.0"
-    dotenv "^10.0.0"
+    dotenv "^14.2.0"
     fastify "^3.0.0"
     generify "^4.0.0"
     help-me "^3.0.0"
     is-docker "^2.0.0"
-    make-promises-safe "^5.0.0"
-    pino-colada "^2.0.1"
+    make-promises-safe "^5.1.0"
+    pino-colada "^2.2.2"
     pkg-up "^3.1.0"
     pump "^3.0.0"
     resolve-from "^5.0.0"
-    semver "^7.3.2"
-    split2 "^4.0.0"
+    semver "^7.3.5"
+    split2 "^4.1.0"
     yargs-parser "^20.0.0"
 
 fastify-error@^0.3.0:
@@ -7213,7 +7216,7 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@4.17.21, lodash@^4.17.10, lodash@^4.17.12, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.2.1, lodash@~>=4.17.11:
+lodash@4.17.21, lodash@^4.17.10, lodash@^4.17.12, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.2.1, lodash@~>=4.17.21:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -7367,7 +7370,7 @@ make-fetch-happen@^5.0.0:
     socks-proxy-agent "^4.0.0"
     ssri "^6.0.0"
 
-make-promises-safe@^5.0.0:
+make-promises-safe@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/make-promises-safe/-/make-promises-safe-5.1.0.tgz#dd9d311f555bcaa144f12e225b3d37785f0aa8f2"
   integrity sha512-AfdZ49rtyhQR/6cqVKGoH7y4ql7XkS5HJI1lZm0/5N6CQosy1eYbBJ/qbhkKHzo17UH7M918Bysf6XB9f3kS1g==
@@ -7442,22 +7445,22 @@ markdown-toc@^1.2.0:
     repeat-string "^1.6.1"
     strip-color "^0.1.0"
 
-marked-terminal@^4.0.0:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/marked-terminal/-/marked-terminal-4.1.1.tgz#34a6f063cd6cfe26bffaf5bac3724e24242168a9"
-  integrity sha512-t7Mdf6T3PvOEyN01c3tYxDzhyKZ8xnkp8Rs6Fohno63L/0pFTJ5Qtwto2AQVuDtbQiWzD+4E5AAu1Z2iLc8miQ==
+marked-terminal@^4.1.1:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/marked-terminal/-/marked-terminal-4.2.0.tgz#593734a53cf9a4bb01ea961aa579bd21889ce502"
+  integrity sha512-DQfNRV9svZf0Dm9Cf5x5xaVJ1+XjxQW6XjFJ5HFkVyK52SDpj5PCBzS5X5r2w9nHr3mlB0T5201UMLue9fmhUw==
   dependencies:
     ansi-escapes "^4.3.1"
     cardinal "^2.1.1"
     chalk "^4.1.0"
-    cli-table "^0.3.1"
+    cli-table3 "^0.6.0"
     node-emoji "^1.10.0"
     supports-hyperlinks "^2.1.0"
 
-marked@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-0.7.0.tgz#b64201f051d271b1edc10a04d1ae9b74bb8e5c0e"
-  integrity sha512-c+yYdCZJQrsRjTPhUx7VKkApw9bwDkNbHUKo1ovgcfDjb2kc8rLuRbIFyXL5WOEUwzSSKo3IXpph2K6DqB/KZg==
+marked@^2.1.1:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-2.1.3.tgz#bd017cef6431724fd4b27e0657f5ceb14bff3753"
+  integrity sha512-/Q+7MGzaETqifOMWYEA7HVMaZb4XbcRfaOzcSsHZEith83KGlvaSG33u0SKu89Mj5h+T8V2hM+8O45Qc5XTgwA==
 
 matcher@^3.0.0:
   version "3.0.0"
@@ -8518,20 +8521,6 @@ package-hash@^4.0.0:
     lodash.flattendeep "^4.4.0"
     release-zalgo "^1.0.0"
 
-pad-left@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/pad-left/-/pad-left-2.1.0.tgz#16e6a3b2d44a8e138cb0838cc7cb403a4fc9e994"
-  integrity sha1-FuajstRKjhOMsIOMx8tAOk/J6ZQ=
-  dependencies:
-    repeat-string "^1.5.4"
-
-pad-right@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/pad-right/-/pad-right-0.2.2.tgz#6fbc924045d244f2a2a244503060d3bfc6009774"
-  integrity sha1-b7ySQEXSRPKiokRQMGDTv8YAl3Q=
-  dependencies:
-    repeat-string "^1.5.2"
-
 pako@^1.0.3:
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.11.tgz#6c9599d340d54dfd3946380252a35705a6b992bf"
@@ -8758,15 +8747,13 @@ pino-abstract-transport@^0.5.0, pino-abstract-transport@v0.5.0:
     duplexify "^4.1.2"
     split2 "^4.0.0"
 
-pino-colada@^2.0.1:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/pino-colada/-/pino-colada-2.1.0.tgz#f82844d47ffae3858b3b07780bd3ad35bed20f51"
-  integrity sha512-OmYNALP/LDnyQbFya8Pc1DHT7XW3Wh/CpMDHGWoDiRGcSn4tTM/PQUBqSILSNPlUcWFvh9AxRpdHZln5kQSNhw==
+pino-colada@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/pino-colada/-/pino-colada-2.2.2.tgz#d52a9a20ea4a2916d54a6ec97100ae7898885e4c"
+  integrity sha512-tzZl6j4D2v9WSQ4vEa7s8j15v16U6+z6M0fAWJOu5gBKxpy+XnOAgFBzeZGkxm6W3AQ04WvdSpqVLnDBdJlvOQ==
   dependencies:
     chalk "^3.0.0"
     fast-json-parse "^1.0.2"
-    pad-left "^2.1.0"
-    pad-right "^0.2.2"
     prettier-bytes "^1.0.3"
     pretty-ms "^5.0.0"
     split2 "^3.0.0"
@@ -9516,7 +9503,7 @@ repeat-element@^1.1.2:
   resolved "https://registry.yarnpkg.com/repeat-element/-/repeat-element-1.1.4.tgz#be681520847ab58c7568ac75fbfad28ed42d39e9"
   integrity sha512-LFiNfRcSu7KK3evMyYOuCzv3L10TW7yC1G2/+StMjK8Y6Vqd2MG7r/Qjw4ghtuCOjFvlnms/iMmLqpvW/ES/WQ==
 
-repeat-string@^1.5.2, repeat-string@^1.5.4, repeat-string@^1.6.1:
+repeat-string@^1.5.2, repeat-string@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/repeat-string/-/repeat-string-1.6.1.tgz#8dcae470e1c88abc2d600fff4a776286da75e637"
   integrity sha1-jcrkcOHIirwtYA//Sndihtp15jc=
@@ -10174,7 +10161,7 @@ split2@^3.0.0:
   dependencies:
     readable-stream "^3.0.0"
 
-split2@^4.0.0:
+split2@^4.0.0, split2@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/split2/-/split2-4.1.0.tgz#101907a24370f85bb782f08adaabe4e281ecf809"
   integrity sha512-VBiJxFkxiXRlUIeyMQi8s4hgvKCSjtknJv/LVYbrgALPwf5zSKmEwV9Lst25AkvMDnvxODugjdl6KZgwKM1WYQ==
