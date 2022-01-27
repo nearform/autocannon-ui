@@ -61,7 +61,9 @@ export default function ResultSet({ data }) {
             className={classes.summary}
             data-id="result-accordion"
           >
-            <Typography>{new Date(data.start).toLocaleString()}</Typography>
+            <Typography>{`${data.url} | ${new Date(
+              data.start
+            ).toLocaleString()}`}</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Grid container className={classes.cardContainer}>
