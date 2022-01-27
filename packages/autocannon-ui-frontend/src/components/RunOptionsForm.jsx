@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import {
   Grid,
@@ -73,7 +73,11 @@ const useStyles = makeStyles(theme => ({
 export default function RunOptionsForm(props) {
   const classes = useStyles()
 
-  const [options, setOptions] = useState(DEFAULT_OPTIONS)
+  const [options, setOptions] = useState(
+    () =>
+      JSON.parse(window.localStorage.getItem('autoCannon_options')) ||
+      DEFAULT_OPTIONS
+  )
   const [progress, setProgress] = useState(0)
   const [isTestRunning, setIsTestRunning] = useState(false)
   const [request, setRequest] = useState()
@@ -81,6 +85,10 @@ export default function RunOptionsForm(props) {
   const [invalid, setInvalid] = useState(false)
   const [validationResults, setValidationResults] = useState({})
   const [showMore, setShowMore] = useState(false)
+
+  useEffect(() => {
+    window.localStorage.setItem('autoCannon_options', JSON.stringify(options))
+  }, [options])
 
   function onOptionChange(option, event) {
     if (event.target.required && !event.target.value) {
