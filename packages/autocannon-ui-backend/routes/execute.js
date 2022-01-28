@@ -56,6 +56,7 @@ module.exports = async function (fastify) {
     })
 
     request.socket.on('close', () => {
+      request.log.info('Connection closed.')
       instance.stop()
     })
   })
