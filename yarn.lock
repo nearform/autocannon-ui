@@ -7875,9 +7875,9 @@ new-github-issue-url@^0.2.1:
   integrity sha512-md4cGoxuT4T4d/HDOXbrUHkTKrp/vp+m3aOA7XXVYwNsUNMK49g3SQicTSeV5GIz/5QVGAeYRAOlyp9OvlgsYA==
 
 newman-reporter-htmlextra@^1.20.4:
-  version "1.22.4"
-  resolved "https://registry.yarnpkg.com/newman-reporter-htmlextra/-/newman-reporter-htmlextra-1.22.4.tgz#cf0d50e8d01bd8fe3b8550d87f1cd8d8c45ca0cf"
-  integrity sha512-I9HkQyuNH6uBjusJAEVmawbqIQQRkCgkbqSUVKvmW0YL6wk4aNayxSKQGzRRt0Bl2wPGSQZ0CYusRcJUK7eQnA==
+  version "1.22.5"
+  resolved "https://registry.yarnpkg.com/newman-reporter-htmlextra/-/newman-reporter-htmlextra-1.22.5.tgz#f7b4392b7b620a65e32ebe55a91862abf7733de0"
+  integrity sha512-u+bopTWl8ha7gQgCtchU+UO3Nbh5S9AaZGSmMb/zG+MwbF+2C2zcYGoM8zMV+mR4SVJ35iXIZP1VJbkBa0+NjA==
   dependencies:
     chalk "^4.1.2"
     cli-progress "^3.8.2"
