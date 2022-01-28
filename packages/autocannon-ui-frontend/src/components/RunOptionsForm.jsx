@@ -328,7 +328,7 @@ export default function RunOptionsForm(props) {
                       id="headers"
                       aria-label="headers"
                       placeholder='Example: {"accept":"text/plain", "Content-Type":"application/json" }'
-                      rowsMin={4}
+                      minRows={4}
                       onChange={e => onOptionChange('headers', e)}
                       className={classes.textArea}
                     />
@@ -345,7 +345,7 @@ export default function RunOptionsForm(props) {
                       id="body"
                       aria-label="body"
                       placeholder='Example: {"key1":"value1", "key2":"value2"}'
-                      rowsMin={10}
+                      minRows={10}
                       onChange={e => onOptionChange('body', e)}
                       className={classes.textArea}
                     />
@@ -361,7 +361,7 @@ export default function RunOptionsForm(props) {
               <Grid
                 container
                 direction="column"
-                justify="center"
+                justifyContent="center"
                 alignItems="center"
                 spacing={3}
               >
