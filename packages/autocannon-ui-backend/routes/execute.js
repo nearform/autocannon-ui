@@ -54,5 +54,9 @@ module.exports = async function (fastify) {
         reply.raw.write(`progress:${progress}\n\n`)
       }
     })
+
+    request.socket.on('close', () => {
+      instance.stop()
+    })
   })
 }
