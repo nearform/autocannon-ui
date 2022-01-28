@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import {
-  createMuiTheme,
+  createTheme,
   makeStyles,
   ThemeProvider
 } from '@material-ui/core/styles'
@@ -12,7 +12,7 @@ import '@fontsource/roboto'
 import RunOptionsForm from './RunOptionsForm'
 import ResultSet from './ResultSet'
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: '#00818f'
@@ -56,7 +56,7 @@ function App() {
           <Grid
             container
             direction="row"
-            justify="flex-end"
+            justifyContent="flex-end"
             alignItems="center"
           >
             <Button
@@ -70,7 +70,11 @@ function App() {
           </Grid>
         )}
 
-        <Grid container justify="flex-start" className={classes.resultsGrid}>
+        <Grid
+          container
+          justifyContent="flex-start"
+          className={classes.resultsGrid}
+        >
           {results.map((resultSet, index) => {
             return (
               <Grid item key={index} className={classes.resultsGridItem}>
