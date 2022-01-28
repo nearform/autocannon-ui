@@ -61,7 +61,7 @@ export default function ResultSet({ data }) {
             className={classes.summary}
             data-id="result-accordion"
           >
-            <Typography>{`${data.url} | ${new Date(
+            <Typography>{`${data.title ? data.title : data.url} | ${new Date(
               data.start
             ).toLocaleString()}`}</Typography>
           </AccordionSummary>
