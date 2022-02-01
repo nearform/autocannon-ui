@@ -18,7 +18,9 @@ const schema = {
 }
 
 module.exports = async function (fastify) {
+  fastify.register(require('fastify-cors'), { origin: '*' })
   fastify.post('/api/execute', { schema }, function (request, reply) {
+    reply.raw.setHeader('Access-Control-Allow-Origin', '*')
     reply.raw.setHeader('content-type', 'text/event-stream')
     reply.raw.flushHeaders()
 
@@ -53,6 +55,11 @@ module.exports = async function (fastify) {
       if (progress < 100) {
         reply.raw.write(`progress:${progress}\n\n`)
       }
+    })
+
+    request.socket.on('close', () => {
+      request.log.info('Connection closed.')
+      instance.stop()
     })
   })
 }
