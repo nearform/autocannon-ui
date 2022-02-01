@@ -122,7 +122,7 @@ export default function RunOptionsForm(props) {
   }
 
   const runTest = async signal => {
-    const response = await fetch('/api/execute', {
+    const response = await fetch(`${import.meta.env.VITE_API}/api/execute`, {
       method: 'POST',
       signal,
       headers: {
