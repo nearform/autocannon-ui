@@ -1,4 +1,4 @@
-#autocannon-ui-frontend
+# autocannon-ui-frontend
 
 This package contains React-based frontend required by [autocannon-ui](https://github.com/nearform/autocannon-ui) application.
 
