@@ -2917,14 +2917,6 @@ cli-progress@3.10.0:
   dependencies:
     string-width "^4.2.0"
 
-cli-progress@3.8.2:
-  version "3.8.2"
-  resolved "https://registry.yarnpkg.com/cli-progress/-/cli-progress-3.8.2.tgz#abaf1fc6d6401351f16f068117a410554a0eb8c7"
-  integrity sha512-qRwBxLldMSfxB+YGFgNRaj5vyyHe1yMpVeDL79c+7puGujdKJHQHydgqXDcrkvQgJ5U/d3lpf6vffSoVVUftVQ==
-  dependencies:
-    colors "^1.1.2"
-    string-width "^4.2.0"
-
 cli-table3@0.6.1, cli-table3@^0.6.0:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/cli-table3/-/cli-table3-0.6.1.tgz#36ce9b7af4847f288d3cdd081fbd09bf7bd237b8"
@@ -3077,7 +3069,7 @@ colorette@^2.0.16, colorette@^2.0.7:
   resolved "https://registry.yarnpkg.com/colorette/-/colorette-2.0.16.tgz#713b9af84fdb000139f04546bd4a93f62a5085da"
   integrity sha512-hUewv7oMjCp+wkBv5Rm0v87eJhq4woh5rSR+42YSQJKecCqgIqNkZ6lAlQms/BwHPJA5NKMRlpxPRv0n8HQW6g==
 
-colors@1.4.0, colors@^1.1.2:
+colors@1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.4.0.tgz#c50491479d4c1bdaed2c9ced32cf7c7dc2360f78"
   integrity sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==
@@ -7541,13 +7533,13 @@ new-github-issue-url@^0.2.1:
   integrity sha512-md4cGoxuT4T4d/HDOXbrUHkTKrp/vp+m3aOA7XXVYwNsUNMK49g3SQicTSeV5GIz/5QVGAeYRAOlyp9OvlgsYA==
 
 newman-reporter-htmlextra@^1.20.4:
-  version "1.22.6"
-  resolved "https://registry.yarnpkg.com/newman-reporter-htmlextra/-/newman-reporter-htmlextra-1.22.6.tgz#6361972f75d30bab1903b7cca0d3d987ed45eaf9"
-  integrity sha512-p8LMzDbfcyx0Eb5Cr9aBBydQGUWYDncSmFGTv4A23rw/WZOx99y7H92LIFhrn4VneyWUg49DAOQztgsAKciLUQ==
+  version "1.22.7"
+  resolved "https://registry.yarnpkg.com/newman-reporter-htmlextra/-/newman-reporter-htmlextra-1.22.7.tgz#83420a72bcb78a04202433f36ee3f6f6487f3ec3"
+  integrity sha512-7DhUa5NUKL1b7P1FRbwyoNnS2OPb3JfMJKw7pfFQlMpQDetkVhen0OlybVdkvafDQvfedmgOpPh768FOC7Cstg==
   dependencies:
     "@budibase/handlebars-helpers" "0.11.8"
     chalk "4.1.2"
-    cli-progress "3.8.2"
+    cli-progress "3.10.0"
     commander "6.2.1"
     filesize "6.4.0"
     handlebars "4.7.7"
@@ -10865,11 +10857,6 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
-
-vite-plugin-cross-origin-isolation@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/vite-plugin-cross-origin-isolation/-/vite-plugin-cross-origin-isolation-0.1.1.tgz#f1a39f18e505c11bf237c14535de8f5cb17ef76d"
-  integrity sha512-egyW4CSWORimC2NbIJDJ8Ga1eoUBscFDvY9oLYBfiKHdYHMCiOiIeqtXbgv/2V7aYs//KIP34H2eQw1hEBARwg==
 
 vite@^2.2.3:
   version "2.7.13"
