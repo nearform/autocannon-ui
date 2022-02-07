@@ -8,6 +8,7 @@ This monorepo contains packages and applications which provide a GUI for using a
 
 <!-- toc -->
 
+- [Screenshots](#screenshots)
 - [Getting started](#getting-started)
 - [Development](#development)
 - [Packages](#packages)
@@ -18,6 +19,11 @@ This monorepo contains packages and applications which provide a GUI for using a
 - [Running standalone application](#running-standalone-application)
 
 <!-- tocstop -->
+
+## Screenshots
+![Autocannon Options](./images/app.jpg?raw=true "Autocannon Options")  
+
+![Autocannon Report](./images/report.jpg?raw=true "Autocannon Report")  
 
 ## Getting started
 
