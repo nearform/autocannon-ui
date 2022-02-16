@@ -8471,9 +8471,9 @@ pino@^6.13.0:
     sonic-boom "^1.0.2"
 
 pino@^7.0.1:
-  version "7.7.0"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-7.7.0.tgz#870abdcc6dd0c6f9d956e39a371a8a6d84e4da22"
-  integrity sha512-99Ygcs62h6q6BKiIv910a2d3H+1UkQWoEEk6b7urp/KQTXTnxKWp+0YpBKJfEWYplY/yKsznHAeyY5dfo49tvg==
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-7.8.0.tgz#cbd48121fba0e9e08acea440d27aa7baa91fd73c"
+  integrity sha512-Ynw2HRVapiyj+ZGfUcpms+SRgDKFIy0ztaFUf3X6IHh+vsysMvn+tpV/Ej3gyutPp4n9tgH6ZkkCAelSvP5zmQ==
   dependencies:
     fast-redact "^3.0.0"
     on-exit-leak-free "^0.2.0"
