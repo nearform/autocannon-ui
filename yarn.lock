@@ -4867,9 +4867,9 @@ flatted@3.1.1, flatted@^3.1.0:
   integrity sha512-zAoAQiudy+r5SvnSw3KJy5os/oRJYHzrzja/tBDqrZtNhUw8bt6y8OBzMWcjWr+8liV8Eb6yOhw8WZ7VFZ5ZzA==
 
 fluent-json-schema@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/fluent-json-schema/-/fluent-json-schema-3.0.1.tgz#d81e16d2d0f3832ea08cc5d185b5a4ededd8a6a6"
-  integrity sha512-fvPyZJnutj2Tt+VMO7Rp7dr2gnVZx8VgXZmL+vYNt2xrZnbFX+wGPg43lj6hdUPlaCmmI+d6XQlQukwFxncPWQ==
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/fluent-json-schema/-/fluent-json-schema-3.1.0.tgz#b83579429187ad68a76c756d05d9c93cffa38086"
+  integrity sha512-Ft7WGihiwpcZkZsJuXVCcEHLDOJ1vGS4wFK8V08xWffFthadgjwpSExfBWz/72VxHZ0xe7/N3T38hOxskwxd3A==
   dependencies:
     deepmerge "^4.2.2"
 
