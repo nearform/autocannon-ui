@@ -8412,15 +8412,16 @@ pino-colada@^2.2.2:
     split2 "^3.0.0"
 
 pino-pretty@^7.0.0:
-  version "7.5.3"
-  resolved "https://registry.yarnpkg.com/pino-pretty/-/pino-pretty-7.5.3.tgz#cceb5f0ae193c949d8a0b302227b1cec69b7491c"
-  integrity sha512-jOGysjWxOfaeUElKTeJPstiitt1Ii7owcb21lDc1BS5F4P4HRDDcGxL1f1jskSA0zkTyj64/iaXlMLGhwtLVtg==
+  version "7.5.4"
+  resolved "https://registry.yarnpkg.com/pino-pretty/-/pino-pretty-7.5.4.tgz#3486f74bcab7f84d85640ff125ae4a424e74fa64"
+  integrity sha512-p5AuDpsesgCiEE+8veQTOcuHBdj/BsAMntpDQeTJ0vAcsIGufR3WnKAXbjaELfEp1UYBD+ewAPb1EmIcfVXl6w==
   dependencies:
     args "^5.0.1"
     colorette "^2.0.7"
     dateformat "^4.6.3"
     fast-safe-stringify "^2.0.7"
     joycon "^3.1.1"
+    on-exit-leak-free "^0.2.0"
     pino-abstract-transport "^0.5.0"
     pump "^3.0.0"
     readable-stream "^3.6.0"
