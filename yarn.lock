@@ -2315,9 +2315,9 @@ auto-bind@4.0.0:
   integrity sha512-Hdw8qdNiqdJ8LqT0iK0sVzkFbzg6fhnQqqfWhBDxcHZvU75+B+ayzTy8x+k5Ix0Y92XOhOUlx74ps+bA6BeYMQ==
 
 autocannon@^7.2.0:
-  version "7.7.1"
-  resolved "https://registry.yarnpkg.com/autocannon/-/autocannon-7.7.1.tgz#945ee0eaaab32939699c5e40de9d0ce38a81a59b"
-  integrity sha512-xUZ5Fl7xVYlRLHngkzZ8oARksPSPVrytxMrX1KBZoivPU7OH/SuLbbpnuIUr1EH+Qy5Pe2c32lHylNf3TCsrRQ==
+  version "7.7.2"
+  resolved "https://registry.yarnpkg.com/autocannon/-/autocannon-7.7.2.tgz#5a48e2b7aa25ba3e77b1c23da7061f867dd9c18b"
+  integrity sha512-2hluBHM3B6QzFJSUgi6h+ihx7e16tP2icuWZo7G8sfzG7eg7O+fAyvI7hgOo48tqieujkmvkpfwsZiMCIBUfKA==
   dependencies:
     chalk "^4.1.0"
     char-spinner "^1.0.1"
