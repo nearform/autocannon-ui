@@ -7548,9 +7548,9 @@ new-github-issue-url@^0.2.1:
   integrity sha512-md4cGoxuT4T4d/HDOXbrUHkTKrp/vp+m3aOA7XXVYwNsUNMK49g3SQicTSeV5GIz/5QVGAeYRAOlyp9OvlgsYA==
 
 newman-reporter-htmlextra@^1.20.4:
-  version "1.22.7"
-  resolved "https://registry.yarnpkg.com/newman-reporter-htmlextra/-/newman-reporter-htmlextra-1.22.7.tgz#83420a72bcb78a04202433f36ee3f6f6487f3ec3"
-  integrity sha512-7DhUa5NUKL1b7P1FRbwyoNnS2OPb3JfMJKw7pfFQlMpQDetkVhen0OlybVdkvafDQvfedmgOpPh768FOC7Cstg==
+  version "1.22.8"
+  resolved "https://registry.yarnpkg.com/newman-reporter-htmlextra/-/newman-reporter-htmlextra-1.22.8.tgz#5889ca3f3490f586f7de72cd0379ef103db4d5ad"
+  integrity sha512-BKq2jkFhFMiX6LcsR+xzGjjXSHvNYQ56UnX6gLdGcv6AQEg9qeaB3htejmgdkRVJvClY1mMT7C3unnPX9tZrMg==
   dependencies:
     "@budibase/handlebars-helpers" "0.11.8"
     chalk "4.1.2"
