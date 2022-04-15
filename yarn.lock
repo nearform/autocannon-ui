@@ -3836,9 +3836,9 @@ electron-util@^0.17.0:
     new-github-issue-url "^0.2.1"
 
 electron@^18.0.0:
-  version "18.0.2"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-18.0.2.tgz#33529f12de309a9997a44226169272287369a7c9"
-  integrity sha512-7bFKptQDCQBMjjTJEXs0p0KiZPoY28fzq4GnYGorQt4NZJ0TAog8L0NxEkuSJHuIWC/siOUTX0C1H1tWO6KPKQ==
+  version "18.0.4"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-18.0.4.tgz#7b9b094db32805d4a7826d9f7a1b376d9d7b9f86"
+  integrity sha512-xfsozNpFr3WzeM1EFlw2qqiqXbCrgQNBJJMlcC4/DUYVpkF8364SZenX7FFFA42NmwXiOEahkvvho/u7UrAcGg==
   dependencies:
     "@electron/get" "^1.13.0"
     "@types/node" "^16.11.26"
