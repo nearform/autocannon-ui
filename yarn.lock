@@ -4237,9 +4237,9 @@ eslint-plugin-promise@^6.0.0:
   integrity sha512-7GPezalm5Bfi/E22PnQxDWH2iW9GTvAlUNTztemeHb6c1BniSyoeTrM87JkC0wYdi6aQrZX9p2qEiAno8aTcbw==
 
 eslint-plugin-react-hooks@^4.2.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.4.0.tgz#71c39e528764c848d8253e1aa2c7024ed505f6c4"
-  integrity sha512-U3RVIfdzJaeKDQKEJbz5p3NW8/L80PCATJAfuojwbaEL+gBjfGdhUcGde+WGUW46Q5sr/NgxevsIiDtNXrvZaQ==
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.5.0.tgz#5f762dfedf8b2cf431c689f533c9d3fa5dcf25ad"
+  integrity sha512-8k1gRt7D7h03kd+SAAlzXkQwWK22BnK6GKZG+FJA6BAGy22CFvl8kCIXKpVux0cCxMWDQUPqSok0LKaZ0aOcCw==
 
 eslint-plugin-react@^7.23.2:
   version "7.29.4"
@@ -6702,9 +6702,9 @@ lines-and-columns@^1.1.6:
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
 lint-staged@^12.0.2:
-  version "12.4.0"
-  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-12.4.0.tgz#1fb8c73ac7a1c670b87bd2c1bf1e302c866e77af"
-  integrity sha512-3X7MR0h9b7qf4iXf/1n7RlVAx+EzpAZXoCEMhVSpaBlgKDfH2ewf+QUm7BddFyq29v4dgPP+8+uYpWuSWx035A==
+  version "12.4.1"
+  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-12.4.1.tgz#63fa27bfc8a33515f6902f63f6670864f1fb233c"
+  integrity sha512-PTXgzpflrQ+pODQTG116QNB+Q6uUTDg5B5HqGvNhoQSGt8Qy+MA/6zSnR8n38+sxP5TapzeQGTvoKni0KRS8Vg==
   dependencies:
     cli-truncate "^3.1.0"
     colorette "^2.0.16"
