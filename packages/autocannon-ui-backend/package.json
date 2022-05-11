@@ -15,7 +15,7 @@
     "autocannon": "^7.2.0",
     "env-schema": "^4.0.0",
     "fastify": "^3.8.0",
-    "fastify-cli": "^2.5.1",
+    "fastify-cli": "^3.0.0",
     "fastify-cors": "^6.0.2",
     "fluent-json-schema": "^3.0.0"
   },
