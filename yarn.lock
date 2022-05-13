@@ -4518,9 +4518,9 @@ fast-safe-stringify@^2.0.7, fast-safe-stringify@^2.0.8:
   integrity sha512-lXatBjf3WPjmWD6DpIZxkeSsCOwqI0maYMpgDlx8g4U2qi4lbjA9oH/HD2a87G+KfsUmo5WbJFmqBZlPxtptag==
 
 fastify-cli@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/fastify-cli/-/fastify-cli-3.0.0.tgz#02e16825cb2ebef8433a2a57427710d9471b2fdf"
-  integrity sha512-UmLY5BQrPMS8OkF7F3+i7NAJmQ6HvffsgY5/s5q0Ht9dzlCGlEu7u74pxtEL9kn+C2SMB/qfrmqnbSSqON6iBw==
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/fastify-cli/-/fastify-cli-3.0.1.tgz#f8a21e0d6cb606f5487a986946f5246f3f3ecb31"
+  integrity sha512-cOxCl5cpM3PTP78EMghAZKAdCrknRDjZ7ZgPVsJqdfYPGLirW9TbbQ7PbKelZsvCbe1cdvQU1x+DTYSZACEEsQ==
   dependencies:
     chalk "^4.1.2"
     chokidar "^3.5.2"
