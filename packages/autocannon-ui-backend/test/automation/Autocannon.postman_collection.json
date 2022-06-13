@@ -271,7 +271,7 @@
 									"    var jsonData = pm.response.json();",
 									"    pm.expect(jsonData.statusCode).to.eql(400);",
 									"    pm.expect(jsonData.error).to.eql(\"Bad Request\");",
-									"    pm.expect(jsonData.message).to.eql(\"body should have required property 'url'\");",
+									"    pm.expect(jsonData.message).to.eql(\"body must have required property 'url'\");",
 									"});"
 								],
 								"type": "text/javascript"
@@ -320,7 +320,7 @@
 									"    var jsonData = pm.response.json();",
 									"    pm.expect(jsonData.statusCode).to.eql(400);",
 									"    pm.expect(jsonData.error).to.eql(\"Bad Request\");",
-									"    pm.expect(jsonData.message).to.eql(\"body.url should match format \\\"url\\\"\");",
+									"    pm.expect(jsonData.message).to.eql(\"body/url must match format \\\"url\\\"\");",
 									"});"
 								],
 								"type": "text/javascript"
