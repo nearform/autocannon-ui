@@ -21,10 +21,10 @@
   "dependencies": {
     "autocannon-ui-backend": "^1.1.0",
     "autocannon-ui-frontend": "^1.1.0",
-    "electron": "^18.0.0",
+    "electron": "^19.0.0",
     "electron-store": "^8.0.0",
     "electron-util": "^0.17.0",
-    "fastify": "^3.8.0",
+    "fastify": "^4.0.2",
     "fastify-plugin": "^3.0.0",
     "fastify-static": "^4.0.0",
     "pkg-dir": "^6.0.0"
@@ -34,7 +34,7 @@
     "eslint-config-prettier": "^8.0.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-prettier": "^4.0.0",
-    "lint-staged": "^12.0.2",
+    "lint-staged": "^13.0.0",
     "prettier": "^2.2.1"
   },
   "lint-staged": {
