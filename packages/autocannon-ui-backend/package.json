@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "autocannon": "^7.2.0",
-    "env-schema": "^4.0.0",
+    "env-schema": "^5.0.0",
     "fastify": "^3.8.0",
-    "fastify-cli": "^2.5.1",
+    "fastify-cli": "^4.0.0",
     "fastify-cors": "^6.0.2",
     "fluent-json-schema": "^3.0.0"
   },
@@ -27,7 +27,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
-    "lint-staged": "^12.0.2",
+    "lint-staged": "^13.0.0",
     "newman": "^5.2.3",
     "newman-reporter-htmlextra": "^1.20.4",
     "prettier": "^2.1.2",
