@@ -4527,11 +4527,6 @@ fast-glob@^3.2.9:
     merge2 "^1.3.0"
     micromatch "^4.0.4"
 
-fast-json-parse@^1.0.2:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/fast-json-parse/-/fast-json-parse-1.0.3.tgz#43e5c61ee4efa9265633046b770fb682a7577c4d"
-  integrity sha512-FRWsaZRWEJ1ESVNbDWmsAlqDk96gPQezzLghafp5J4GUKjbCz3OkAHuZs5TuPEtkbVQERysLp9xv6c24fBm8Aw==
-
 fast-json-stable-stringify@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/fast-json-stable-stringify/-/fast-json-stable-stringify-2.1.0.tgz#874bf69c6f404c2b5d99c481341399fd55892633"
@@ -4551,6 +4546,18 @@ fast-json-stringify@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/fast-json-stringify/-/fast-json-stringify-4.0.0.tgz#b21e49902512aba8a02099e613ee66cd5c13d617"
   integrity sha512-zv2rRNdLXWr3ZZfpQuE3/QDVeyCOufFOaMTqTGO1r5WB2AJ+ISmbLY2id4W4KG3pcng+MsnBO3ROzh/mlx3uFA==
+  dependencies:
+    ajv "^8.10.0"
+    ajv-formats "^2.1.1"
+    deepmerge "^4.2.2"
+    fast-uri "^2.0.0"
+    rfdc "^1.2.0"
+    string-similarity "^4.0.1"
+
+fast-json-stringify@^4.1.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/fast-json-stringify/-/fast-json-stringify-4.2.0.tgz#eb49243c79d1deca85eeb488caf69007b7336c7c"
+  integrity sha512-9RWBl82H7jwnPlkZ/ghi0VD5OFZVdwgwVui0nYzjnXbPQxJ3ES1+SQcWIoeCJOgrY7JkBkY/69UNZSroFPDRdQ==
   dependencies:
     ajv "^8.10.0"
     ajv-formats "^2.1.1"
@@ -4585,26 +4592,25 @@ fast-uri@^2.0.0:
   integrity sha512-Mt/lDpFwcPcLv3G0Qd3WlIjP5AeCQo/X91TZ9G8Px/3GzkTADX5smwginXYz+iX8mSa5pBN98EObj05X39/JoA==
 
 fastify-cli@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/fastify-cli/-/fastify-cli-4.0.0.tgz#08c2caa7fd24a0f1632221ce7c6b00446496ad39"
-  integrity sha512-bvVcost+T9qu7YTxfmzk9s/6FUP/c2CcZAyXC1JWsU+0b60pDflCJ7PQP41936Vqx6gXcziJotjOI4TerIC8gQ==
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/fastify-cli/-/fastify-cli-4.1.1.tgz#276518b7fecdae4b103920a9bedca138d5250e48"
+  integrity sha512-n5QXw6LNSdBOndkvG89NpGWtOK96hWI64DGak0bj1q/i7/QEFlFhF9tq4J/5CuHRx/rQQDx3uy5LQzALFmvoXA==
   dependencies:
     chalk "^4.1.2"
     chokidar "^3.5.2"
     close-with-grace "^1.1.0"
     commist "^2.0.0"
     dotenv "^16.0.0"
-    fastify "^4.0.0-rc.2"
+    fastify "^4.0.0"
     generify "^4.0.0"
-    help-me "^3.0.0"
+    help-me "^2.0.1"
     is-docker "^2.0.0"
     make-promises-safe "^5.1.0"
-    pino-colada "^2.2.2"
+    pino-pretty "^8.0.0"
     pkg-up "^3.1.0"
     pump "^3.0.0"
     resolve-from "^5.0.0"
     semver "^7.3.5"
-    split2 "^4.1.0"
     yargs-parser "^20.0.0"
 
 "fastify-cors-deprecated@npm:fastify-cors@6.0.3":
@@ -4675,16 +4681,17 @@ fastify@^3.8.0:
     semver "^7.3.2"
     tiny-lru "^8.0.1"
 
-fastify@^4.0.0-rc.2:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/fastify/-/fastify-4.0.0.tgz#7bad544b7f3181fd3703fd61882603c1538cb189"
-  integrity sha512-Go6j7omkTMzfnFnYT8w4Usi9qfs/7rX8zPrE6K96bp9pe7tnTUC7EcCgaCPelmbn5uh6o45iVL7a274WSbuY/Q==
+fastify@^4.0.0:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/fastify/-/fastify-4.0.2.tgz#c4c68de1056539a16fcccb8d9bea7dd16ac95563"
+  integrity sha512-1DYyRyIqdPbvu/c5Xtt5MF7wQRLO+GbCibRWq+5JhntQVdod9oCy7rGsSNDMjvRgvJY5EUm2UYnBtAsDr5NdFA==
   dependencies:
     "@fastify/ajv-compiler" "^3.1.0"
     "@fastify/error" "^3.0.0"
     "@fastify/fast-json-stringify-compiler" "^3.0.0"
     abstract-logging "^2.0.1"
     avvio "^8.1.3"
+    fast-json-stringify "^4.1.0"
     find-my-way "^6.3.0"
     light-my-request "^5.0.0"
     pino "^8.0.0"
@@ -5513,10 +5520,10 @@ he@1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-help-me@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/help-me/-/help-me-3.0.0.tgz#9803c81b5f346ad2bce2c6a0ba01b82257d319e8"
-  integrity sha512-hx73jClhyk910sidBB7ERlnhMlFsJJIBqSVMFDwPN8o2v9nmp5KgLq1Xz1Bf1fCMMZ6mPrX159iG0VLy/fPMtQ==
+help-me@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/help-me/-/help-me-2.0.1.tgz#5044b80472422c1759bb606d9c5bfefb21fe0d3f"
+  integrity sha512-M0zuH7YG7t6xeLDllblPQkBfuI4MVz1teOJ+JCKBAiOzVXy3FmseeQ87Zt50fM1hTX9627iO/P1oWEwvykGlPQ==
   dependencies:
     glob "^7.1.6"
     readable-stream "^3.6.0"
@@ -8323,17 +8330,6 @@ pino-abstract-transport@^0.5.0, pino-abstract-transport@v0.5.0:
     duplexify "^4.1.2"
     split2 "^4.0.0"
 
-pino-colada@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/pino-colada/-/pino-colada-2.2.2.tgz#d52a9a20ea4a2916d54a6ec97100ae7898885e4c"
-  integrity sha512-tzZl6j4D2v9WSQ4vEa7s8j15v16U6+z6M0fAWJOu5gBKxpy+XnOAgFBzeZGkxm6W3AQ04WvdSpqVLnDBdJlvOQ==
-  dependencies:
-    chalk "^3.0.0"
-    fast-json-parse "^1.0.2"
-    prettier-bytes "^1.0.3"
-    pretty-ms "^5.0.0"
-    split2 "^3.0.0"
-
 pino-pretty@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/pino-pretty/-/pino-pretty-8.0.0.tgz#adb99b0da4624edff04d0e9fc756638b9feabe2c"
@@ -8537,11 +8533,6 @@ prepend-http@^2.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
-prettier-bytes@^1.0.3:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/prettier-bytes/-/prettier-bytes-1.0.4.tgz#994b02aa46f699c50b6257b5faaa7fe2557e62d6"
-  integrity sha1-mUsCqkb2mcULYle1+qp/4lV+YtY=
-
 prettier-linter-helpers@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/prettier-linter-helpers/-/prettier-linter-helpers-1.0.0.tgz#d23d41fe1375646de2d0104d3454a3008802cf7b"
@@ -8568,13 +8559,6 @@ pretty-ms@7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/pretty-ms/-/pretty-ms-7.0.1.tgz#7d903eaab281f7d8e03c66f867e239dc32fb73e8"
   integrity sha512-973driJZvxiGOQ5ONsFhOF/DtzPMOMtgC11kCpUrPGMTgqp2q/1gwzCquocrN33is0VZ5GFHXZYMM9l6h67v2Q==
-  dependencies:
-    parse-ms "^2.1.0"
-
-pretty-ms@^5.0.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/pretty-ms/-/pretty-ms-5.1.0.tgz#b906bdd1ec9e9799995c372e2b1c34f073f95384"
-  integrity sha512-4gaK1skD2gwscCfkswYQRmddUb2GJZtzDGRjHWadVHtK/DIKFufa12MvES6/xu1tVbUYeia5bmLcwJtZJQUqnw==
   dependencies:
     parse-ms "^2.1.0"
 
@@ -9659,7 +9643,7 @@ split2@^3.0.0:
   dependencies:
     readable-stream "^3.0.0"
 
-split2@^4.0.0, split2@^4.1.0:
+split2@^4.0.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/split2/-/split2-4.1.0.tgz#101907a24370f85bb782f08adaabe4e281ecf809"
   integrity sha512-VBiJxFkxiXRlUIeyMQi8s4hgvKCSjtknJv/LVYbrgALPwf5zSKmEwV9Lst25AkvMDnvxODugjdl6KZgwKM1WYQ==
