@@ -18,7 +18,7 @@ const schema = {
 }
 
 module.exports = async function (fastify) {
-  fastify.register(require('fastify-cors'), { origin: '*' })
+  fastify.register(require('@fastify/cors'), { origin: '*' })
   fastify.post('/api/execute', { schema }, function (request, reply) {
     reply.raw.setHeader('Access-Control-Allow-Origin', '*')
     reply.raw.setHeader('content-type', 'text/event-stream')
