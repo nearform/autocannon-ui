@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/nearform/autocannon-ui/compare/v1.1.1...v2.0.0) (2022-06-20)
+
+
+### Bug Fixes
+
+* stop autocannon instance when request is aborted ([#350](https://github.com/nearform/autocannon-ui/issues/350)) ([45e432c](https://github.com/nearform/autocannon-ui/commit/45e432c55edc22f1addd31c239ae6d122eda0d8a))
+
+
+
+
+
 # [1.1.0](https://github.com/nearform/autocannon-ui/compare/v1.0.0...v1.1.0) (2021-06-23)
 
 
