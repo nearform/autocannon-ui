@@ -4533,9 +4533,9 @@ fast-uri@^2.0.0:
   integrity sha512-Mt/lDpFwcPcLv3G0Qd3WlIjP5AeCQo/X91TZ9G8Px/3GzkTADX5smwginXYz+iX8mSa5pBN98EObj05X39/JoA==
 
 fastify-cli@^4.0.0:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/fastify-cli/-/fastify-cli-4.1.1.tgz#276518b7fecdae4b103920a9bedca138d5250e48"
-  integrity sha512-n5QXw6LNSdBOndkvG89NpGWtOK96hWI64DGak0bj1q/i7/QEFlFhF9tq4J/5CuHRx/rQQDx3uy5LQzALFmvoXA==
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/fastify-cli/-/fastify-cli-4.2.0.tgz#2f62b996e045c9664109e97e73f92c0cafe0841f"
+  integrity sha512-LIk6TSueOuUABua9b1yvSi/N4zrbDUG1NEEozvm23Cz5NQ4jAkoXOSXl5pJ6cL1APQSjL73ObT/8RAvatud0cA==
   dependencies:
     chalk "^4.1.2"
     chokidar "^3.5.2"
@@ -4549,7 +4549,6 @@ fastify-cli@^4.0.0:
     make-promises-safe "^5.1.0"
     pino-pretty "^8.0.0"
     pkg-up "^3.1.0"
-    pump "^3.0.0"
     resolve-from "^5.0.0"
     semver "^7.3.5"
     yargs-parser "^20.0.0"
