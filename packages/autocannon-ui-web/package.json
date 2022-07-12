@@ -20,7 +20,7 @@
     "autocannon-ui-backend": "^2.0.0",
     "autocannon-ui-frontend": "^2.0.0",
     "fastify": "^4.0.2",
-    "fastify-plugin": "^3.0.0",
+    "fastify-plugin": "^4.0.0",
     "fastify-static": "^4.0.0",
     "pino": "^8.0.0",
     "pino-pretty": "^8.0.0",
