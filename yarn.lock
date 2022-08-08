@@ -4572,9 +4572,9 @@ fastify-plugin@^3.0.0:
   integrity sha512-qKcDXmuZadJqdTm6vlCqioEbyewF60b/0LOFCcYN1B6BIZGlYJumWWOYs70SFYLDAH4YqdE1cxH/RKMG7rFxgA==
 
 fastify-plugin@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-4.0.0.tgz#65c2f538a8d869d59c7364a56565687e78e32390"
-  integrity sha512-ZJcXPPcqkj7HFDYqbsCuOIAgIZ/sd2b+OnBxNGyxAcUDUJfIpxp4t23CwxO2E7LZpqUrIliA4TnjxTXG8mLoqw==
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-4.1.0.tgz#d22972e16e46f7af0957e5123748abfd8c030854"
+  integrity sha512-Mf6lkbxHtFgI4sVaC0P/7sqlBvdpoyEUaOCD0cyKpqxjsdN+3EdD/FfSHByb7uXqxYu/DilH9Lb6mTCumN9TQQ==
 
 "fastify-static-deprecated@npm:fastify-static@4.6.1":
   version "4.6.1"
