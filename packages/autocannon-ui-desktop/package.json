@@ -27,7 +27,7 @@
     "fastify": "^4.0.2",
     "fastify-plugin": "^4.0.0",
     "fastify-static": "^4.0.0",
-    "pkg-dir": "^6.0.0"
+    "pkg-dir": "^7.0.0"
   },
   "devDependencies": {
     "eslint": "^7.14.0",
