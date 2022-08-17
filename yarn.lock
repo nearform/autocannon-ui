@@ -4543,9 +4543,9 @@ fast-uri@^2.0.0, fast-uri@^2.1.0:
   integrity sha512-qKRta6N7BWEFVlyonVY/V+BMLgFqktCUV0QjT259ekAIlbVrMaFnFLxJ4s/JPl4tou56S1BzPufI60bLe29fHA==
 
 fastify-cli@^5.0.0:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/fastify-cli/-/fastify-cli-5.0.1.tgz#f8bdd03b688d96deab9877a25942316f6cfae76f"
-  integrity sha512-Y5l0bEnUZwUBmwsKobVtrpIrZMxLbG/ODfmbVfRkZBVUlBtmdf6Cu/OzUTcfVPFZQHV+CHEdCHZa6/YdhHiDAQ==
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/fastify-cli/-/fastify-cli-5.1.0.tgz#1184ba64b6f66ad13cd24e4573fc5d85c5a32b66"
+  integrity sha512-I6OOJ5iqXGAzGHCRy7i/+Vec9cY8+XczlQkXlzzLrrmGAvtqYR2o4tFikWxq+VBk5DCSpVHAeCBKkVDj36aCEg==
   dependencies:
     chalk "^4.1.2"
     chokidar "^3.5.2"
@@ -4557,7 +4557,7 @@ fastify-cli@^5.0.0:
     help-me "^4.0.1"
     is-docker "^2.0.0"
     make-promises-safe "^5.1.0"
-    pino-pretty "^8.0.0"
+    pino-pretty "^9.0.0"
     pkg-up "^3.1.0"
     resolve-from "^5.0.0"
     semver "^7.3.5"
@@ -7760,11 +7760,6 @@ obliterator@^2.0.1:
   resolved "https://registry.yarnpkg.com/obliterator/-/obliterator-2.0.4.tgz#fa650e019b2d075d745e44f1effeb13a2adbe816"
   integrity sha512-lgHwxlxV1qIg1Eap7LgIeoBWIMFibOjbrYPIPJZcI1mmGAI2m3lNYpK12Y+GBdPQ0U1hRwSord7GIaawz962qQ==
 
-on-exit-leak-free@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/on-exit-leak-free/-/on-exit-leak-free-1.0.0.tgz#4a2accb382278a266848bb1a21439e5fc3cd9881"
-  integrity sha512-Ve8ubhrXRdnuCJ5bQSQpP3uaV43K1PMcOfSRC1pqHgRZommXCgsXwh08jVC5NpjwScE23BPDwDvVg4cov3mwjw==
-
 on-exit-leak-free@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/on-exit-leak-free/-/on-exit-leak-free-2.1.0.tgz#5c703c968f7e7f851885f6459bf8a8a57edc9cc4"
@@ -8244,26 +8239,6 @@ pino-abstract-transport@^1.0.0, pino-abstract-transport@v1.0.0:
   dependencies:
     readable-stream "^4.0.0"
     split2 "^4.0.0"
-
-pino-pretty@^8.0.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/pino-pretty/-/pino-pretty-8.1.0.tgz#1dda4ca71701dfeaf1f72057da1b5b718a0d0f04"
-  integrity sha512-oKfI8qKXR2a3haHs/X8iB6QSnWLqoOGAjwxIAXem4+XOGIGNw7IKpozId1uE7j89Rj46HIfWnGbAgmQmr8+yRw==
-  dependencies:
-    colorette "^2.0.7"
-    dateformat "^4.6.3"
-    fast-copy "^2.1.1"
-    fast-safe-stringify "^2.1.1"
-    help-me "^4.0.1"
-    joycon "^3.1.1"
-    minimist "^1.2.6"
-    on-exit-leak-free "^1.0.0"
-    pino-abstract-transport "^1.0.0"
-    pump "^3.0.0"
-    readable-stream "^4.0.0"
-    secure-json-parse "^2.4.0"
-    sonic-boom "^3.0.0"
-    strip-json-comments "^3.1.1"
 
 pino-pretty@^9.0.0:
   version "9.0.1"
