@@ -33,7 +33,7 @@
     "lint-staged": "^13.0.0",
     "mocha": "^10.0.0",
     "prop-types": "^15.7.2",
-    "puppeteer": "^17.0.0",
+    "puppeteer": "^18.0.3",
     "vite": "^3.0.9"
   },
   "lint-staged": {
