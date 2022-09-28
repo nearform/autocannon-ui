@@ -2150,17 +2150,7 @@ ajv@^6.10.0, ajv@^6.12.3, ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-ajv@^8.0.0, ajv@^8.0.1, ajv@^8.6.3:
-  version "8.6.3"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.6.3.tgz#11a66527761dc3e9a3845ea775d2d3c0414e8764"
-  integrity sha512-SMJOdDP6LqTkD0Uq8qLi+gMwSt0imXLSV080qFVwJCpH9U6Mb+SUGHAXM0KNbcBPguytWyvFxcHgMLe2D2XSpw==
-  dependencies:
-    fast-deep-equal "^3.1.1"
-    json-schema-traverse "^1.0.0"
-    require-from-string "^2.0.2"
-    uri-js "^4.2.2"
-
-ajv@^8.10.0, ajv@^8.11.0:
+ajv@^8.0.0, ajv@^8.0.1, ajv@^8.10.0, ajv@^8.11.0, ajv@^8.6.3:
   version "8.11.0"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.11.0.tgz#977e91dd96ca669f54a11e23e378e33b884a565f"
   integrity sha512-wGgprdCvMalC0BztXvitD2hC04YffAvtsUn93JbGXYLAtCUO4xd17mCCZQxUOItiBwZvJScWo8NIvQMQ71rdpg==
@@ -3740,10 +3730,10 @@ dot-prop@^6.0.1:
   dependencies:
     is-obj "^2.0.0"
 
-dotenv-expand@^8.0.3:
-  version "8.0.3"
-  resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-8.0.3.tgz#29016757455bcc748469c83a19b36aaf2b83dd6e"
-  integrity sha512-SErOMvge0ZUyWd5B0NXMQlDkN+8r+HhVUsxgOO7IoPDOdDRD2JjExpN6y3KnFR66jsJMwSn1pqIivhU5rcJiNg==
+dotenv-expand@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-9.0.0.tgz#1fd37e2cd63ea0b5f7389fb87256efc38b035b26"
+  integrity sha512-uW8Hrhp5ammm9x7kBLR6jDfujgaDarNA02tprvZdyrJ7MpdzD1KyrIHG4l+YoC2fJ2UcdFdNWNWIjt+sexBHJw==
 
 dotenv@^16.0.0:
   version "16.0.0"
@@ -3865,13 +3855,13 @@ env-paths@^2.2.0, env-paths@^2.2.1:
   integrity sha512-+h1lkLKhZMTYjog1VEpJNG7NZJWcuc2DDk/qsqSTRRCOXiLjeQ1d1/udrUGhqMxUgAlwKNZ0cf2uqan5GLuS2A==
 
 env-schema@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/env-schema/-/env-schema-5.0.0.tgz#288c14b040e1389f69b1c5692995bc3525fbe980"
-  integrity sha512-91u95Nlny+LmjF3Mk96j8k6k+GOXcFEdMUv3bWQjtM2l+KTAdW6qITiv8kHYO8vCaCScXpJTDyd1AFnCQTnYaQ==
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/env-schema/-/env-schema-5.1.0.tgz#825d880070872c01152ae40a888d1c0c92c05864"
+  integrity sha512-hbu+aC1nddO+tPPgw/guQRNY5CzkgplFu1WbmdiQimy4lcwPCteuKFvxF9uHSU/HkXNlIWR+WC0B53VG21aOxQ==
   dependencies:
     ajv "^8.0.0"
     dotenv "^16.0.0"
-    dotenv-expand "^8.0.3"
+    dotenv-expand "^9.0.0"
 
 envinfo@^7.7.4:
   version "7.8.1"
