@@ -697,6 +697,11 @@
     fastify-plugin "^4.0.0"
     mnemonist "0.39.2"
 
+"@fastify/deepmerge@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@fastify/deepmerge/-/deepmerge-1.1.0.tgz#91f0a5a27034ff76b7bece63a5906894940ace82"
+  integrity sha512-E8Hfdvs1bG6u0N4vN5Nty6JONUfTdOciyD5rn8KnEsLKIenvOVcr210BQR9t34PRkNyjqnMLGk3e0BsaxRdL+g==
+
 "@fastify/error@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@fastify/error/-/error-3.0.0.tgz#bfcb7b33cec0196413083a91ef2edc7b2c88455b"
@@ -4796,12 +4801,12 @@ flatted@3.1.1, flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.1.1.tgz#c4b489e80096d9df1dfc97c79871aea7c617c469"
   integrity sha512-zAoAQiudy+r5SvnSw3KJy5os/oRJYHzrzja/tBDqrZtNhUw8bt6y8OBzMWcjWr+8liV8Eb6yOhw8WZ7VFZ5ZzA==
 
-fluent-json-schema@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/fluent-json-schema/-/fluent-json-schema-3.1.0.tgz#b83579429187ad68a76c756d05d9c93cffa38086"
-  integrity sha512-Ft7WGihiwpcZkZsJuXVCcEHLDOJ1vGS4wFK8V08xWffFthadgjwpSExfBWz/72VxHZ0xe7/N3T38hOxskwxd3A==
+fluent-json-schema@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/fluent-json-schema/-/fluent-json-schema-4.0.0.tgz#8f783e2282731e893c9480d8b9263b47c7ce87d4"
+  integrity sha512-NE7QBhwu+cK+X9XhuWt9S5YpOqRKjwTbBhg/PHaLrEsaog3cgHMbu7Xuqbks8QYOv6bVQPM6zDEqXoI8dP8dwg==
   dependencies:
-    deepmerge "^4.2.2"
+    "@fastify/deepmerge" "^1.1.0"
 
 follow-redirects@^1.14.7:
   version "1.14.8"

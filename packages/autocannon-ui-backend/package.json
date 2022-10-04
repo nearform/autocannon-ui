@@ -17,7 +17,7 @@
     "env-schema": "^5.0.0",
     "fastify": "^4.0.2",
     "fastify-cli": "^5.0.0",
-    "fluent-json-schema": "^3.0.0"
+    "fluent-json-schema": "^4.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
