@@ -47,6 +47,10 @@ This will run:
 - `autocannon-frontend` build in watch mode so you can change the React components and see the result immediately
 - `autocannon-backend` in standalone mode to have a server running
 
+### Designs
+
+Designs can be found [here](https://www.figma.com/file/f7DQ7Ev8Wk7MQKQehYphSP/Autocannon).
+
 ## Packages
 
 ### `autocannon-ui-frontend`
