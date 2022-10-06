@@ -7,7 +7,7 @@
     "serve": "vite preview",
     "lint": "eslint .",
     "precommit": "lint-staged",
-    "_test:qa": "mocha --timeout=30000 test/autocannon.test.js",
+    "_test:qa": "mocha --timeout=60000 test/autocannon.test.js",
     "test:qa": "wait-on tcp:3000 && yarn _test:qa",
     "prepare": "npm run build"
   },

@@ -12,7 +12,8 @@ import {
   TableRow,
   Paper,
   Tooltip,
-  AccordionDetails
+  AccordionDetails,
+  Checkbox
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { makeStyles } from '@material-ui/core/styles'
@@ -46,11 +47,28 @@ const useStyles = makeStyles(theme => ({
     '&.Mui-expanded': {
       borderBottom: `1px solid ${theme.palette.divider}`
     }
+  },
+  accordionHeader: {
+    lineHeight: 2.5
   }
 }))
 
-export default function ResultSet({ data }) {
+export default function ResultSet({
+  data,
+  onChangeSelection,
+  isDisableSelection
+}) {
   const classes = useStyles()
+
+  const [isSelected, setIsSelected] = React.useState(false)
+  const onSelectHandler = React.useCallback(
+    e => {
+      e.stopPropagation()
+      onChangeSelection(data, !isSelected)
+      setIsSelected(!isSelected)
+    },
+    [onChangeSelection, data, isSelected]
+  )
 
   return (
     <React.Fragment>
@@ -61,9 +79,16 @@ export default function ResultSet({ data }) {
             className={classes.summary}
             data-id="result-accordion"
           >
-            <Typography>{`${data.title ? data.title : data.url} | ${new Date(
-              data.start
-            ).toLocaleString()}`}</Typography>
+            <Checkbox
+              color="primary"
+              checked={isSelected}
+              onClick={onSelectHandler}
+              disabled={!isSelected && isDisableSelection}
+              data-testid="result-checkbox"
+            />
+            <Typography className={classes.accordionHeader}>{`${
+              data.title ? data.title : data.url
+            } | ${new Date(data.start).toLocaleString()}`}</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Grid container className={classes.cardContainer}>
@@ -262,5 +287,7 @@ export default function ResultSet({ data }) {
 }
 
 ResultSet.propTypes = {
-  data: T.object
+  data: T.object.isRequired,
+  onChangeSelection: T.func.isRequired,
+  isDisableSelection: T.bool.isRequired
 }
