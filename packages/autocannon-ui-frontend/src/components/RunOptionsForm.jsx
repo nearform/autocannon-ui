@@ -13,7 +13,8 @@ import {
   Button,
   TextareaAutosize,
   Fade,
-  Typography
+  Typography,
+  Link
 } from '@material-ui/core'
 import T from 'prop-types'
 import HelpIcon from '@material-ui/icons/Help'
@@ -48,6 +49,9 @@ const useStyles = makeStyles(theme => ({
   helpIcon: {
     fontSize: 'medium',
     cursor: 'default'
+  },
+  advancedOptionsButton: {
+    fontWeight: 'bold'
   },
   runButton: {
     borderRadius: theme.spacing(2),
@@ -84,7 +88,7 @@ export default function RunOptionsForm(props) {
   const [errorMessage, setErrorMessage] = useState()
   const [invalid, setInvalid] = useState(false)
   const [validationResults, setValidationResults] = useState({})
-  const [showMore, setShowMore] = useState(false)
+  const [showAdvancedOptions, setShowAdvancedOptions] = useState(false)
 
   useEffect(() => {
     window.localStorage.setItem('autoCannon_options', JSON.stringify(options))
@@ -104,9 +108,10 @@ export default function RunOptionsForm(props) {
     setOptions(o => ({ ...o, [option]: event.target.value }))
   }
 
-  const handleShowMore = () => {
-    setShowMore(prev => !prev)
-  }
+  const handleShowAdvancedOptions = React.useCallback(e => {
+    e.preventDefault()
+    setShowAdvancedOptions(prev => !prev)
+  }, [])
 
   const runButtonHandler = async () => {
     setIsTestRunning(true)
@@ -272,18 +277,18 @@ export default function RunOptionsForm(props) {
             </Grid>
             <Grid item xs={12}>
               <Box display="flex" justifyContent="center">
-                <Button
-                  className={classes.runButton}
+                <Link
+                  component="button"
+                  className={classes.advancedOptionsButton}
                   color="primary"
-                  variant="outlined"
-                  onClick={handleShowMore}
+                  onClick={handleShowAdvancedOptions}
                 >
-                  {!showMore ? 'Show More' : 'Show Less'}
-                </Button>
+                  {!showAdvancedOptions ? 'Show' : 'Hide'} advanced options
+                </Link>
               </Box>
             </Grid>
-            <Grid item xs={12} hidden={!showMore}>
-              <Fade in={showMore}>
+            <Grid item xs={12} hidden={!showAdvancedOptions}>
+              <Fade in={showAdvancedOptions}>
                 <Grid container spacing={3}>
                   <Grid item xs={8}>
                     <TextField
