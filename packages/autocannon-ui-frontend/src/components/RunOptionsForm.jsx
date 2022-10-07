@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import {
   Grid,
@@ -108,7 +108,7 @@ export default function RunOptionsForm(props) {
     setOptions(o => ({ ...o, [option]: event.target.value }))
   }
 
-  const handleShowAdvancedOptions = React.useCallback(e => {
+  const handleShowAdvancedOptions = useCallback(e => {
     e.preventDefault()
     setShowAdvancedOptions(prev => !prev)
   }, [])

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 
 import {
   createTheme,
@@ -40,30 +40,30 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+const MAX_SELECTED_RESULTS = 2
+
 function App() {
   const classes = useStyles()
 
-  const [results, setResults] = React.useState([])
-  const [selectedResults, setSelectedResults] = React.useState([])
-  const [isOpenCompareDialog, setIsOpenCompareDialog] = React.useState(false)
+  const [results, setResults] = useState([])
+  const [selectedResults, setSelectedResults] = useState([])
+  const [isOpenCompareDialog, setIsOpenCompareDialog] = useState(false)
 
-  const handleOnReceivedResults = React.useCallback(resultSet => {
+  const handleOnReceivedResults = useCallback(resultSet => {
     setResults(results => [...results, resultSet])
   }, [])
 
-  const handleOnSelectResultSet = React.useCallback((resultSet, isSelected) => {
-    if (isSelected) {
-      setSelectedResults(results => [...results, resultSet])
-    } else {
+  const handleOnSelectResultSet = useCallback(
+    (resultSet, isSelected) =>
       setSelectedResults(results =>
-        results.filter(
-          item => item.start !== resultSet.start || item.url !== resultSet.url
-        )
-      )
-    }
-  }, [])
+        isSelected
+          ? [...results, resultSet]
+          : results.filter(item => item != resultSet)
+      ),
+    []
+  )
 
-  const toggleIsOpenCompareDialog = React.useCallback(() => {
+  const toggleIsOpenCompareDialog = useCallback(() => {
     setIsOpenCompareDialog(isOpen => !isOpen)
   }, [])
 
@@ -86,7 +86,7 @@ function App() {
               variant="contained"
               color="primary"
               onClick={toggleIsOpenCompareDialog}
-              disabled={selectedResults.length !== 2}
+              disabled={selectedResults.length !== MAX_SELECTED_RESULTS}
               data-testid="compare-button"
             >
               Compare
@@ -112,7 +112,6 @@ function App() {
               <ResultSet
                 data={resultSet}
                 onChangeSelection={handleOnSelectResultSet}
-                isDisableSelection={selectedResults.length === 2}
               />
             </Grid>
           ))}

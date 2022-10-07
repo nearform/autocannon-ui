@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 import {
   Accordion,
   AccordionSummary,
@@ -53,15 +53,11 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ResultSet({
-  data,
-  onChangeSelection,
-  isDisableSelection
-}) {
+export default function ResultSet({ data, onChangeSelection }) {
   const classes = useStyles()
 
-  const [isSelected, setIsSelected] = React.useState(false)
-  const onSelectHandler = React.useCallback(
+  const [isSelected, setIsSelected] = useState(false)
+  const onSelectHandler = useCallback(
     e => {
       e.stopPropagation()
       onChangeSelection(data, !isSelected)
@@ -83,11 +79,10 @@ export default function ResultSet({
               color="primary"
               checked={isSelected}
               onClick={onSelectHandler}
-              disabled={!isSelected && isDisableSelection}
               data-testid="result-checkbox"
             />
             <Typography className={classes.accordionHeader}>{`${
-              data.title ? data.title : data.url
+              data.title || data.url
             } | ${new Date(data.start).toLocaleString()}`}</Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -288,6 +283,5 @@ export default function ResultSet({
 
 ResultSet.propTypes = {
   data: T.object.isRequired,
-  onChangeSelection: T.func.isRequired,
-  isDisableSelection: T.bool.isRequired
+  onChangeSelection: T.func.isRequired
 }

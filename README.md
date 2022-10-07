@@ -4,7 +4,11 @@
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
-This monorepo contains packages and applications which provide a GUI for using autocannon while maintaining the same user experience.
+This monorepo contains packages and applications which provide a GUI for using autocannon while maintaining the same user experience. 
+It provides the ability to compare two autocannon results.
+
+To compare, the user must tick two results and press the `Compare` button. The popup that appeared will display the comparing result.
+For understanding the result, please see the `autocannon-compare` [documentation](https://github.com/mcollina/autocannon-compare).
 
 <!-- toc -->
 
@@ -24,6 +28,8 @@ This monorepo contains packages and applications which provide a GUI for using a
 ![Autocannon Options](./images/app.jpg?raw=true "Autocannon Options")  
 
 ![Autocannon Report](./images/report.jpg?raw=true "Autocannon Report")  
+
+![Autocannon Compare](./images/compare.jpg?raw=true "Autocannon Compare") 
 
 ## Getting started
 

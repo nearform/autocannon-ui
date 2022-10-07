@@ -8,7 +8,8 @@ describe('Autocannon UI Puppeteer Test', function () {
     browser = await puppeteer.launch({
       headless: true,
       slowMo: 0,
-      devtools: false
+      devtools: false,
+      timeout: 60000
     })
     page = await browser.newPage()
   })

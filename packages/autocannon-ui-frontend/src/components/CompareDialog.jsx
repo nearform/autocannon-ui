@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import T from 'prop-types'
 import {
   IconButton,
@@ -23,6 +23,12 @@ const useStyles = makeStyles({
   dialog: {
     margin: '0 20px'
   },
+  dialogTitle: {
+    paddingRight: '48px'
+  },
+  dialogContent: {
+    padding: 0
+  },
   closeButton: {
     position: 'absolute',
     top: 0,
@@ -33,13 +39,11 @@ const useStyles = makeStyles({
   }
 })
 
-export default function CompareDialog({ data, onClose }) {
-  const classes = useStyles()
-  const [isLoading, setIsLoading] = React.useState(true)
-  const [result, setResult] = React.useState()
-  const [errorMessage, setErrorMessage] = React.useState()
-
-  React.useEffect(() => {
+const useCompareResult = resultSets => {
+  const [isLoading, setIsLoading] = useState(true)
+  const [result, setResult] = useState()
+  const [errorMessage, setErrorMessage] = useState()
+  useEffect(() => {
     const fetchCompareResult = async () => {
       try {
         const response = await fetch(
@@ -50,13 +54,13 @@ export default function CompareDialog({ data, onClose }) {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              a: data[0],
-              b: data[1]
+              a: resultSets[0],
+              b: resultSets[1]
             })
           }
         )
         if (!response.ok) {
-          throw new Error(`Something went wrong! Status: ${response.status}`)
+          throw new Error(response.message)
         }
         setResult(await response.json())
       } catch (e) {
@@ -66,17 +70,28 @@ export default function CompareDialog({ data, onClose }) {
       }
     }
     fetchCompareResult()
-  }, [data])
+  }, [resultSets])
 
-  const headerMemo = React.useMemo(() => {
+  return { isLoading, errorMessage, result }
+}
+
+export default function CompareDialog({ data, onClose }) {
+  const classes = useStyles()
+  const { result, isLoading, errorMessage } = useCompareResult(data)
+
+  const printHeader = winner => {
+    if (winner) {
+      return `${winner.title || winner.url} | ${new Date(
+        winner.start
+      ).toLocaleString()} Wins`
+    }
+    return 'The results are equal'
+  }
+  const headerMemo = useMemo(() => {
     let winner
     if (result?.aWins) winner = data[0]
     if (result?.bWins) winner = data[1]
-    return winner
-      ? `${winner.title ? winner.title : winner.url} | ${new Date(
-          winner.start
-        ).toLocaleString()} Wins`
-      : 'The results are equal.'
+    return printHeader(winner)
   }, [result, data])
 
   return (
@@ -93,13 +108,13 @@ export default function CompareDialog({ data, onClose }) {
         <Alert severity="error">{errorMessage}</Alert>
       ) : (
         <>
-          <DialogTitle>
+          <DialogTitle className={classes.dialogTitle}>
             {headerMemo}
             <IconButton className={classes.closeButton} onClick={onClose}>
               <CloseIcon />
             </IconButton>
           </DialogTitle>
-          <DialogContent>
+          <DialogContent className={classes.dialogContent}>
             <Grid item xs={12}>
               <TableContainer component={Paper}>
                 <Table className={classes.table}>
@@ -124,9 +139,15 @@ export default function CompareDialog({ data, onClose }) {
                       <TableCell className={classes.statHeader}>
                         pValue
                       </TableCell>
-                      <TableCell> {result?.requests.pValue} </TableCell>
-                      <TableCell> {result?.throughput.pValue} </TableCell>
-                      <TableCell> {result?.latency.pValue} </TableCell>
+                      <TableCell>
+                        {result?.requests.pValue?.toFixed(2)}
+                      </TableCell>
+                      <TableCell>
+                        {result?.throughput.pValue?.toFixed(2)}
+                      </TableCell>
+                      <TableCell>
+                        {result?.latency.pValue?.toFixed(2)}
+                      </TableCell>
                     </TableRow>
                     <TableRow>
                       <TableCell className={classes.statHeader}>
