@@ -22,7 +22,7 @@
     "@material-ui/lab": "^4.0.0-alpha.58",
     "chrome-aws-lambda": "^10.1.0",
     "pretty-bytes": "^6.0.0",
-    "puppeteer-core": "^10.4.0",
+    "puppeteer-core": "^18.2.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
