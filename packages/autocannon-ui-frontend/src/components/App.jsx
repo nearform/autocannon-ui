@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 
 import {
   createTheme,
@@ -11,6 +11,7 @@ import '@fontsource/roboto'
 
 import RunOptionsForm from './RunOptionsForm'
 import ResultSet from './ResultSet'
+import CompareDialog from './CompareDialog'
 
 const theme = createTheme({
   palette: {
@@ -33,32 +34,63 @@ const useStyles = makeStyles(theme => ({
   },
   resultsGridItem: {
     marginTop: theme.spacing(2)
+  },
+  buttonsContainer: {
+    gap: '1rem'
   }
 }))
+
+const MAX_SELECTED_RESULTS = 2
 
 function App() {
   const classes = useStyles()
 
   const [results, setResults] = useState([])
+  const [selectedResults, setSelectedResults] = useState([])
+  const [isOpenCompareDialog, setIsOpenCompareDialog] = useState(false)
 
-  function resultsReceivedHandler(resultSet) {
+  const handleOnReceivedResults = useCallback(resultSet => {
     setResults(results => [...results, resultSet])
-  }
+  }, [])
+
+  const handleOnSelectResultSet = useCallback(
+    (resultSet, isSelected) =>
+      setSelectedResults(results =>
+        isSelected
+          ? [...results, resultSet]
+          : results.filter(item => item != resultSet)
+      ),
+    []
+  )
+
+  const toggleIsOpenCompareDialog = useCallback(() => {
+    setIsOpenCompareDialog(isOpen => !isOpen)
+  }, [])
 
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="md">
         <CssBaseline />
 
-        <RunOptionsForm onNewResults={resultsReceivedHandler} />
+        <RunOptionsForm onNewResults={handleOnReceivedResults} />
 
         {results.length > 0 && (
           <Grid
             container
+            className={classes.buttonsContainer}
             direction="row"
             justifyContent="flex-end"
             alignItems="center"
           >
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={toggleIsOpenCompareDialog}
+              disabled={selectedResults.length !== MAX_SELECTED_RESULTS}
+              data-testid="compare-button"
+            >
+              Compare
+            </Button>
             <Button
               variant="outlined"
               color="primary"
@@ -75,15 +107,22 @@ function App() {
           justifyContent="flex-start"
           className={classes.resultsGrid}
         >
-          {results.map((resultSet, index) => {
-            return (
-              <Grid item key={index} className={classes.resultsGridItem}>
-                <ResultSet data={resultSet} />
-              </Grid>
-            )
-          })}
+          {results.map((resultSet, index) => (
+            <Grid item key={index} className={classes.resultsGridItem}>
+              <ResultSet
+                data={resultSet}
+                onChangeSelection={handleOnSelectResultSet}
+              />
+            </Grid>
+          ))}
         </Grid>
       </Container>
+      {isOpenCompareDialog && (
+        <CompareDialog
+          data={selectedResults}
+          onClose={toggleIsOpenCompareDialog}
+        />
+      )}
     </ThemeProvider>
   )
 }
