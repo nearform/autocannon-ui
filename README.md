@@ -15,6 +15,7 @@ For understanding the result, please see the `autocannon-compare` [documentation
 - [Screenshots](#screenshots)
 - [Getting started](#getting-started)
 - [Development](#development)
+  * [Designs](#designs)
 - [Packages](#packages)
   * [`autocannon-ui-frontend`](#autocannon-ui-frontend)
   * [`autocannon-ui-backend`](#autocannon-ui-backend)
