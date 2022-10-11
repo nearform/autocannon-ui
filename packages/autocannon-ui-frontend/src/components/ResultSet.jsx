@@ -83,7 +83,9 @@ export default function ResultSet({ data, onChangeSelection }) {
             />
             <Typography className={classes.accordionHeader}>{`${
               data.title || data.url
-            } | ${new Date(data.start).toLocaleString()}`}</Typography>
+            } ${data.index + 1} | ${new Date(
+              data.start
+            ).toLocaleString()}`}</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Grid container className={classes.cardContainer}>

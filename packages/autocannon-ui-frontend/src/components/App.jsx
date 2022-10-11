@@ -110,7 +110,10 @@ function App() {
           {results.map((resultSet, index) => (
             <Grid item key={index} className={classes.resultsGridItem}>
               <ResultSet
-                data={resultSet}
+                data={{
+                  ...resultSet,
+                  index
+                }}
                 onChangeSelection={handleOnSelectResultSet}
               />
             </Grid>
