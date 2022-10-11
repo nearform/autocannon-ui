@@ -20,7 +20,8 @@
     "version:safe": "lerna version --no-git-tag-version --no-push",
     "pre-commit": "lerna run --concurrency 1 --stream precommit --since HEAD --exclude-dependents",
     "toc": "markdown-toc README.md -i",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "node node_modules/puppeteer/install.js"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
