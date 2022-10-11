@@ -51,7 +51,7 @@ function App() {
 
   const handleOnReceivedResults = useCallback(resultSet => {
     setResults(results => {
-      return [...results, resultSet].map((result, index) => {
+      return results.concat(resultSet).map((result, index) => {
         return {
           ...result,
           resultIndex: index + 1,
