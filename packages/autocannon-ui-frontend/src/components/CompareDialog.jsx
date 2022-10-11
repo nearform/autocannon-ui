@@ -81,7 +81,7 @@ export default function CompareDialog({ data, onClose }) {
 
   const printHeader = winner => {
     if (winner) {
-      return `${winner.title || winner.url} | ${new Date(
+      return `${winner.title || winner.url} ${winner.resultIndex} | ${new Date(
         winner.start
       ).toLocaleString()} Wins`
     }

@@ -53,7 +53,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ResultSet({ data, onChangeSelection, resultIndex = 0 }) {
+export default function ResultSet({ data, onChangeSelection }) {
   const classes = useStyles()
 
   const [isSelected, setIsSelected] = useState(false)
@@ -83,7 +83,7 @@ export default function ResultSet({ data, onChangeSelection, resultIndex = 0 }) 
             />
             <Typography className={classes.accordionHeader}>{`${
               data.title || data.url
-            } ${resultIndex + 1} | ${new Date(
+            } ${data.resultIndex} | ${new Date(
               data.start
             ).toLocaleString()}`}</Typography>
           </AccordionSummary>
@@ -285,6 +285,5 @@ export default function ResultSet({ data, onChangeSelection, resultIndex = 0 }) 
 
 ResultSet.propTypes = {
   data: T.object.isRequired,
-  onChangeSelection: T.func.isRequired,
-  resultIndex: T.number,
+  onChangeSelection: T.func.isRequired
 }

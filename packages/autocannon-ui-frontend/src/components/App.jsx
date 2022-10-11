@@ -50,17 +50,27 @@ function App() {
   const [isOpenCompareDialog, setIsOpenCompareDialog] = useState(false)
 
   const handleOnReceivedResults = useCallback(resultSet => {
-    setResults(results => [...results, resultSet])
+    setResults(results => {
+      return [...results, resultSet].map((result, index) => {
+        return {
+          ...result,
+          resultIndex: index + 1,
+          isSelected: result.isSelected || false
+        }
+      })
+    })
   }, [])
 
   const handleOnSelectResultSet = useCallback(
-    (resultSet, isSelected) =>
-      setSelectedResults(results =>
-        isSelected
-          ? [...results, resultSet]
-          : results.filter(item => item != resultSet)
-      ),
-    []
+    (resultSet, isSelected) => {
+      results.forEach(result => {
+        if (result == resultSet) {
+          result.isSelected = isSelected
+        }
+      })
+      setSelectedResults(results.filter(result => result.isSelected))
+    },
+    [results]
   )
 
   const toggleIsOpenCompareDialog = useCallback(() => {
@@ -111,7 +121,6 @@ function App() {
             <Grid item key={index} className={classes.resultsGridItem}>
               <ResultSet
                 data={resultSet}
-                resultIndex={index}
                 onChangeSelection={handleOnSelectResultSet}
               />
             </Grid>
