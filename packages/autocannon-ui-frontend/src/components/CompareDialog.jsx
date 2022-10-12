@@ -97,10 +97,9 @@ export default function CompareDialog({ data, onClose }) {
   return (
     <Dialog
       open
-      className={classes.dialog}
+      className={classes.dialog + ' compare-dialog'}
       maxWidth="md"
       onClose={onClose}
-      data-testid="compare-dialog"
     >
       {isLoading ? (
         <CircularProgress />

@@ -67,6 +67,6 @@ describe('Autocannon UI Puppeteer Test', function () {
     }
 
     await page.click('[data-testid="compare-button"]')
-    await page.waitForSelector('[data-testid="compare-dialog"]')
+    await page.waitForSelector('.compare-dialog')
   })
 })
