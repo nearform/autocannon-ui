@@ -124,7 +124,10 @@ export default function RunOptionsForm(props) {
     setRequest(promise)
     try {
       const result = await promise
-      props.onNewResults(result)
+      props.onNewResults({
+        ...result,
+        options
+      })
     } catch (e) {
       if (e.name !== 'AbortError') {
         setErrorMessage(e.message)
@@ -336,6 +339,7 @@ export default function RunOptionsForm(props) {
                       minRows={4}
                       onChange={e => onOptionChange('headers', e)}
                       className={classes.textArea}
+                      value={options.headers}
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -353,6 +357,7 @@ export default function RunOptionsForm(props) {
                       minRows={10}
                       onChange={e => onOptionChange('body', e)}
                       className={classes.textArea}
+                      value={options.body}
                     />
                   </Grid>
                 </Grid>

@@ -33,7 +33,9 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(2)
   },
   resultsGridItem: {
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(2),
+    border: 'solid #d6d6d6 1px',
+    borderRadius: 4
   },
   buttonsContainer: {
     gap: '1rem'
