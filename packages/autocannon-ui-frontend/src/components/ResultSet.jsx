@@ -13,7 +13,8 @@ import {
   Paper,
   Tooltip,
   AccordionDetails,
-  Checkbox
+  Checkbox,
+  Box
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { makeStyles } from '@material-ui/core/styles'
@@ -24,9 +25,6 @@ import HelpIcon from '@material-ui/icons/Help'
 const useStyles = makeStyles(theme => ({
   table: {
     minWidth: 650,
-    padding: theme.spacing(3)
-  },
-  cardContainer: {
     padding: theme.spacing(3)
   },
   helpIcon: {
@@ -45,11 +43,41 @@ const useStyles = makeStyles(theme => ({
   },
   summary: {
     '&.Mui-expanded': {
-      borderBottom: `1px solid ${theme.palette.divider}`
+      borderBottom: `1px solid ${theme.palette.divider}`,
+
+      '& > .MuiAccordionSummary-content': {
+        margin: '12px 0px'
+      }
     }
   },
   accordionHeader: {
     lineHeight: 2.5
+  },
+  indexText: {
+    marginRight: theme.spacing(1.5)
+  },
+  headerContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexGrow: 1,
+    alignItems: 'center'
+  },
+  parametersItem: {
+    display: 'flex',
+    padding: `0px ${theme.spacing(2)}px ${theme.spacing(2)}px ${theme.spacing(
+      2
+    )}px`
+  },
+  itemContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    maxHeight: 200,
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1)
+  },
+  wrappedText: {
+    overflow: 'auto',
+    overflowWrap: 'anywhere'
   }
 }))
 
@@ -57,6 +85,7 @@ export default function ResultSet({ data, onChangeSelection }) {
   const classes = useStyles()
 
   const [isSelected, setIsSelected] = useState(false)
+
   const onSelectHandler = useCallback(
     e => {
       e.stopPropagation()
@@ -81,12 +110,88 @@ export default function ResultSet({ data, onChangeSelection }) {
               onClick={onSelectHandler}
               data-testid="result-checkbox"
             />
-            <Typography className={classes.accordionHeader}>{`${
-              data.title || data.url
-            } | ${new Date(data.start).toLocaleString()}`}</Typography>
+            <Box className={classes.headerContainer}>
+              <Typography className={classes.accordionHeader}>
+                <span className={classes.indexText}>{data.resultIndex}</span>
+                <span>{data.title || data.url}</span>
+              </Typography>
+              <Typography className={classes.accordionHeader}>
+                {new Date(data.start).toLocaleString()}
+              </Typography>
+            </Box>
           </AccordionSummary>
           <AccordionDetails>
-            <Grid container className={classes.cardContainer}>
+            <Grid container>
+              <Grid item xs={12}>
+                <Typography variant="h6" className={classes.tableHeader}>
+                  <label>Parameters</label>
+                </Typography>
+              </Grid>
+              <Grid item xs={12}>
+                <Box className={classes.parametersItem}>
+                  <Box sx={{ width: '100%' }} className={classes.itemContainer}>
+                    <Typography className={classes.statHeader}>URL</Typography>
+                    <Typography className={classes.wrappedText}>
+                      {data.url}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ width: '100%' }} className={classes.itemContainer}>
+                    <Typography className={classes.statHeader}>
+                      Method
+                    </Typography>
+                    <Typography>{data?.options?.method || ''}</Typography>
+                  </Box>
+                  <Box
+                    sx={{ width: '100%' }}
+                    className={classes.itemContainer}
+                  ></Box>
+                </Box>
+
+                <Box className={classes.parametersItem}>
+                  <Box sx={{ width: '100%' }} className={classes.itemContainer}>
+                    <Typography className={classes.statHeader}>
+                      Connections
+                    </Typography>
+                    <Typography>{data.connections}</Typography>
+                  </Box>
+                  <Box sx={{ width: '100%' }} className={classes.itemContainer}>
+                    <Typography className={classes.statHeader}>
+                      Pipelining
+                    </Typography>
+                    <Typography>{data.pipelining}</Typography>
+                  </Box>
+                  <Box sx={{ width: '100%' }} className={classes.itemContainer}>
+                    <Typography className={classes.statHeader}>
+                      Duration
+                    </Typography>
+                    <Typography>{data.duration}</Typography>
+                  </Box>
+                </Box>
+
+                <Box className={classes.parametersItem}>
+                  <Box sx={{ width: '100%' }} className={classes.itemContainer}>
+                    <Typography className={classes.statHeader}>
+                      Headers
+                    </Typography>
+                    <Typography className={classes.wrappedText}>
+                      {data?.options?.headers || ''}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ width: '100%' }} className={classes.itemContainer}>
+                    <Typography className={classes.statHeader}>Body</Typography>
+                    <Typography className={classes.wrappedText}>
+                      {data?.options?.body || ''}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ width: '100%' }} className={classes.itemContainer}>
+                    <Typography className={classes.statHeader}>
+                      Timeouts
+                    </Typography>
+                    <Typography>{data.timeouts}</Typography>
+                  </Box>
+                </Box>
+              </Grid>
+
               <Grid item xs={12}>
                 <Typography variant="h6" className={classes.tableHeader}>
                   <label>Latency</label>
@@ -106,7 +211,7 @@ export default function ResultSet({ data, onChangeSelection }) {
                         <TableCell>97.5%</TableCell>
                         <TableCell>99%</TableCell>
                         <TableCell>Avg</TableCell>
-                        <TableCell>Stddev</TableCell>
+                        <TableCell>Stdev</TableCell>
                         <TableCell>Max</TableCell>
                       </TableRow>
                     </TableHead>
@@ -129,7 +234,7 @@ export default function ResultSet({ data, onChangeSelection }) {
               </Grid>
               <Grid item xs={12}>
                 <Typography variant="h6" className={classes.tableHeader}>
-                  <label>Volume</label>
+                  <label>Throughput</label>
                   <Tooltip title="Histogram statistics about the amount of requests that were sent per second and the response data throughput per second.">
                     <HelpIcon color="primary" className={classes.helpIcon} />
                   </Tooltip>
@@ -141,12 +246,12 @@ export default function ResultSet({ data, onChangeSelection }) {
                     <TableHead>
                       <TableRow>
                         <TableCell>Stat</TableCell>
+                        <TableCell>1%</TableCell>
                         <TableCell>2.5%</TableCell>
                         <TableCell>50%</TableCell>
                         <TableCell>97.5%</TableCell>
-                        <TableCell>99%</TableCell>
                         <TableCell>Avg</TableCell>
-                        <TableCell>Stddev</TableCell>
+                        <TableCell>Stdev</TableCell>
                         <TableCell>Max</TableCell>
                       </TableRow>
                     </TableHead>

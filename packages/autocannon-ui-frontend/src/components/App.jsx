@@ -33,7 +33,9 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(2)
   },
   resultsGridItem: {
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(2),
+    border: `solid ${theme.palette.grey[400]} 1px`,
+    borderRadius: 4
   },
   buttonsContainer: {
     gap: '1rem'
@@ -50,17 +52,27 @@ function App() {
   const [isOpenCompareDialog, setIsOpenCompareDialog] = useState(false)
 
   const handleOnReceivedResults = useCallback(resultSet => {
-    setResults(results => [...results, resultSet])
+    setResults(results => {
+      return results.concat(resultSet).map((result, index) => {
+        return {
+          ...result,
+          resultIndex: index + 1,
+          isSelected: result.isSelected || false
+        }
+      })
+    })
   }, [])
 
   const handleOnSelectResultSet = useCallback(
-    (resultSet, isSelected) =>
-      setSelectedResults(results =>
-        isSelected
-          ? [...results, resultSet]
-          : results.filter(item => item != resultSet)
-      ),
-    []
+    (resultSet, isSelected) => {
+      results.forEach(result => {
+        if (result == resultSet) {
+          result.isSelected = isSelected
+        }
+      })
+      setSelectedResults(results.filter(result => result.isSelected))
+    },
+    [results]
   )
 
   const toggleIsOpenCompareDialog = useCallback(() => {

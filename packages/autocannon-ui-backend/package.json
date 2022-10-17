@@ -6,7 +6,7 @@
     "dev": "npm start -- -P -l info -w",
     "start": "fastify start -p 3001 .",
     "test": "tap",
-    "_test:qa": "newman run ./test/automation/Autocannon.postman_collection.json --bail -r cli,htmlextra --reporter-htmlextra-export .test_results/qa.html --reporter-htmlextra-darkTheme --bail --timeout-request 30000",
+    "_test:qa": "newman run ./test/automation/Autocannon.postman_collection.json --bail -r cli,htmlextra --reporter-htmlextra-export .test_results/qa.html --reporter-htmlextra-darkTheme --bail --timeout-request 40000",
     "test:qa": "wait-on tcp:3001 && yarn _test:qa",
     "lint": "eslint .",
     "precommit": "lint-staged"

@@ -44,11 +44,19 @@ describe('Autocannon UI Puppeteer Test', function () {
   })
 
   it('should run the two tests and can compare them', async function () {
+    const navigationPromise = page.waitForNavigation({
+      waitUntil: 'domcontentloaded'
+    })
+
     await page.goto('http://localhost:3000/')
+    await navigationPromise
+
     await page.waitForSelector('div.MuiLinearProgress-bar', { hidden: true })
 
     await page.$eval('#url', el => (el.value = 'https://www.google.com'))
     await page.click('[data-testid="run-button"]')
+    await navigationPromise
+
     await page.waitForSelector('div.MuiLinearProgress-bar', { hidden: true })
 
     await page.evaluate(
@@ -57,8 +65,12 @@ describe('Autocannon UI Puppeteer Test', function () {
         null
     )
 
+    await navigationPromise
+    await page.waitForSelector('#url', { timeout: 40000 })
     await page.$eval('#url', el => (el.value = 'https://www.yahoo.com'))
     await page.click('[data-testid="run-button"]')
+    await navigationPromise
+
     await page.waitForSelector('div.MuiLinearProgress-bar', { hidden: true })
 
     const resultsCheckboxes = await page.$$('[data-testid="result-checkbox"]')
@@ -66,7 +78,12 @@ describe('Autocannon UI Puppeteer Test', function () {
       await resultsCheckboxes[i].click()
     }
 
+    await navigationPromise
+
+    await page.waitForSelector('[data-testid="compare-button"]')
     await page.click('[data-testid="compare-button"]')
+    await navigationPromise
+
     await page.waitForSelector('.compare-dialog')
   })
 })
