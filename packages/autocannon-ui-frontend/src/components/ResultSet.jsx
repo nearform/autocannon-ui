@@ -54,33 +54,30 @@ const useStyles = makeStyles(theme => ({
     lineHeight: 2.5
   },
   indexText: {
-    marginRight: 12
+    marginRight: theme.spacing(1.5)
   },
   headerContainer: {
     display: 'flex',
     justifyContent: 'space-between',
-    width: '100%',
+    flexGrow: 1,
     alignItems: 'center'
   },
   parametersItem: {
     display: 'flex',
-    width: '100%',
-    padding: '0px 16px 16px 16px'
+    padding: `0px ${theme.spacing(2)}px ${theme.spacing(2)}px ${theme.spacing(
+      2
+    )}px`
   },
   itemContainer: {
-    width: '33.33%',
     display: 'flex',
     flexDirection: 'column',
     maxHeight: 200,
-    marginLeft: 8,
-    marginRight: 8
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1)
   },
   wrappedText: {
     overflow: 'auto',
     overflowWrap: 'anywhere'
-  },
-  boldText: {
-    fontWeight: 'bold'
   }
 }))
 
@@ -132,34 +129,39 @@ export default function ResultSet({ data, onChangeSelection }) {
               </Grid>
               <Grid item xs={12}>
                 <Box className={classes.parametersItem}>
-                  <Box className={classes.itemContainer}>
-                    <Typography className={classes.boldText}>URL</Typography>
+                  <Box sx={{ width: '100%' }} className={classes.itemContainer}>
+                    <Typography className={classes.statHeader}>URL</Typography>
                     <Typography className={classes.wrappedText}>
                       {data.url}
                     </Typography>
                   </Box>
-                  <Box className={classes.itemContainer}>
-                    <Typography className={classes.boldText}>Method</Typography>
+                  <Box sx={{ width: '100%' }} className={classes.itemContainer}>
+                    <Typography className={classes.statHeader}>
+                      Method
+                    </Typography>
                     <Typography>{data?.options?.method || ''}</Typography>
                   </Box>
-                  <Box className={classes.itemContainer}></Box>
+                  <Box
+                    sx={{ width: '100%' }}
+                    className={classes.itemContainer}
+                  ></Box>
                 </Box>
 
                 <Box className={classes.parametersItem}>
-                  <Box className={classes.itemContainer}>
-                    <Typography className={classes.boldText}>
+                  <Box sx={{ width: '100%' }} className={classes.itemContainer}>
+                    <Typography className={classes.statHeader}>
                       Connections
                     </Typography>
                     <Typography>{data.connections}</Typography>
                   </Box>
-                  <Box className={classes.itemContainer}>
-                    <Typography className={classes.boldText}>
+                  <Box sx={{ width: '100%' }} className={classes.itemContainer}>
+                    <Typography className={classes.statHeader}>
                       Pipelining
                     </Typography>
                     <Typography>{data.pipelining}</Typography>
                   </Box>
-                  <Box className={classes.itemContainer}>
-                    <Typography className={classes.boldText}>
+                  <Box sx={{ width: '100%' }} className={classes.itemContainer}>
+                    <Typography className={classes.statHeader}>
                       Duration
                     </Typography>
                     <Typography>{data.duration}</Typography>
@@ -167,22 +169,22 @@ export default function ResultSet({ data, onChangeSelection }) {
                 </Box>
 
                 <Box className={classes.parametersItem}>
-                  <Box className={classes.itemContainer}>
-                    <Typography className={classes.boldText}>
+                  <Box sx={{ width: '100%' }} className={classes.itemContainer}>
+                    <Typography className={classes.statHeader}>
                       Headers
                     </Typography>
                     <Typography className={classes.wrappedText}>
                       {data?.options?.headers || ''}
                     </Typography>
                   </Box>
-                  <Box className={classes.itemContainer}>
-                    <Typography className={classes.boldText}>Body</Typography>
+                  <Box sx={{ width: '100%' }} className={classes.itemContainer}>
+                    <Typography className={classes.statHeader}>Body</Typography>
                     <Typography className={classes.wrappedText}>
                       {data?.options?.body || ''}
                     </Typography>
                   </Box>
-                  <Box className={classes.itemContainer}>
-                    <Typography className={classes.boldText}>
+                  <Box sx={{ width: '100%' }} className={classes.itemContainer}>
+                    <Typography className={classes.statHeader}>
                       Timeouts
                     </Typography>
                     <Typography>{data.timeouts}</Typography>
