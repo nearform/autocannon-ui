@@ -65,6 +65,7 @@ describe('Autocannon UI Puppeteer Test', function () {
         null
     )
 
+    await navigationPromise
     await page.waitForSelector('#url')
     await page.$eval('#url', el => (el.value = 'https://www.yahoo.com'))
     await page.click('[data-testid="run-button"]')
