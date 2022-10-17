@@ -67,6 +67,7 @@ describe('Autocannon UI Puppeteer Test', function () {
       await resultsCheckboxes[i].click()
     }
 
+    await page.waitForSelector('[data-testid="compare-button"]')
     await page.click('[data-testid="compare-button"]')
     await page.waitForSelector('.compare-dialog')
   })
