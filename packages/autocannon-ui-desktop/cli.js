@@ -1,10 +1,7 @@
-#!/usr/bin/env node
-'use strict'
+import { spawn } from 'child_process'
+import path from 'path'
 
-const { spawn } = require('child_process')
-const path = require('path')
-
-const electron = require('electron')
+import electron from 'electron'
 
 const appPath = path.join(__dirname, 'main.js')
 const proc = spawn(electron, [appPath], { stdio: 'inherit' })

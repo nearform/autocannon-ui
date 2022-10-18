@@ -1,27 +1,27 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
 import {
-  Grid,
-  Container,
-  TextField,
-  Tooltip,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
   Box,
   Button,
-  TextareaAutosize,
+  Container,
   Fade,
-  Typography,
-  Link
-} from '@material-ui/core'
+  FormControl,
+  Grid,
+  InputLabel,
+  Link,
+  MenuItem,
+  Select,
+  TextareaAutosize,
+  TextField,
+  Tooltip,
+  Typography
+} from '@mui/material'
 import T from 'prop-types'
-import HelpIcon from '@material-ui/icons/Help'
+import HelpIcon from '@mui/icons-material/Help'
 
 import ProgressBar from './ProgressBar'
 import logo from '../assets/autocannon-banner.png'
-import { Alert } from '@material-ui/lab'
+import Alert from '@mui/material/Alert'
+import { styled } from '@mui/material/styles'
 
 const DEFAULT_OPTIONS = {
   url: 'https://google.com',
@@ -35,48 +35,63 @@ const DEFAULT_OPTIONS = {
   body: ''
 }
 
-const useStyles = makeStyles(theme => ({
-  form: {
+const PREFIX = 'RunOptionsForm'
+const classes = {
+  actionSection: `${PREFIX}-actionSection`,
+  advancedOptionsButton: `${PREFIX}-advancedOptionsButton`,
+  errorSection: `${PREFIX}-errorSection`,
+  form: `${PREFIX}-form`,
+  gridContainer: `${PREFIX}-gridContainer`,
+  helpIcon: `${PREFIX}-helpIcon`,
+  logo: `${PREFIX}-logo`,
+  progressBar: `${PREFIX}-progressBar`,
+  runButton: `${PREFIX}-runButton`,
+  textArea: `${PREFIX}-textArea`
+}
+
+const Root = styled('div')(({ theme }) => ({
+  [`& .${classes.form}`]: {
     width: '100%',
     marginTop: theme.spacing(1)
   },
-  logo: {
+  [`& .${classes.logo}`]: {
     maxWidth: '70%',
     display: 'block',
     margin: 'auto',
     padding: theme.spacing(1)
   },
-  helpIcon: {
+  [`& .${classes.helpIcon}`]: {
     fontSize: 'medium',
     cursor: 'default'
   },
-  advancedOptionsButton: {
+  [`& .${classes.advancedOptionsButton}`]: {
     fontWeight: 'bold'
   },
-  runButton: {
+  [`& .${classes.runButton}`]: {
     borderRadius: theme.spacing(2),
     height: '2.8rem'
   },
-  actionSection: {
+  [`& .${classes.actionSection}`]: {
     padding: theme.spacing(2)
   },
-  progressBar: {
+  [`& .${classes.progressBar}`]: {
     padding: theme.spacing(2)
   },
-  errorSection: {
+  [`& .${classes.errorSection}`]: {
     padding: theme.spacing(2),
     borderRadius: theme.spacing(1)
   },
-  textArea: {
+  [`& .${classes.textArea}`]: {
     resize: 'vertical',
     width: '100%',
     padding: '0.8rem'
+  },
+  [`& .${classes.gridContainer}`]: {
+    margin: 0
   }
 }))
 
 export default function RunOptionsForm(props) {
-  const classes = useStyles()
-
   const [options, setOptions] = useState(
     () =>
       JSON.parse(window.localStorage.getItem('autoCannon_options')) ||
@@ -178,231 +193,247 @@ export default function RunOptionsForm(props) {
   }
 
   return (
-    <React.Fragment>
-      <Container maxWidth="sm">
-        <img src={logo} alt="AutoCannon" className={classes.logo} />
-        {errorMessage && (
-          <Container maxWidth="sm" className={classes.errorSection}>
-            <Alert severity="error">{errorMessage}</Alert>
-          </Container>
-        )}
-        <form className={classes.form} noValidate>
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <TextField
-                id="url"
-                label="Test URL"
-                variant="outlined"
-                value={options.url}
-                onChange={e => onOptionChange('url', e)}
-                error={validationResults.url}
-                fullWidth
-                required
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControl variant="outlined" fullWidth>
-                <InputLabel id="method-input-label">Method</InputLabel>
-                <Select
-                  labelId="method-input-label"
-                  id="method-input"
-                  value={options.method}
-                  onChange={e => onOptionChange('method', e)}
-                  label="Method"
-                >
-                  <MenuItem value="GET">GET</MenuItem>
-                  <MenuItem value="HEAD">HEAD</MenuItem>
-                  <MenuItem value="POST">POST</MenuItem>
-                  <MenuItem value="PUT">PUT</MenuItem>
-                  <MenuItem value="DELETE">DELETE</MenuItem>
-                  <MenuItem value="OPTIONS">OPTIONS</MenuItem>
-                  <MenuItem value="TRACE">TRACE</MenuItem>
-                  <MenuItem value="PATCH">PATCH</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item xs={4}>
-              <TextField
-                id="connections"
-                label="Connections"
-                variant="outlined"
-                type="number"
-                InputProps={{
-                  endAdornment: (
-                    <Tooltip title=" The number of concurrent connections.">
-                      <HelpIcon color="primary" className={classes.helpIcon} />
-                    </Tooltip>
-                  ),
-                  inputProps: { min: 1 }
-                }}
-                value={options.connections}
-                onChange={e => onOptionChange('connections', e)}
-                fullWidth
-              />
-            </Grid>
-            <Grid item xs={4}>
-              <TextField
-                id="pipelining"
-                label="Pipelining"
-                variant="outlined"
-                type="number"
-                InputProps={{
-                  endAdornment: (
-                    <Tooltip title="The number of pipelined requests for each connection. Will cause the Client API to throw when greater than 1.">
-                      <HelpIcon color="primary" className={classes.helpIcon} />
-                    </Tooltip>
-                  ),
-                  inputProps: { min: 1 }
-                }}
-                value={options.pipelining}
-                onChange={e => onOptionChange('pipelining', e)}
-                fullWidth
-              />
-            </Grid>
-            <Grid item xs={4}>
-              <TextField
-                id="duration"
-                label="Duration"
-                variant="outlined"
-                type="number"
-                InputProps={{
-                  endAdornment: (
-                    <Tooltip title="The number of seconds to run the autocannon. Can be a timestring.">
-                      <HelpIcon color="primary" className={classes.helpIcon} />
-                    </Tooltip>
-                  ),
-                  inputProps: { min: 1 }
-                }}
-                value={options.duration}
-                onChange={e => onOptionChange('duration', e)}
-                fullWidth
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Box display="flex" justifyContent="center">
-                <Link
-                  component="button"
-                  className={classes.advancedOptionsButton}
-                  color="primary"
-                  onClick={handleShowAdvancedOptions}
-                >
-                  {!showAdvancedOptions ? 'Show' : 'Hide'} advanced options
-                </Link>
-              </Box>
-            </Grid>
-            <Grid item xs={12} hidden={!showAdvancedOptions}>
-              <Fade in={showAdvancedOptions}>
-                <Grid container spacing={3}>
-                  <Grid item xs={8}>
-                    <TextField
-                      id="title"
-                      label="Title"
-                      variant="outlined"
-                      value={options.title}
-                      onChange={e => onOptionChange('title', e)}
-                      error={validationResults.url}
-                      fullWidth
-                    />
-                  </Grid>
-                  <Grid item xs={4}>
-                    <TextField
-                      id="timeout"
-                      label="Timeout"
-                      variant="outlined"
-                      type="number"
-                      InputProps={{
-                        endAdornment: (
-                          <Tooltip title="The number of seconds before timing out and resetting a connection.">
-                            <HelpIcon
-                              color="primary"
-                              className={classes.helpIcon}
-                            />
-                          </Tooltip>
-                        ),
-                        inputProps: { min: 1 }
-                      }}
-                      value={options.timeout}
-                      onChange={e => onOptionChange('timeout', e)}
-                      fullWidth
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Typography align="left" color="textPrimary" variant="h6">
-                      Headers
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextareaAutosize
-                      id="headers"
-                      aria-label="headers"
-                      placeholder='Example: {"accept":"text/plain", "Content-Type":"application/json" }'
-                      minRows={4}
-                      onChange={e => onOptionChange('headers', e)}
-                      className={classes.textArea}
-                      value={options.headers}
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Box>
-                      <Typography align="left" color="textPrimary" variant="h5">
-                        Body
-                      </Typography>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextareaAutosize
-                      id="body"
-                      aria-label="body"
-                      placeholder='Example: {"key1":"value1", "key2":"value2"}'
-                      minRows={10}
-                      onChange={e => onOptionChange('body', e)}
-                      className={classes.textArea}
-                      value={options.body}
-                    />
-                  </Grid>
-                </Grid>
-              </Fade>
-            </Grid>
-          </Grid>
-        </form>
-        <Container maxWidth="sm" className={classes.actionSection}>
-          <Box display="flex" justifyContent="center">
-            {isTestRunning && (
-              <Grid
-                container
-                direction="column"
-                justifyContent="center"
-                alignItems="center"
-                spacing={3}
-              >
-                <ProgressBar value={progress} />
-                <Button
+    <Root>
+      <React.Fragment>
+        <Container maxWidth="sm">
+          <img src={logo} alt="AutoCannon" className={classes.logo} />
+          {errorMessage && (
+            <Container maxWidth="sm" className={classes.errorSection}>
+              <Alert severity="error">{errorMessage}</Alert>
+            </Container>
+          )}
+          <form className={classes.form} noValidate>
+            <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <TextField
+                  id="url"
+                  label="Test URL"
                   variant="outlined"
-                  color="primary"
-                  onClick={cancelTest}
-                  data-testid="cancel-run-button"
-                >
-                  Cancel
-                </Button>
+                  value={options.url}
+                  onChange={e => onOptionChange('url', e)}
+                  error={validationResults.url}
+                  fullWidth
+                  required
+                />
               </Grid>
-            )}
-            {!isTestRunning && (
-              <Button
-                className={classes.runButton}
-                variant="contained"
-                color="primary"
-                size="large"
-                disabled={invalid}
-                onClick={runButtonHandler}
-                data-testid="run-button"
-              >
-                Run Test
-              </Button>
-            )}
-          </Box>
+              <Grid item xs={12}>
+                <FormControl variant="outlined" fullWidth>
+                  <InputLabel id="method-input-label">Method</InputLabel>
+                  <Select
+                    labelId="method-input-label"
+                    id="method-input"
+                    value={options.method}
+                    onChange={e => onOptionChange('method', e)}
+                    label="Method"
+                  >
+                    <MenuItem value="GET">GET</MenuItem>
+                    <MenuItem value="HEAD">HEAD</MenuItem>
+                    <MenuItem value="POST">POST</MenuItem>
+                    <MenuItem value="PUT">PUT</MenuItem>
+                    <MenuItem value="DELETE">DELETE</MenuItem>
+                    <MenuItem value="OPTIONS">OPTIONS</MenuItem>
+                    <MenuItem value="TRACE">TRACE</MenuItem>
+                    <MenuItem value="PATCH">PATCH</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={4}>
+                <TextField
+                  id="connections"
+                  label="Connections"
+                  variant="outlined"
+                  type="number"
+                  InputProps={{
+                    endAdornment: (
+                      <Tooltip title=" The number of concurrent connections.">
+                        <HelpIcon
+                          color="primary"
+                          className={classes.helpIcon}
+                        />
+                      </Tooltip>
+                    ),
+                    inputProps: { min: 1 }
+                  }}
+                  value={options.connections}
+                  onChange={e => onOptionChange('connections', e)}
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <TextField
+                  id="pipelining"
+                  label="Pipelining"
+                  variant="outlined"
+                  type="number"
+                  InputProps={{
+                    endAdornment: (
+                      <Tooltip title="The number of pipelined requests for each connection. Will cause the Client API to throw when greater than 1.">
+                        <HelpIcon
+                          color="primary"
+                          className={classes.helpIcon}
+                        />
+                      </Tooltip>
+                    ),
+                    inputProps: { min: 1 }
+                  }}
+                  value={options.pipelining}
+                  onChange={e => onOptionChange('pipelining', e)}
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <TextField
+                  id="duration"
+                  label="Duration"
+                  variant="outlined"
+                  type="number"
+                  InputProps={{
+                    endAdornment: (
+                      <Tooltip title="The number of seconds to run the autocannon. Can be a timestring.">
+                        <HelpIcon
+                          color="primary"
+                          className={classes.helpIcon}
+                        />
+                      </Tooltip>
+                    ),
+                    inputProps: { min: 1 }
+                  }}
+                  value={options.duration}
+                  onChange={e => onOptionChange('duration', e)}
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Box display="flex" justifyContent="center">
+                  <Link
+                    component="button"
+                    className={classes.advancedOptionsButton}
+                    color="primary"
+                    onClick={handleShowAdvancedOptions}
+                  >
+                    {!showAdvancedOptions ? 'Show' : 'Hide'} advanced options
+                  </Link>
+                </Box>
+              </Grid>
+              <Grid item xs={12} hidden={!showAdvancedOptions}>
+                <Fade in={showAdvancedOptions}>
+                  <Grid container spacing={3}>
+                    <Grid item xs={8}>
+                      <TextField
+                        id="title"
+                        label="Title"
+                        variant="outlined"
+                        value={options.title}
+                        onChange={e => onOptionChange('title', e)}
+                        error={validationResults.url}
+                        fullWidth
+                      />
+                    </Grid>
+                    <Grid item xs={4}>
+                      <TextField
+                        id="timeout"
+                        label="Timeout"
+                        variant="outlined"
+                        type="number"
+                        InputProps={{
+                          endAdornment: (
+                            <Tooltip title="The number of seconds before timing out and resetting a connection.">
+                              <HelpIcon
+                                color="primary"
+                                className={classes.helpIcon}
+                              />
+                            </Tooltip>
+                          ),
+                          inputProps: { min: 1 }
+                        }}
+                        value={options.timeout}
+                        onChange={e => onOptionChange('timeout', e)}
+                        fullWidth
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Typography align="left" color="textPrimary" variant="h6">
+                        Headers
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextareaAutosize
+                        id="headers"
+                        aria-label="headers"
+                        placeholder='Example: {"accept":"text/plain", "Content-Type":"application/json" }'
+                        minRows={4}
+                        onChange={e => onOptionChange('headers', e)}
+                        className={classes.textArea}
+                        value={options.headers}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Box>
+                        <Typography
+                          align="left"
+                          color="textPrimary"
+                          variant="h5"
+                        >
+                          Body
+                        </Typography>
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextareaAutosize
+                        id="body"
+                        aria-label="body"
+                        placeholder='Example: {"key1":"value1", "key2":"value2"}'
+                        minRows={10}
+                        onChange={e => onOptionChange('body', e)}
+                        className={classes.textArea}
+                        value={options.body}
+                      />
+                    </Grid>
+                  </Grid>
+                </Fade>
+              </Grid>
+            </Grid>
+          </form>
+          <Container maxWidth="sm" className={classes.actionSection}>
+            <Box display="flex" justifyContent="center">
+              {isTestRunning && (
+                <Grid
+                  container
+                  direction="column"
+                  justifyContent="center"
+                  alignItems="center"
+                  spacing={3}
+                  className={classes.gridContainer}
+                >
+                  <ProgressBar value={progress} />
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    onClick={cancelTest}
+                    data-testid="cancel-run-button"
+                  >
+                    Cancel
+                  </Button>
+                </Grid>
+              )}
+              {!isTestRunning && (
+                <Button
+                  className={classes.runButton}
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  disabled={invalid}
+                  onClick={runButtonHandler}
+                  data-testid="run-button"
+                >
+                  Run Test
+                </Button>
+              )}
+            </Box>
+          </Container>
         </Container>
-      </Container>
-    </React.Fragment>
+      </React.Fragment>
+    </Root>
   )
 }
 

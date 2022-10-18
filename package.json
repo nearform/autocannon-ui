@@ -12,6 +12,7 @@
     "packages/*"
   ],
   "scripts": {
+    "autocannon-ui": "lerna run dev --parallel",
     "dev": "lerna run dev --parallel",
     "lint": "lerna run lint --stream",
     "desktop": "lerna run desktop --stream",
@@ -22,6 +23,9 @@
     "toc": "markdown-toc README.md -i",
     "prepare": "husky install",
     "postinstall": "node node_modules/puppeteer/install.js"
+  },
+  "overrides": {
+    "puppeteer-core": "^18.2.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",

@@ -1,13 +1,13 @@
-'use strict'
+import path from 'path'
 
-const path = require('path')
-
-const { app, BrowserWindow } = require('electron')
-const Fastify = require('fastify')
-const { setContentSecurityPolicy } = require('electron-util')
-const Store = require('electron-store')
-const autocannonUiBackend = require('autocannon-ui-backend')
-const pkgDir = require('pkg-dir')
+import { app, BrowserWindow } from 'electron'
+import Fastify from 'fastify'
+import autocannonUiBackend from 'autocannon-ui-backend'
+import autoCannonUiFrontend from 'autocannon-ui-frontend'
+import * as pkgDir from 'pkg-dir'
+import fastifyStatic from '@fastify/static'
+import * as Store from 'electron-store'
+import { setContentSecurityPolicy } from 'electron-util'
 
 const store = new Store()
 
@@ -22,10 +22,10 @@ async function startServer() {
   fastify.register(autocannonUiBackend)
 
   const uiRoot = path.join(
-    pkgDir.sync(require.resolve('autocannon-ui-frontend')),
+    pkgDir.packageDirectorySync(autoCannonUiFrontend),
     'dist'
   )
-  fastify.register(require('fastify-static'), {
+  fastify.register(fastifyStatic, {
     root: uiRoot
   })
 

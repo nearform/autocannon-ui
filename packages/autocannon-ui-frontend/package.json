@@ -16,10 +16,13 @@
     "index.js"
   ],
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
     "@fontsource/roboto": "^4.3.0",
-    "@material-ui/core": "^4.11.4",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/lab": "^4.0.0-alpha.58",
+    "@mui/icons-material": "^5.10.9",
+    "@mui/material": "^5.10.9",
+    "@mui/styles": "^5.10.10",
+    "@mui/system": "^5.10.9",
     "chrome-aws-lambda": "^10.1.0",
     "pretty-bytes": "^6.0.0",
     "react": "^18.0.0",

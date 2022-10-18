@@ -1,26 +1,29 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import LinearProgress from '@material-ui/core/LinearProgress'
-import Typography from '@material-ui/core/Typography'
-import Box from '@material-ui/core/Box'
+
 import T from 'prop-types'
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: '70%',
-    padding: theme.spacing(3)
-  },
-  bar: {
-    height: '10px',
-    borderRadius: '5px'
+import { Box, LinearProgress, Typography } from '@mui/material'
+import { styled } from '@mui/material/styles'
+
+const PREFIX = 'ProgressBar'
+const classes = {
+  root: `${PREFIX}-root`,
+  bar: `${PREFIX}-bar`
+}
+
+const Root = styled('div')(({ theme }) => ({
+  width: '100%',
+  padding: `${theme.spacing(1)} 0px ${theme.spacing(3)} 0px`,
+
+  [`& .${classes.bar}`]: {
+    height: '12px',
+    borderRadius: '4px'
   }
 }))
 
 export default function ProgressBar(props) {
-  const classes = useStyles()
-
   return (
-    <div className={classes.root}>
+    <Root>
       <Box display="flex" alignItems="center" flexDirection="column">
         <Box minWidth={35}>
           <Typography
@@ -29,7 +32,7 @@ export default function ProgressBar(props) {
             align="center"
           >{`${Math.round(props.value)}%`}</Typography>
         </Box>
-        <Box width="100%" mr={1}>
+        <Box width="100%">
           <LinearProgress
             className={classes.bar}
             variant="determinate"
@@ -37,7 +40,7 @@ export default function ProgressBar(props) {
           />
         </Box>
       </Box>
-    </div>
+    </Root>
   )
 }
 

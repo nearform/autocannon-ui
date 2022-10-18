@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import T from 'prop-types'
+
 import {
-  IconButton,
   Dialog,
   DialogTitle,
   DialogContent,
   CircularProgress,
-  makeStyles,
   Grid,
+  IconButton,
   TableContainer,
   Paper,
   Table,
@@ -15,29 +15,39 @@ import {
   TableRow,
   TableCell,
   TableBody
-} from '@material-ui/core'
-import CloseIcon from '@material-ui/icons/Close'
-import { Alert } from '@material-ui/lab'
+} from '@mui/material'
+import CloseIcon from '@mui/icons-material/Close'
+import Alert from '@mui/material/Alert'
+import { styled } from '@mui/material/styles'
 
-const useStyles = makeStyles({
-  dialog: {
-    margin: '0 20px'
+const PREFIX = 'CompareDialog'
+const classes = {
+  dialog: `${PREFIX}-dialog`,
+  dialogTitle: `${PREFIX}-dialogTitle`,
+  dialogContent: `${PREFIX}-dialogContent`,
+  closeButton: `${PREFIX}-closeButton`,
+  statHeader: `${PREFIX}-statHeader`
+}
+
+const Root = styled('div')(({ theme }) => ({
+  [`& .${classes.dialog}`]: {
+    margin: `0 ${theme.spacing(2.5)}`
   },
-  dialogTitle: {
-    paddingRight: '48px'
+  [`& .${classes.dialogTitle}`]: {
+    paddingRight: theme.spacing(6)
   },
-  dialogContent: {
+  [`& .${classes.dialogContent}`]: {
     padding: 0
   },
-  closeButton: {
+  [`& .${classes.closeButton}`]: {
     position: 'absolute',
     top: 0,
     right: 0
   },
-  statHeader: {
+  [`& .${classes.statHeader}`]: {
     fontWeight: 'bold'
   }
-})
+}))
 
 const useCompareResult = resultSets => {
   const [isLoading, setIsLoading] = useState(true)
@@ -76,7 +86,6 @@ const useCompareResult = resultSets => {
 }
 
 export default function CompareDialog({ data, onClose }) {
-  const classes = useStyles()
   const { result, isLoading, errorMessage } = useCompareResult(data)
 
   const printHeader = winner => {
@@ -95,75 +104,80 @@ export default function CompareDialog({ data, onClose }) {
   }, [result, data])
 
   return (
-    <Dialog
-      open
-      className={classes.dialog + ' compare-dialog'}
-      maxWidth="md"
-      onClose={onClose}
-    >
-      {isLoading ? (
-        <CircularProgress />
-      ) : errorMessage ? (
-        <Alert severity="error">{errorMessage}</Alert>
-      ) : (
-        <>
-          <DialogTitle className={classes.dialogTitle}>
-            {headerMemo}
-            <IconButton className={classes.closeButton} onClick={onClose}>
-              <CloseIcon />
-            </IconButton>
-          </DialogTitle>
-          <DialogContent className={classes.dialogContent}>
-            <Grid item xs={12}>
-              <TableContainer component={Paper}>
-                <Table className={classes.table}>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell></TableCell>
-                      <TableCell>Requests</TableCell>
-                      <TableCell>Throughput</TableCell>
-                      <TableCell>Latency</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell className={classes.statHeader}>
-                        Difference
-                      </TableCell>
-                      <TableCell> {result?.requests.difference} </TableCell>
-                      <TableCell> {result?.throughput.difference} </TableCell>
-                      <TableCell> {result?.latency.difference} </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell className={classes.statHeader}>
-                        pValue
-                      </TableCell>
-                      <TableCell>
-                        {result?.requests.pValue?.toFixed(2)}
-                      </TableCell>
-                      <TableCell>
-                        {result?.throughput.pValue?.toFixed(2)}
-                      </TableCell>
-                      <TableCell>
-                        {result?.latency.pValue?.toFixed(2)}
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell className={classes.statHeader}>
-                        Significance
-                      </TableCell>
-                      <TableCell> {result?.requests.significant} </TableCell>
-                      <TableCell> {result?.throughput.significant} </TableCell>
-                      <TableCell> {result?.latency.significant} </TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </Grid>
-          </DialogContent>
-        </>
-      )}
-    </Dialog>
+    <Root>
+      <Dialog
+        open
+        className={classes.dialog + ' compare-dialog'}
+        maxWidth="md"
+        onClose={onClose}
+      >
+        {isLoading ? (
+          <CircularProgress />
+        ) : errorMessage ? (
+          <Alert severity="error">{errorMessage}</Alert>
+        ) : (
+          <>
+            <DialogTitle className={classes.dialogTitle}>
+              {headerMemo}
+              <IconButton className={classes.closeButton} onClick={onClose}>
+                <CloseIcon />
+              </IconButton>
+            </DialogTitle>
+            <DialogContent className={classes.dialogContent}>
+              <Grid item xs={12}>
+                <TableContainer component={Paper}>
+                  <Table className={classes.table}>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell></TableCell>
+                        <TableCell>Requests</TableCell>
+                        <TableCell>Throughput</TableCell>
+                        <TableCell>Latency</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      <TableRow>
+                        <TableCell className={classes.statHeader}>
+                          Difference
+                        </TableCell>
+                        <TableCell> {result?.requests.difference} </TableCell>
+                        <TableCell> {result?.throughput.difference} </TableCell>
+                        <TableCell> {result?.latency.difference} </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className={classes.statHeader}>
+                          pValue
+                        </TableCell>
+                        <TableCell>
+                          {result?.requests.pValue?.toFixed(2)}
+                        </TableCell>
+                        <TableCell>
+                          {result?.throughput.pValue?.toFixed(2)}
+                        </TableCell>
+                        <TableCell>
+                          {result?.latency.pValue?.toFixed(2)}
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className={classes.statHeader}>
+                          Significance
+                        </TableCell>
+                        <TableCell> {result?.requests.significant} </TableCell>
+                        <TableCell>
+                          {' '}
+                          {result?.throughput.significant}{' '}
+                        </TableCell>
+                        <TableCell> {result?.latency.significant} </TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Grid>
+            </DialogContent>
+          </>
+        )}
+      </Dialog>
+    </Root>
   )
 }
 
