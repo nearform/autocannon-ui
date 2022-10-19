@@ -21,7 +21,6 @@
     "@fontsource/roboto": "^4.3.0",
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.9",
-    "@mui/styles": "^5.10.10",
     "@mui/system": "^5.10.9",
     "chrome-aws-lambda": "^10.1.0",
     "pretty-bytes": "^6.0.0",
