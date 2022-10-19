@@ -23,9 +23,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.1.1](https://github.com/nearform/autocannon-ui/compare/v1.1.0...v1.1.1) (2021-06-23)
 
+
 ### Bug Fixes
 
 * mark electron as a dependency of desktop app ([#69](https://github.com/nearform/autocannon-ui/issues/69)) ([5dd22c6](https://github.com/nearform/autocannon-ui/commit/5dd22c63eacdbecdd02a9b5fe3171f3a9d8852d5))
+
+
+
 
 
 # [1.1.0](https://github.com/nearform/autocannon-ui/compare/v1.0.0...v1.1.0) (2021-06-23)
@@ -50,11 +54,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
+* add electron app for running on desktop ([#64](https://github.com/nearform/autocannon-ui/issues/64)) ([a5d3b27](https://github.com/nearform/autocannon-ui/commit/a5d3b27e25f19b32e4b454c1173d79065a409a2e))
 * **ui:** add options form validation ([#26](https://github.com/nearform/autocannon-ui/issues/26)) ([365927b](https://github.com/nearform/autocannon-ui/commit/365927b083cea3dfb0c0b7837e10a7486953cb34))
 
 
 ### Reverts
 
 * Revert lerna upgrade & fix dependabot config (#33) ([dec0153](https://github.com/nearform/autocannon-ui/commit/dec0153b13358aa9e44d3a7b7036265bb986ec2c)), closes [#33](https://github.com/nearform/autocannon-ui/issues/33) [#32](https://github.com/nearform/autocannon-ui/issues/32)
-
-* Removed autocannon-ui-desktop by removing electron app for running it (https://github.com/nearform/autocannon-ui/pull/712/commits/38a771ecc064bcd7ca77c0d4e867453d87b6d542)

@@ -2,7 +2,7 @@
 const { spawn } = require("child_process");
 
 function main() {
-  spawn("npm start")
+  spawn("npm start", [], { stdio: 'inherit', shell: true })
 }
 
 if (require.main === module) {
