@@ -4,4 +4,4 @@ This package contains React-based frontend required by [autocannon-ui](https://g
 
 ## Development
 
-Run `npm run start` to start a server with vite
+Run `npm start` to start a server with vite
