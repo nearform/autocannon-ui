@@ -12,10 +12,9 @@
     "packages/*"
   ],
   "scripts": {
-    "autocannon-ui": "lerna run dev --parallel",
+    "start": "lerna run dev --parallel",
     "dev": "lerna run dev --parallel",
     "lint": "lerna run lint --stream",
-    "desktop": "lerna run desktop --stream",
     "test": "lerna run test --stream",
     "test:qa": "lerna run test:qa --stream",
     "version:safe": "lerna version --no-git-tag-version --no-push",
@@ -23,6 +22,9 @@
     "toc": "markdown-toc README.md -i",
     "prepare": "husky install",
     "postinstall": "node node_modules/puppeteer/install.js"
+  },
+  "bin": {   
+    "autocannon-ui": "index.js"
   },
   "overrides": {
     "puppeteer-core": "^18.2.1"

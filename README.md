@@ -19,7 +19,6 @@ For understanding the result, please see the `autocannon-compare` [documentation
 - [Packages](#packages)
   * [`autocannon-ui-frontend`](#autocannon-ui-frontend)
   * [`autocannon-ui-backend`](#autocannon-ui-backend)
-  * [`autocannon-ui-desktop`](#autocannon-ui-desktop)
   * [`autocannon-ui-web`](#autocannon-ui-web)
 - [Running standalone application](#running-standalone-application)
 
@@ -34,11 +33,11 @@ For understanding the result, please see the `autocannon-compare` [documentation
 
 ## Getting started
 
-- `yarn`
+- `npm install`
 
 The easiest way to try this out is to run:
 
-- `yarn dev`
+- `npm start`
 - browse to [`http://localhost:3000`](http://localhost:3000)
 
 ## Development
@@ -46,7 +45,7 @@ The easiest way to try this out is to run:
 To easily develop the packages of this repo you can execute:
 
 ```sh
-yarn dev
+npm start
 ```
 
 This will run:
@@ -68,10 +67,6 @@ A library of React components which provide the UI.
 
 A standalone Fastify application.
 
-### `autocannon-ui-desktop`
-
-Electron wrapper for running both frontend and backend.
-
 ### `autocannon-ui-web`
 
 Web wrapper for running both frontend and backend.
@@ -80,14 +75,7 @@ Web wrapper for running both frontend and backend.
 
 The application can be installed as a global npm package and run as a standalone tool from command line.
 
-To install it and run:
-
-```sh
-npm install -g autocannon-ui-desktop
-autocannon-ui-desktop
-```
-
-or for running web application:
+To install it and to run web application:
 
 ```sh
 npm install -g autocannon-ui-web

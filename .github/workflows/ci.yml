@@ -15,11 +15,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: .nvmrc
-          cache: yarn
+          cache: npm
       - run: npx lerna bootstrap
-      - run: yarn lint
-      - run: yarn test
-      - run: yarn dev & yarn test:qa
+      - run: npm run lint
+      - run: npm run test
+      - run: npm start & npm run test:qa
       - uses: actions/upload-artifact@v3
         with:
           name: qa-reports
