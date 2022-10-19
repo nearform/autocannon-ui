@@ -33,11 +33,11 @@ For understanding the result, please see the `autocannon-compare` [documentation
 
 ## Getting started
 
-- `npm install`
+- `npm install && npm install -g`
 
 The easiest way to try this out is to run:
 
-- `npm start`
+- `npx autocannon-ui`
 - browse to [`http://localhost:3000`](http://localhost:3000)
 
 ## Development
@@ -45,7 +45,7 @@ The easiest way to try this out is to run:
 To easily develop the packages of this repo you can execute:
 
 ```sh
-npm start
+npm start (npx autocannon-ui after npm install -g)
 ```
 
 This will run:
