@@ -2,11 +2,12 @@ import React, { useState, useCallback } from 'react'
 
 import '@fontsource/roboto'
 
-import RunOptionsForm from './RunOptionsForm'
-import ResultSet from './ResultSet'
-import CompareDialog from './CompareDialog'
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles'
 import { Button, Container, CssBaseline, Grid } from '@mui/material'
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles'
+
+import CompareDialog from './CompareDialog'
+import ResultSet from './ResultSet'
+import RunOptionsForm from './RunOptionsForm'
 
 const theme = createTheme({
   palette: {

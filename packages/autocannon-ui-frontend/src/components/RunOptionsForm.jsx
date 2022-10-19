@@ -18,10 +18,11 @@ import {
 import T from 'prop-types'
 import HelpIcon from '@mui/icons-material/Help'
 
-import ProgressBar from './ProgressBar'
-import logo from '../assets/autocannon-banner.png'
 import Alert from '@mui/material/Alert'
 import { styled } from '@mui/material/styles'
+
+import ProgressBar from './ProgressBar'
+import logo from '../assets/autocannon-banner.png'
 
 const DEFAULT_OPTIONS = {
   url: 'https://google.com',
