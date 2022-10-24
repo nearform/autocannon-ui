@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn pre-commit && yarn toc && git add README.md
+npm run pre-commit && npm run toc && git add README.md

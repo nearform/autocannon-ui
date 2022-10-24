@@ -6,7 +6,7 @@ backend API and React frontend.
 
 ## Installation
 
-To install and run the desktop application:
+To install and run the web application:
 
 ```sh
 npm install -g autocannon-ui-web

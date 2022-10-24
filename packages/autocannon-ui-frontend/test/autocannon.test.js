@@ -20,25 +20,25 @@ describe('Autocannon UI Puppeteer Test', function () {
 
   it('should run the test and can see the progress bar', async function () {
     await page.goto('http://localhost:3000/')
-    await page.waitForSelector('div.MuiLinearProgress-bar', { hidden: true })
+    await page.waitForSelector('span.MuiLinearProgress-bar', { hidden: true })
     await page.click('[data-testid="run-button"]')
-    await page.waitForSelector('div.MuiLinearProgress-bar')
+    await page.waitForSelector('span.MuiLinearProgress-bar')
   })
 
   it('should run the test and can cancel the progress bar', async function () {
     await page.goto('http://localhost:3000/')
-    await page.waitForSelector('div.MuiLinearProgress-bar', { hidden: true })
+    await page.waitForSelector('span.MuiLinearProgress-bar', { hidden: true })
     await page.click('[data-testid="run-button"]')
-    await page.waitForSelector('div.MuiLinearProgress-bar')
+    await page.waitForSelector('span.MuiLinearProgress-bar')
     await page.click('[data-testid="cancel-run-button"]')
-    await page.waitForSelector('div.MuiLinearProgress-bar', { hidden: true })
+    await page.waitForSelector('span.MuiLinearProgress-bar', { hidden: true })
   })
 
   it('should run the test and can clear the run test results', async function () {
     await page.goto('http://localhost:3000/')
-    await page.waitForSelector('div.MuiLinearProgress-bar', { hidden: true })
+    await page.waitForSelector('span.MuiLinearProgress-bar', { hidden: true })
     await page.click('[data-testid="run-button"]')
-    await page.waitForSelector('div.MuiLinearProgress-bar')
+    await page.waitForSelector('span.MuiLinearProgress-bar')
     await page.waitForSelector('[data-testid="clear-all-button"]')
     await page.click('[data-testid="clear-all-button"]')
   })
@@ -51,13 +51,13 @@ describe('Autocannon UI Puppeteer Test', function () {
     await page.goto('http://localhost:3000/')
     await navigationPromise
 
-    await page.waitForSelector('div.MuiLinearProgress-bar', { hidden: true })
+    await page.waitForSelector('span.MuiLinearProgress-bar', { hidden: true })
 
     await page.$eval('#url', el => (el.value = 'https://www.google.com'))
     await page.click('[data-testid="run-button"]')
     await navigationPromise
 
-    await page.waitForSelector('div.MuiLinearProgress-bar', { hidden: true })
+    await page.waitForSelector('span.MuiLinearProgress-bar', { hidden: true })
 
     await page.evaluate(
       () =>
@@ -66,12 +66,12 @@ describe('Autocannon UI Puppeteer Test', function () {
     )
 
     await navigationPromise
-    await page.waitForSelector('#url', { timeout: 40000 })
+    await page.waitForSelector('#url')
     await page.$eval('#url', el => (el.value = 'https://www.yahoo.com'))
     await page.click('[data-testid="run-button"]')
     await navigationPromise
 
-    await page.waitForSelector('div.MuiLinearProgress-bar', { hidden: true })
+    await page.waitForSelector('span.MuiLinearProgress-bar', { hidden: true })
 
     const resultsCheckboxes = await page.$$('[data-testid="result-checkbox"]')
     for (let i = 0; i < resultsCheckboxes.length; i++) {
