@@ -28,7 +28,7 @@
     "pkg-dir": "^7.0.0"
   },
   "devDependencies": {
-    "eslint": "^7.14.0",
+    "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-prettier": "^4.0.0",
