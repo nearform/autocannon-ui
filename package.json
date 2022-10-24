@@ -23,7 +23,7 @@
     "prepare": "husky install",
     "postinstall": "node node_modules/puppeteer/install.js"
   },
-  "bin": {   
+  "bin": {
     "autocannon-ui": "index.js"
   },
   "devDependencies": {
@@ -32,5 +32,8 @@
     "husky": "^8.0.1",
     "lerna": "^6.0.0",
     "markdown-toc": "^1.2.0"
+  },
+  "dependencies": {
+    "autocannon-ui": "^2.0.0"
   }
 }
