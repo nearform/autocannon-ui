@@ -1,5 +1,5 @@
 {
-  "name": "autocannon-ui-web",
+  "name": "autocannon-ui",
   "version": "2.0.0",
   "type": "module",
   "description": "Web application for autocannon-ui tool",
@@ -10,7 +10,7 @@
   "repository": "nearform/autocannon-ui",
   "main": "main.js",
   "bin": {
-    "autocannon-ui-web": "cli.js"
+    "autocannon-ui": "main.js"
   },
   "scripts": {
     "lint": "eslint .",
@@ -33,6 +33,7 @@
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-prettier": "^4.0.0",
     "lint-staged": "^13.0.0",
+    "husky": "^8.0.1",
     "prettier": "^2.2.1"
   },
   "lint-staged": {

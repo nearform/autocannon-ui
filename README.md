@@ -19,7 +19,7 @@ For understanding the result, please see the `autocannon-compare` [documentation
 - [Packages](#packages)
   * [`autocannon-ui-frontend`](#autocannon-ui-frontend)
   * [`autocannon-ui-backend`](#autocannon-ui-backend)
-  * [`autocannon-ui-web`](#autocannon-ui-web)
+  * [`autocannon-ui`](#autocannon-ui)
 - [Running standalone application](#running-standalone-application)
 
 <!-- tocstop -->
@@ -67,7 +67,7 @@ A library of React components which provide the UI.
 
 A standalone Fastify application.
 
-### `autocannon-ui-web`
+### `autocannon-ui`
 
 Web wrapper for running both frontend and backend.
 
@@ -78,6 +78,6 @@ The application can be installed as a global npm package and run as a standalone
 To install it and to run web application:
 
 ```sh
-npm install -g autocannon-ui-web
-autocannon-ui-web
+npm install -g autocannon-ui
+autocannon-ui
 ```
