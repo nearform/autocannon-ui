@@ -12,7 +12,13 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "cd packages/autocannon-ui-frontend && npm run build"
+    "build": "cd packages/autocannon-ui-frontend && npm run build",
+    "lint": "lerna run lint --stream",
+    "pre-commit": "lerna run --concurrency 1 --stream precommit --since HEAD --exclude-dependents",
+    "start": "lerna run dev --parallel",
+    "test:qa": "lerna run test:qa --stream",
+    "test": "lerna run test --stream",
+    "toc": "markdown-toc README.md -i"
   },
   "bin": {   
     "autocannon-ui": "./cli.js"
