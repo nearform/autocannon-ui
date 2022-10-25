@@ -2,10 +2,9 @@ import path from 'path'
 
 import pino from 'pino'
 import Fastify from 'fastify'
-import autocannonUiBackend from 'autocannon-ui-backend'
+import * as autocannonUiBackend from 'autocannon-ui-backend'
 import * as pkgDir from 'pkg-dir'
 import fastifyStatic from '@fastify/static'
-import autoCannonUiFrontend from 'autocannon-ui-frontend'
 
 const transport = pino.transport({
   target: 'pino-pretty',
@@ -35,9 +34,10 @@ async function startServer() {
   fastify.register(autocannonUiBackend)
 
   const uiRoot = path.join(
-    pkgDir.packageDirectorySync(autoCannonUiFrontend),
+    pkgDir.packageDirectorySync(),
     'dist'
   )
+
   fastify.register(fastifyStatic, {
     root: uiRoot
   })

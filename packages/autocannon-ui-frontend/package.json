@@ -1,6 +1,7 @@
 {
   "name": "autocannon-ui-frontend",
   "version": "2.0.0",
+  "private": "true",
   "scripts": {
     "dev": "vite --port 3000",
     "build": "vite build",
@@ -11,10 +12,6 @@
     "test:qa": "wait-on tcp:3000 && npm run _test:qa",
     "prepare": "npm run build"
   },
-  "files": [
-    "dist",
-    "index.js"
-  ],
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",

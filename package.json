@@ -1,9 +1,9 @@
 {
   "name": "autocannon-ui",
-  "version": "1.0.0",
-  "private": true,
+  "version": "2.0.0",
   "description": "A Web user interface for autocannon",
   "repository": "nearform/autocannon-ui",
+  "type": "module",
   "author": {
     "name": "Sameer Srivastava",
     "email": "sameer.srivastava@nearform.com"
@@ -12,19 +12,20 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "lerna run dev --parallel",
-    "dev": "lerna run dev --parallel",
-    "lint": "lerna run lint --stream",
-    "test": "lerna run test --stream",
-    "test:qa": "lerna run test:qa --stream",
-    "version:safe": "lerna version --no-git-tag-version --no-push",
-    "pre-commit": "lerna run --concurrency 1 --stream precommit --since HEAD --exclude-dependents",
-    "toc": "markdown-toc README.md -i",
-    "prepare": "husky install",
-    "postinstall": "node node_modules/puppeteer/install.js"
+    "build": "cd packages/autocannon-ui-frontend && npm run build"
   },
   "bin": {   
-    "autocannon-ui": "index.js"
+    "autocannon-ui": "./cli.js"
+  },
+  "dependencies": {
+    "@fastify/static": "^6.5.0",
+    "autocannon-ui-backend": "^2.0.0",
+    "autocannon-ui-frontend": "^2.0.0",
+    "fastify": "^4.0.2",
+    "fastify-plugin": "^4.0.0",
+    "pino": "^8.0.0",
+    "pino-pretty": "^9.0.0",
+    "pkg-dir": "^7.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",

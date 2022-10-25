@@ -2,6 +2,7 @@
   "name": "autocannon-ui-backend",
   "version": "2.0.0",
   "main": "index.js",
+  "private": "true",
   "scripts": {
     "dev": "npm start -- -P -l info -w",
     "start": "fastify start -p 3001 .",
