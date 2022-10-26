@@ -1,0 +1,9 @@
+node_modules/
+images/
+packages/autocannon-ui-frontend/
+packages/autocannon-ui-backend/.test_results/
+packages/autocannon-ui-backend/test/
+packages/autocannon-ui-backend/test/
+packages/autocannon-ui-backend/.eslintrc
+packages/autocannon-ui-backend/.prettierrc
+packages/autocannon-ui-backend/.taprc

@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-import './main.js'
+import './packages/autocannon-ui-backend/app.js'

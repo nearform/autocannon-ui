@@ -4,9 +4,6 @@ updates:
     directory: '/'
     schedule:
       interval: daily
-    ignore:
-      - dependency-name: 'lerna'
-        versions: [ '4.x' ]
   - package-ecosystem: github-actions
     directory: '/'
     schedule:

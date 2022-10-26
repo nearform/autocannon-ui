@@ -16,7 +16,6 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
-      - run: npx lerna bootstrap
       - run: npm run lint
       - run: npm run test
       - run: npm start & npm run test:qa

@@ -2,7 +2,6 @@
 .idea/
 .nyc_output/
 .test_results/
-.npmignore
 node_modules/
 coverage/
 dist/
