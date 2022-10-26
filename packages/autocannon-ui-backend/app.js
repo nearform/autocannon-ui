@@ -1,10 +1,11 @@
-import path from 'path'
+'use strict'
 
-import pino from 'pino'
-import Fastify from 'fastify'
-import * as autocannonUiBackend from 'autocannon-ui-backend'
-import * as pkgDir from 'pkg-dir'
-import fastifyStatic from '@fastify/static'
+const path = require('path')
+
+const pino = require('pino')
+const Fastify = require('fastify')
+const autocannonUiBackend = require('autocannon-ui-backend')
+const fastifyStatic = require('@fastify/static')
 
 const transport = pino.transport({
   target: 'pino-pretty',
@@ -34,7 +35,7 @@ async function startServer() {
   fastify.register(autocannonUiBackend)
 
   const uiRoot = path.join(
-    pkgDir.packageDirectorySync(),
+    process.cwd(),
     'packages/autocannon-ui-frontend/dist'
   )
 

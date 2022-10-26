@@ -16,6 +16,7 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
+      - run: npm install
       - run: npm run lint
       - run: npm run test
       - run: npm start & npm run test:qa
