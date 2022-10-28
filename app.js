@@ -4,6 +4,7 @@ import pino from "pino";
 import Fastify from "fastify";
 import * as autocannonUiBackend from "autocannon-ui-backend";
 import fastifyStatic from "@fastify/static";
+import child_process from "child_process";
 
 const transport = pino.transport({
   target: "pino-pretty",
@@ -43,6 +44,16 @@ async function startServer() {
 
   const address = await fastify.listen();
   await fastify.ready();
+
+  const start =
+    process.platform == "darwin"
+      ? "open"
+      : process.platform == "win32"
+      ? "start"
+      : "xdg-open";
+
+  child_process.exec(start + " " + address);
+
   return address;
 }
 
