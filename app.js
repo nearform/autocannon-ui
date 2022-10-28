@@ -1,11 +1,9 @@
-'use strict'
+import path from 'path'
 
-const path = require('path')
-
-const pino = require('pino')
-const Fastify = require('fastify')
-const autocannonUiBackend = require('autocannon-ui-backend')
-const fastifyStatic = require('@fastify/static')
+import pino from 'pino'
+import Fastify from 'fastify'
+import * as autocannonUiBackend from 'autocannon-ui-backend'
+import fastifyStatic from '@fastify/static'
 
 const transport = pino.transport({
   target: 'pino-pretty',
