@@ -12,6 +12,7 @@
     "packages/*"
   ],
   "files": [
+    "app.js",
     "packages/autocannon-ui-frontend/dist/*",
     "packages/autocannon-ui-backend/routes/*",
     "packages/autocannon-ui-backend/services/*",
