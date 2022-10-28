@@ -10,7 +10,7 @@
     "precommit": "lint-staged",
     "_test:qa": "mocha --timeout=60000 test/autocannon.test.js",
     "test:qa": "wait-on tcp:3000 && npm run _test:qa",
-    "prepare": "npm run build"
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
