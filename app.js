@@ -35,7 +35,7 @@ async function startServer() {
 
   const uiRoot = path.join(
     process.cwd(),
-    "package/packages/autocannon-ui-frontend/dist"
+    "packages/autocannon-ui-frontend/dist"
   );
 
   fastify.register(fastifyStatic, {
