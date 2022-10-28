@@ -3,6 +3,7 @@ import path from "path";
 import pino from "pino";
 import Fastify from "fastify";
 import * as autocannonUiBackend from "autocannon-ui-backend";
+import * as pkgDir from "pkg-dir";
 import fastifyStatic from "@fastify/static";
 import child_process from "child_process";
 
@@ -34,8 +35,8 @@ async function startServer() {
   fastify.register(autocannonUiBackend);
 
   const uiRoot = path.join(
-    process.cwd(),
-    "packages/autocannon-ui-frontend/dist"
+    pkgDir.packageDirectorySync(),
+    "package/packages/autocannon-ui-frontend/dist"
   );
 
   fastify.register(fastifyStatic, {
