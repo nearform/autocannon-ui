@@ -4,7 +4,6 @@
 .test_results/
 node_modules/
 coverage/
-dist/
 
 npm-debug.log*
 yarn-debug.log*
