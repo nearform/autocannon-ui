@@ -31,12 +31,11 @@ For understanding the result, please see the `autocannon-compare` [documentation
 
 ## Getting started
 
-- `npm install`
-
 The easiest way to try this out is to run:
 
 - `npx autocannon-ui`
-- browse to localhost -- the port is displayed when running this command
+
+- a new browser window will be opened automatically
 
 ## Development
 
@@ -47,11 +46,11 @@ npm install
 npm start
 ```
 
-This will run:
+This will:
 
-- `autocannon-frontend` build in watch mode so you can change the React components and see the result immediately
-- `autocannon-backend` in standalone mode to have a server running
-- the port will be displayed where the application is running
+- run `autocannon-frontend` build in watch mode so you can change the React components and see the result immediately
+- run `autocannon-backend` in standalone mode to have a server running
+- expose: [http://localhost:3000](http://localhost:3000) so that you may navigate to it
 
 ### Designs
 
@@ -66,14 +65,3 @@ A library of React components which provide the UI.
 ### `autocannon-ui-backend`
 
 A standalone Fastify application.
-
-
-## Running standalone application
-
-The application can be installed as a global npm package and run as a standalone tool from command line.
-
-To install it and to run the application:
-
-```sh
-npx autocannon-ui
-```

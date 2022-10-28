@@ -1,11 +1,12 @@
 {
   "name": "autocannon-ui-backend",
   "version": "2.0.0",
-  "main": "index.js",
+  "main": "./index.js",
+  "type": "module",
   "private": "true",
   "scripts": {
     "dev": "npm start -- -P -l info -w",
-    "start": "fastify start -p 3001 .",
+    "start": "fastify start -p 3001 ./index.js",
     "test": "tap",
     "_test:qa": "newman run ./test/automation/Autocannon.postman_collection.json --bail -r cli,htmlextra --reporter-htmlextra-export .test_results/qa.html --reporter-htmlextra-darkTheme --bail --timeout-request 40000",
     "test:qa": "wait-on tcp:3001 && npm run _test:qa",

@@ -11,15 +11,21 @@
   "workspaces": [
     "packages/*"
   ],
+  "files": [
+    "packages/autocannon-ui-frontend/dist/*",
+    "packages/autocannon-ui-backend/routes/*",
+    "packages/autocannon-ui-backend/services/*",
+    "packages/autocannon-ui-backend/index.js",
+    "packages/autocannon-ui-backend/package.json"
+  ],
   "scripts": {
-    "build": "npm run build --workspace=autocannon-ui-frontend",
+    "build": "npm run build --workspaces --if-present",
     "lint": "npm run lint --stream --workspaces",
-    "pre-commit": "npm run --concurrency 1 --stream precommit --since HEAD --exclude-dependents --workspaces",
     "start-backend": "npm run dev --workspace=autocannon-ui-backend",
     "start-frontend": "npm run dev --workspace=autocannon-ui-frontend",
     "start": "concurrently --kill-others \"npm run start-backend\" \"npm run start-frontend\"",
     "test:qa": "npm run test:qa --stream --workspace=autocannon-ui-frontend",
-    "test": "npm run test --stream --workspace=autocannon-ui-backend",
+    "test": "npm run test --stream --workspaces --if-present",
     "toc": "markdown-toc README.md -i"
   },
   "bin": {

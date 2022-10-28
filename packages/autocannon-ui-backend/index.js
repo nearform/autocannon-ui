@@ -1,6 +1,7 @@
-'use strict'
+import execute from './routes/execute.js'
+import compare from './routes/compare.js'
 
-module.exports = async function (fastify, options) {
-  fastify.register(require('./routes/execute'), options)
-  fastify.register(require('./routes/compare'), options)
+export default async function (fastify, options) {
+  fastify.register(execute, options)
+  fastify.register(compare, options)
 }
