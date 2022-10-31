@@ -30,7 +30,8 @@
     "start": "concurrently --kill-others \"npm run start-backend\" \"npm run start-frontend\"",
     "test:qa": "npm run test:qa --stream --workspace=autocannon-ui-frontend",
     "test": "npm run test --stream --workspaces --if-present",
-    "toc": "markdown-toc README.md -i"
+    "toc": "markdown-toc README.md -i",
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "@fastify/cors": "^8.0.0",

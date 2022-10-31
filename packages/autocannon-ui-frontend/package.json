@@ -8,8 +8,7 @@
     "serve": "vite preview",
     "lint": "eslint .",
     "_test:qa": "mocha --timeout=60000 test/autocannon.test.js",
-    "test:qa": "wait-on tcp:3000 && npm run _test:qa",
-    "prepublish": "npm run build"
+    "test:qa": "wait-on tcp:3000 && npm run _test:qa"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
