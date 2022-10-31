@@ -1,8 +1,6 @@
-'use strict'
+import S from 'fluent-json-schema'
 
-const S = require('fluent-json-schema')
-
-const execute = require('../services/autocannon')
+import execute from '../services/autocannon.js'
 
 const schema = {
   body: S.object()
@@ -17,8 +15,7 @@ const schema = {
     .prop('body', S.string())
 }
 
-module.exports = async function (fastify) {
-  fastify.register(require('@fastify/cors'), { origin: '*' })
+export default async function (fastify) {
   fastify.post('/api/execute', { schema }, function (request, reply) {
     reply.raw.setHeader('Access-Control-Allow-Origin', '*')
     reply.raw.setHeader('content-type', 'text/event-stream')

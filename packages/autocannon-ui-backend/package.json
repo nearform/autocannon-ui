@@ -1,24 +1,16 @@
 {
   "name": "autocannon-ui-backend",
   "version": "2.0.0",
-  "main": "index.js",
+  "main": "./index.js",
+  "type": "module",
+  "private": "true",
   "scripts": {
     "dev": "npm start -- -P -l info -w",
-    "start": "fastify start -p 3001 .",
+    "start": "fastify start -p 3001 ./index.js",
     "test": "tap",
     "_test:qa": "newman run ./test/automation/Autocannon.postman_collection.json --bail -r cli,htmlextra --reporter-htmlextra-export .test_results/qa.html --reporter-htmlextra-darkTheme --bail --timeout-request 40000",
     "test:qa": "wait-on tcp:3001 && npm run _test:qa",
-    "lint": "eslint .",
-    "precommit": "lint-staged"
-  },
-  "dependencies": {
-    "@fastify/cors": "^8.0.0",
-    "autocannon": "^7.2.0",
-    "autocannon-compare": "^0.4.0",
-    "env-schema": "^5.0.0",
-    "fastify": "^4.0.2",
-    "fastify-cli": "^5.0.0",
-    "fluent-json-schema": "^4.0.0"
+    "lint": "eslint ."
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -28,16 +20,10 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
-    "lint-staged": "^13.0.0",
     "newman": "^5.2.3",
     "newman-reporter-htmlextra": "^1.20.4",
     "prettier": "^2.1.2",
     "tap": "^16.0.0",
     "wait-on": "^6.0.0"
-  },
-  "lint-staged": {
-    "**/*.js": [
-      "eslint --fix"
-    ]
   }
 }

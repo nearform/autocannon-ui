@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('./main')
+import './index.js'

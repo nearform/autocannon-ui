@@ -1,8 +1,6 @@
-'use strict'
+import autocannon from 'autocannon'
 
-const autocannon = require('autocannon')
-
-function execute(options, cb) {
+export default function execute(options, cb) {
   const {
     url,
     connections,
@@ -39,5 +37,3 @@ function execute(options, cb) {
 
   return instance
 }
-
-module.exports = execute

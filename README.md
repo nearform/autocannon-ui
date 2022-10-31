@@ -1,7 +1,6 @@
 # autocannon-ui
 
 [![ci](https://github.com/nearform/autocannon-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/nearform/autocannon-ui/actions/workflows/ci.yml)
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 This monorepo contains packages and applications which provide a GUI for using autocannon while maintaining the same user experience. 
@@ -19,8 +18,6 @@ For understanding the result, please see the `autocannon-compare` [documentation
 - [Packages](#packages)
   * [`autocannon-ui-frontend`](#autocannon-ui-frontend)
   * [`autocannon-ui-backend`](#autocannon-ui-backend)
-  * [`autocannon-ui-web`](#autocannon-ui-web)
-- [Running standalone application](#running-standalone-application)
 
 <!-- tocstop -->
 
@@ -33,25 +30,26 @@ For understanding the result, please see the `autocannon-compare` [documentation
 
 ## Getting started
 
-- `npm install && npm install -g`
-
 The easiest way to try this out is to run:
 
 - `npx autocannon-ui`
-- browse to [`http://localhost:3000`](http://localhost:3000)
+
+- a new browser window will be opened automatically
 
 ## Development
 
 To easily develop the packages of this repo you can execute:
 
 ```sh
-npm start (npx autocannon-ui after npm install -g)
+npm install
+npm start
 ```
 
-This will run:
+This will:
 
-- `autocannon-frontend` build in watch mode so you can change the React components and see the result immediately
-- `autocannon-backend` in standalone mode to have a server running
+- run `autocannon-frontend` build in watch mode so you can change the React components and see the result immediately
+- run `autocannon-backend` in standalone mode to have a server running
+- expose: [http://localhost:3000](http://localhost:3000) so that you may navigate to it
 
 ### Designs
 
@@ -66,18 +64,3 @@ A library of React components which provide the UI.
 ### `autocannon-ui-backend`
 
 A standalone Fastify application.
-
-### `autocannon-ui-web`
-
-Web wrapper for running both frontend and backend.
-
-## Running standalone application
-
-The application can be installed as a global npm package and run as a standalone tool from command line.
-
-To install it and to run web application:
-
-```sh
-npm install -g autocannon-ui-web
-autocannon-ui-web
-```
