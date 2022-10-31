@@ -3,9 +3,9 @@ import path from 'path'
 import pino from 'pino'
 import Fastify from 'fastify'
 import * as autocannonUiBackend from 'autocannon-ui-backend'
-import * as pkgDir from 'pkg-dir'
 import fastifyStatic from '@fastify/static'
 import child_process from 'child_process'
+import { fileURLToPath } from 'url'
 
 const transport = pino.transport({
   target: 'pino-pretty',
@@ -30,12 +30,15 @@ async function start() {
   }
 }
 
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
 async function startServer() {
   const fastify = Fastify()
   fastify.register(autocannonUiBackend)
 
   const uiRoot = path.join(
-    pkgDir.packageDirectorySync(),
+    __dirname,
     'package/packages/autocannon-ui-frontend/dist'
   )
 
