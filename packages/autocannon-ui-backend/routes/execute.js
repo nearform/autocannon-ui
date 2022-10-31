@@ -1,5 +1,4 @@
 import S from 'fluent-json-schema'
-import fastifyCors from '@fastify/cors'
 
 import execute from '../services/autocannon.js'
 
@@ -17,7 +16,6 @@ const schema = {
 }
 
 export default async function (fastify) {
-  fastify.register(fastifyCors, { origin: '*' })
   fastify.post('/api/execute', { schema }, function (request, reply) {
     reply.raw.setHeader('Access-Control-Allow-Origin', '*')
     reply.raw.setHeader('content-type', 'text/event-stream')

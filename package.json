@@ -4,6 +4,9 @@
   "description": "A Web user interface for autocannon",
   "repository": "nearform/autocannon-ui",
   "type": "module",
+  "bin": {
+    "autocannon-ui": "./cli.js"
+  },
   "author": {
     "name": "Sameer Srivastava",
     "email": "sameer.srivastava@nearform.com"
@@ -12,10 +15,10 @@
     "packages/*"
   ],
   "files": [
-    "app.js",
-    "packages/autocannon-ui-frontend/dist/*",
-    "packages/autocannon-ui-backend/routes/*",
-    "packages/autocannon-ui-backend/services/*",
+    "index.js",
+    "packages/autocannon-ui-frontend/dist",
+    "packages/autocannon-ui-backend/routes",
+    "packages/autocannon-ui-backend/services",
     "packages/autocannon-ui-backend/index.js",
     "packages/autocannon-ui-backend/package.json"
   ],
@@ -28,9 +31,6 @@
     "test:qa": "npm run test:qa --stream --workspace=autocannon-ui-frontend",
     "test": "npm run test --stream --workspaces --if-present",
     "toc": "markdown-toc README.md -i"
-  },
-  "bin": {
-    "autocannon-ui": "./cli.js"
   },
   "dependencies": {
     "@fastify/static": "^6.5.0",

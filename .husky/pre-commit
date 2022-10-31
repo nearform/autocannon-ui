@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run pre-commit && npm run toc && git add README.md
+npx lint-staged && npm run toc && git add README.md

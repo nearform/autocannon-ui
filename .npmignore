@@ -1,9 +1,0 @@
-node_modules/
-images/
-
-packages/autocannon-ui-frontend/
-!packages/autocannon-ui-frontend/dist/
-
-packages/autocannon-ui-backend/test/
-packages/autocannon-ui-backend/node_modules/
-packages/autocannon-ui-backend/.*
