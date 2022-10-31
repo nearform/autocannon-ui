@@ -66,7 +66,8 @@ const Root = styled('div')(({ theme }) => ({
     cursor: 'default'
   },
   [`& .${classes.advancedOptionsButton}`]: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: 'Roboto'
   },
   [`& .${classes.runButton}`]: {
     borderRadius: theme.spacing(2),
