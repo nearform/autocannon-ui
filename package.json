@@ -33,14 +33,18 @@
     "toc": "markdown-toc README.md -i"
   },
   "dependencies": {
+    "@fastify/cors": "^8.0.0",
     "@fastify/static": "^6.5.0",
-    "autocannon-ui-backend": "^2.0.0",
-    "autocannon-ui-frontend": "^2.0.0",
+    "autocannon-compare": "^0.4.0",
+    "autocannon": "^7.2.0",
     "concurrently": "^7.5.0",
-    "fastify": "^4.0.2",
+    "env-schema": "^5.0.0",
+    "fastify-cli": "^5.0.0",
     "fastify-plugin": "^4.0.0",
-    "pino": "^8.0.0",
-    "pino-pretty": "^9.0.0"
+    "fastify": "^4.0.2",
+    "fluent-json-schema": "^4.0.0",
+    "pino-pretty": "^9.0.0",
+    "pino": "^8.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
@@ -51,6 +55,12 @@
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
     "husky": "^8.0.1",
+    "lint-staged": "^13.0.0",
     "markdown-toc": "^1.2.0"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix"
+    ]
   }
 }

@@ -4,7 +4,7 @@ import Fastify from 'fastify'
 import fastifyStatic from '@fastify/static'
 import child_process from 'child_process'
 import { fileURLToPath } from 'url'
-import autocannonUiBackend from 'autocannon-ui-backend'
+import autocannonUiBackend from './packages/autocannon-ui-backend/index.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
