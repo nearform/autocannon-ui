@@ -66,8 +66,8 @@ const Root = styled('div')(({ theme }) => ({
     cursor: 'default'
   },
   [`& .${classes.advancedOptionsButton}`]: {
-    fontWeight: 'bold',
-    fontFamily: 'Roboto'
+    fontSize: 'small',
+    fontWeight: 'bold'
   },
   [`& .${classes.runButton}`]: {
     borderRadius: theme.spacing(2),
@@ -308,7 +308,6 @@ export default function RunOptionsForm(props) {
               <Grid item xs={12}>
                 <Box display="flex" justifyContent="center">
                   <Link
-                    component="button"
                     className={classes.advancedOptionsButton}
                     color="primary"
                     onClick={handleShowAdvancedOptions}
