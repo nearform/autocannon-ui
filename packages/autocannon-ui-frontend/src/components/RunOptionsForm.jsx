@@ -7,7 +7,6 @@ import {
   FormControl,
   Grid,
   InputLabel,
-  Link,
   MenuItem,
   Select,
   TextareaAutosize,
@@ -66,12 +65,16 @@ const Root = styled('div')(({ theme }) => ({
     cursor: 'default'
   },
   [`& .${classes.advancedOptionsButton}`]: {
-    fontSize: 'small',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textTransform: 'initial'
   },
   [`& .${classes.runButton}`]: {
-    borderRadius: theme.spacing(2),
-    height: '2.8rem'
+    borderRadius: theme.spacing(3),
+    paddingLeft: theme.spacing(6.5),
+    paddingRight: theme.spacing(6.5),
+    paddingTop: theme.spacing(0.5),
+    paddingBottom: theme.spacing(0.5),
+    fontSize: 'x-large'
   },
   [`& .${classes.actionSection}`]: {
     padding: theme.spacing(2)
@@ -307,13 +310,13 @@ export default function RunOptionsForm(props) {
               </Grid>
               <Grid item xs={12}>
                 <Box display="flex" justifyContent="center">
-                  <Link
+                  <Button
                     className={classes.advancedOptionsButton}
                     color="primary"
                     onClick={handleShowAdvancedOptions}
                   >
                     {!showAdvancedOptions ? 'Show' : 'Hide'} advanced options
-                  </Link>
+                  </Button>
                 </Box>
               </Grid>
               <Grid item xs={12} hidden={!showAdvancedOptions}>
