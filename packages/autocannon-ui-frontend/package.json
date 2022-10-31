@@ -17,7 +17,7 @@
     "@fontsource/roboto": "^4.3.0",
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.9",
-    "@mui/system": "^5.10.9",
+    "@mui/system": "^5.10.12",
     "pretty-bytes": "^6.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
