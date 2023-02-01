@@ -6,6 +6,8 @@ on:
     - cron: '30 8 * * *'
   release:
     types: [published]
+  issues:
+    types: [closed]
 
 jobs:
   setup:
