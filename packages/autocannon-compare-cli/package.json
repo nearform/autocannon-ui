@@ -1,0 +1,20 @@
+{
+  "name": "autocannon-compare-cli",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "chalk-table": "^1.0.2",
+    "optimist": "^0.6.1"
+  }
+}
