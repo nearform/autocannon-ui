@@ -64,3 +64,7 @@ A library of React components which provide the UI.
 ### `autocannon-ui-backend`
 
 A standalone Fastify application.
+
+### `autocannon-compare-cli`
+
+A CLI tool to compare autocannon results and display them in a readable way.

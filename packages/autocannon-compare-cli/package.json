@@ -8,11 +8,13 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tap test/*.test.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/optimist": "^0.0.30",
+    "@types/tap": "^15.0.8",
     "chalk": "^5.2.0",
     "chalk-table": "^1.0.2",
     "optimist": "^0.6.1"
