@@ -21,7 +21,7 @@ export const getColor = (diff, kind) => {
   return color
 }
 
-export const compareValues = (a, b, kind = Kind.moreIsBetter) => ({
+export const calculateDiff = (a, b, kind = Kind.moreIsBetter) => ({
   diff: calculateDiffPercentage(a, b),
   a,
   b,
