@@ -26,7 +26,9 @@ const classes = {
   dialogTitle: `${PREFIX}-dialogTitle`,
   dialogContent: `${PREFIX}-dialogContent`,
   closeButton: `${PREFIX}-closeButton`,
-  statHeader: `${PREFIX}-statHeader`
+  statHeader: `${PREFIX}-statHeader`,
+  positive: `${PREFIX}-positive`,
+  negative: `${PREFIX}-negative`
 }
 
 const Root = styled('div')(({ theme }) => ({
@@ -46,6 +48,12 @@ const Root = styled('div')(({ theme }) => ({
   },
   [`& .${classes.statHeader}`]: {
     fontWeight: 'bold'
+  },
+  [`& .${classes.positive}`]: {
+    color: 'green'
+  },
+  [`& .${classes.negative}`]: {
+    color: 'red'
   }
 }))
 
@@ -57,7 +65,7 @@ const useCompareResult = resultSets => {
     const fetchCompareResult = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API}/api/compare`,
+          `${import.meta.env.VITE_API}/api/compare-v2`,
           {
             method: 'POST',
             headers: {
@@ -88,21 +96,6 @@ const useCompareResult = resultSets => {
 export default function CompareDialog({ data, onClose }) {
   const { result, isLoading, errorMessage } = useCompareResult(data)
 
-  const printHeader = winner => {
-    if (winner) {
-      return `${winner.resultIndex} ${winner.title || winner.url} | ${new Date(
-        winner.start
-      ).toLocaleString()} Wins`
-    }
-    return 'The results are equal'
-  }
-  const headerMemo = useMemo(() => {
-    let winner
-    if (result?.aWins) winner = data[0]
-    if (result?.bWins) winner = data[1]
-    return printHeader(winner)
-  }, [result, data])
-
   return (
     <Root>
       <Dialog
@@ -118,7 +111,6 @@ export default function CompareDialog({ data, onClose }) {
         ) : (
           <>
             <DialogTitle className={classes.dialogTitle}>
-              {headerMemo}
               <IconButton className={classes.closeButton} onClick={onClose}>
                 <CloseIcon />
               </IconButton>
@@ -129,46 +121,43 @@ export default function CompareDialog({ data, onClose }) {
                   <Table className={classes.table}>
                     <TableHead>
                       <TableRow>
-                        <TableCell></TableCell>
-                        <TableCell>Requests</TableCell>
-                        <TableCell>Throughput</TableCell>
-                        <TableCell>Latency</TableCell>
+                        <TableCell>Measure</TableCell>
+                        <TableCell>Difference</TableCell>
+                        <TableCell>a</TableCell>
+                        <TableCell>b</TableCell>
                       </TableRow>
                     </TableHead>
+
                     <TableBody>
-                      <TableRow>
-                        <TableCell className={classes.statHeader}>
-                          Difference
-                        </TableCell>
-                        <TableCell> {result?.requests.difference} </TableCell>
-                        <TableCell> {result?.throughput.difference} </TableCell>
-                        <TableCell> {result?.latency.difference} </TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className={classes.statHeader}>
-                          pValue
-                        </TableCell>
-                        <TableCell>
-                          {result?.requests.pValue?.toFixed(2)}
-                        </TableCell>
-                        <TableCell>
-                          {result?.throughput.pValue?.toFixed(2)}
-                        </TableCell>
-                        <TableCell>
-                          {result?.latency.pValue?.toFixed(2)}
-                        </TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className={classes.statHeader}>
-                          Significance
-                        </TableCell>
-                        <TableCell> {result?.requests.significant} </TableCell>
-                        <TableCell>
-                          {' '}
-                          {result?.throughput.significant}{' '}
-                        </TableCell>
-                        <TableCell> {result?.latency.significant} </TableCell>
-                      </TableRow>
+                      {result.map(row => {
+                        const getClassName = () => {
+                          if (row.diff.startsWith('+')) {
+                            return classes.positive
+                          }
+                          if (row.diff.startsWith('-')) {
+                            return classes.negative
+                          }
+
+                          return ''
+                        }
+
+                        return (
+                          <TableRow>
+                            <TableCell className={getClassName()}>
+                              {row.measure}
+                            </TableCell>
+                            <TableCell className={getClassName()}>
+                              {row.diff}
+                            </TableCell>
+                            <TableCell className={getClassName()}>
+                              {row.a}
+                            </TableCell>
+                            <TableCell className={getClassName()}>
+                              {row.b}
+                            </TableCell>
+                          </TableRow>
+                        )
+                      })}
                     </TableBody>
                   </Table>
                 </TableContainer>

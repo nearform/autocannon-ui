@@ -1,5 +1,5 @@
 import S from 'fluent-json-schema'
-import compare from '../../autocannon-compare-cli/lib'
+import { compareResults } from '../../autocannon-compare-cli/lib.js'
 
 const autocannonModel = S.object()
   .required()
@@ -15,6 +15,6 @@ const schema = {
 export default async function (fastify) {
   fastify.post('/api/compare-v2', { schema }, async function (request, reply) {
     reply.raw.setHeader('Access-Control-Allow-Origin', '*')
-    reply.send(await compare(request.body.a, request.body.b))
+    reply.send(await compareResults(request.body.a, request.body.b))
   })
 }
