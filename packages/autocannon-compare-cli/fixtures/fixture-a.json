@@ -1,0 +1,47 @@
+{
+  "url": "http://localhost:3000",
+  "requests": {
+    "average": 18339.64,
+    "mean": 18339.64,
+    "stddev": 643.45,
+    "min": 16448,
+    "max": 18863,
+    "total": 201763,
+    "sent": 201773
+  },
+  "latency": {
+    "average": 0.06,
+    "mean": 0.06,
+    "stddev": 0.28,
+    "min": 0,
+    "max": 19,
+    "p50": 0,
+    "p75": 0,
+    "p90": 0,
+    "p99": 1,
+    "p999": 2,
+    "p9999": 6,
+    "p99999": 18
+  },
+  "throughput": {
+    "average": 2028637.1,
+    "mean": 2028637.1,
+    "stddev": 75830.65,
+    "min": 1769472,
+    "max": 2097151,
+    "total": 22395693
+  },
+  "errors": 0,
+  "timeouts": 0,
+  "duration": 11,
+  "start": "2017-02-16T09:05:37.354Z",
+  "finish": "2017-02-16T09:05:48.379Z",
+  "connections": 10,
+  "pipelining": 1,
+  "non2xx": 0,
+  "1xx": 0,
+  "2xx": 201763,
+  "3xx": 0,
+  "4xx": 0,
+  "5xx": 0
+}

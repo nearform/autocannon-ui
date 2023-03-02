@@ -18,6 +18,7 @@ For understanding the result, please see the `autocannon-compare` [documentation
 - [Packages](#packages)
   * [`autocannon-ui-frontend`](#autocannon-ui-frontend)
   * [`autocannon-ui-backend`](#autocannon-ui-backend)
+  * [`autocannon-compare-cli`](#autocannon-compare-cli)
 
 <!-- tocstop -->
 
@@ -64,3 +65,7 @@ A library of React components which provide the UI.
 ### `autocannon-ui-backend`
 
 A standalone Fastify application.
+
+### `autocannon-compare-cli`
+
+A CLI tool to compare autocannon results and display them in a readable way.
