@@ -18,6 +18,7 @@ For understanding the result, please see the `autocannon-compare` [documentation
 - [Packages](#packages)
   * [`autocannon-ui-frontend`](#autocannon-ui-frontend)
   * [`autocannon-ui-backend`](#autocannon-ui-backend)
+  * [`autocannon-compare-cli`](#autocannon-compare-cli)
 
 <!-- tocstop -->
 

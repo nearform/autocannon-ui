@@ -126,7 +126,7 @@ export default function ResultSet({ data, onChangeSelection }) {
               />
               <Box className={classes.headerContainer}>
                 <Typography className={classes.accordionHeader}>
-                  <span className={classes.indexText}>{data.resultIndex}</span>
+                  <span className={classes.indexText}>#{data.resultIndex}</span>
                   <span>{data.title || data.url}</span>
                 </Typography>
                 <Typography className={classes.accordionHeader}>

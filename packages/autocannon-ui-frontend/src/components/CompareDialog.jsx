@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect } from 'react'
 import T from 'prop-types'
 
 import {
@@ -6,61 +6,37 @@ import {
   DialogTitle,
   DialogContent,
   CircularProgress,
-  Grid,
   IconButton,
   TableContainer,
-  Paper,
   Table,
   TableHead,
   TableRow,
   TableCell,
-  TableBody
+  TableBody,
+  Typography
 } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 import Alert from '@mui/material/Alert'
-import { styled } from '@mui/material/styles'
 
-const PREFIX = 'CompareDialog'
-const classes = {
-  dialog: `${PREFIX}-dialog`,
-  dialogTitle: `${PREFIX}-dialogTitle`,
-  dialogContent: `${PREFIX}-dialogContent`,
-  closeButton: `${PREFIX}-closeButton`,
-  statHeader: `${PREFIX}-statHeader`,
-  positive: `${PREFIX}-positive`,
-  negative: `${PREFIX}-negative`
+const Kind = {
+  lessIsBetter: 'lessIsBetter',
+  moreIsBetter: 'moreIsBetter'
 }
 
-const Root = styled('div')(({ theme }) => ({
-  [`& .${classes.dialog}`]: {
-    margin: `0 ${theme.spacing(2.5)}`
-  },
-  [`& .${classes.dialogTitle}`]: {
-    paddingRight: theme.spacing(6)
-  },
-  [`& .${classes.dialogContent}`]: {
-    padding: 0
-  },
-  [`& .${classes.closeButton}`]: {
-    position: 'absolute',
-    top: 0,
-    right: 0
-  },
-  [`& .${classes.statHeader}`]: {
-    fontWeight: 'bold'
-  },
-  [`& .${classes.positive}`]: {
-    color: 'green'
-  },
-  [`& .${classes.negative}`]: {
-    color: 'red'
+function getDiffStyle(row) {
+  if (row.diff.startsWith('+')) {
+    return { color: row.kind === Kind.lessIsBetter ? 'red' : 'green' }
   }
-}))
+  if (row.diff.startsWith('-')) {
+    return { color: row.kind === Kind.lessIsBetter ? 'green' : 'red' }
+  }
+}
 
 const useCompareResult = resultSets => {
   const [isLoading, setIsLoading] = useState(true)
   const [result, setResult] = useState()
   const [errorMessage, setErrorMessage] = useState()
+
   useEffect(() => {
     const fetchCompareResult = async () => {
       try {
@@ -97,76 +73,57 @@ export default function CompareDialog({ data, onClose }) {
   const { result, isLoading, errorMessage } = useCompareResult(data)
 
   return (
-    <Root>
-      <Dialog
-        open
-        className={classes.dialog + ' compare-dialog'}
-        maxWidth="md"
-        onClose={onClose}
-      >
-        {isLoading ? (
-          <CircularProgress />
-        ) : errorMessage ? (
-          <Alert severity="error">{errorMessage}</Alert>
-        ) : (
-          <>
-            <DialogTitle className={classes.dialogTitle}>
-              <IconButton className={classes.closeButton} onClick={onClose}>
-                <CloseIcon />
-              </IconButton>
-            </DialogTitle>
-            <DialogContent className={classes.dialogContent}>
-              <Grid item xs={12}>
-                <TableContainer component={Paper}>
-                  <Table className={classes.table}>
-                    <TableHead>
-                      <TableRow>
-                        <TableCell>Measure</TableCell>
-                        <TableCell>Difference</TableCell>
-                        <TableCell>a</TableCell>
-                        <TableCell>b</TableCell>
+    <Dialog open className={'compare-dialog'} maxWidth="md" onClose={onClose}>
+      {isLoading ? (
+        <CircularProgress />
+      ) : errorMessage ? (
+        <Alert severity="error">{errorMessage}</Alert>
+      ) : (
+        <>
+          <DialogTitle
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between'
+            }}
+          >
+            <Typography variant="subtitle">Compare results</Typography>
+            <IconButton onClick={onClose}>
+              <CloseIcon />
+            </IconButton>
+          </DialogTitle>
+          <DialogContent sx={{ p: 0 }}>
+            <TableContainer>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Measure</TableCell>
+                    <TableCell>Difference</TableCell>
+                    <TableCell>#{data[0].resultIndex}</TableCell>
+                    <TableCell>#{data[1].resultIndex}</TableCell>
+                  </TableRow>
+                </TableHead>
+
+                <TableBody>
+                  {result.map(row => {
+                    const diffStyle = getDiffStyle(row)
+
+                    return (
+                      <TableRow key={row.measure}>
+                        <TableCell>{row.measure}</TableCell>
+                        <TableCell sx={diffStyle}>{row.diff}</TableCell>
+                        <TableCell>{row.a}</TableCell>
+                        <TableCell>{row.b}</TableCell>
                       </TableRow>
-                    </TableHead>
-
-                    <TableBody>
-                      {result.map(row => {
-                        const getClassName = () => {
-                          if (row.diff.startsWith('+')) {
-                            return classes.positive
-                          }
-                          if (row.diff.startsWith('-')) {
-                            return classes.negative
-                          }
-
-                          return ''
-                        }
-
-                        return (
-                          <TableRow>
-                            <TableCell className={getClassName()}>
-                              {row.measure}
-                            </TableCell>
-                            <TableCell className={getClassName()}>
-                              {row.diff}
-                            </TableCell>
-                            <TableCell className={getClassName()}>
-                              {row.a}
-                            </TableCell>
-                            <TableCell className={getClassName()}>
-                              {row.b}
-                            </TableCell>
-                          </TableRow>
-                        )
-                      })}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-              </Grid>
-            </DialogContent>
-          </>
-        )}
-      </Dialog>
-    </Root>
+                    )
+                  })}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </DialogContent>
+        </>
+      )}
+    </Dialog>
   )
 }
 
