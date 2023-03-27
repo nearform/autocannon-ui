@@ -20,7 +20,10 @@
     "packages/autocannon-ui-backend/routes",
     "packages/autocannon-ui-backend/services",
     "packages/autocannon-ui-backend/index.js",
-    "packages/autocannon-ui-backend/package.json"
+    "packages/autocannon-ui-backend/package.json",
+    "packages/autocannon-compare-cli/lib.js",
+    "packages/autocannon-compare-cli/util.js",
+    "packages/autocannon-compare-cli/package.json"
   ],
   "scripts": {
     "build": "npm run build --workspaces --if-present",
