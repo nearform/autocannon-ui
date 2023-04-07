@@ -12,5 +12,8 @@ on:
 jobs:
   setup:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - uses: nearform/github-action-notify-release@v1
+
