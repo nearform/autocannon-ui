@@ -22,7 +22,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "newman": "^5.2.3",
     "newman-reporter-htmlextra": "^1.20.4",
-    "prettier": "^2.1.2",
+    "prettier": "^3.0.1",
     "tap": "^16.0.0",
     "wait-on": "^7.0.1"
   }
