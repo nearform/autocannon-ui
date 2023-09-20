@@ -1,5 +1,5 @@
 import S from 'fluent-json-schema'
-import { compareResults } from 'autocannon-compare-cli/lib.js'
+import { compareResults } from '../../autocannon-compare-cli/lib.js'
 
 const autocannonModel = S.object()
   .required()
