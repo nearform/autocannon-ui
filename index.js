@@ -49,12 +49,7 @@ async function startServer() {
     root: uiRoot
   })
 
-  let address = ""
-  if (options.port || options.host) {
-    address = await fastify.listen({port: options.port, host: options.host})
-  } else {
-    address = await fastify.listen()
-  }
+  const address = await fastify.listen({port: options.port, host: options.host})
   await fastify.ready()
 
   const start =
