@@ -37,6 +37,21 @@ The easiest way to try this out is to run:
 
 - a new browser window will be opened automatically
 
+You can also provide port or host parameter to listen on port/host of your choice.
+
+```sh
+npx autocannon-ui --help
+
+Usage: autocannon-ui [options]
+
+Options:
+  -p, --port <port>  listening port
+  -h, --host <host>  host to bind (default: "localhost")
+  --help             display help for command
+```
+
+- In some containers like podman, you need to pass host as '0.0.0.0' to listen on all available interfaces. For more information please check this [link](https://fastify.dev/docs/latest/Reference/Server/#listentextresolver).
+
 ## Development
 
 To easily develop the packages of this repo you can execute:
