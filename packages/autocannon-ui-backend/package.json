@@ -23,7 +23,7 @@
     "newman": "^5.2.3",
     "newman-reporter-htmlextra": "^1.20.4",
     "prettier": "^3.0.1",
-    "tap": "^16.0.0",
+    "tap": "^18.1.4",
     "wait-on": "^7.0.1"
   }
 }
