@@ -32,7 +32,7 @@
     "start-frontend": "npm run dev --workspace=autocannon-ui-frontend",
     "start": "concurrently --kill-others \"npm run start-backend\" \"npm run start-frontend\"",
     "build-image": "docker build --tag autocannon-ui:$npm_package_version .",
-    "start-in-docker": "docker run --rm -p 3000:3000 autocannon-ui:$npm_package_version",
+    "start-in-docker": "docker run --rm -dp 3000:3000 autocannon-ui:$npm_package_version",
     "test:qa": "npm run test:qa --stream --workspace=autocannon-ui-frontend",
     "test": "npm run test --stream --workspaces --if-present",
     "toc": "markdown-toc README.md -i",
