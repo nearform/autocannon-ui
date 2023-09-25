@@ -33,7 +33,9 @@ For understanding the result, please see the `autocannon-compare` [documentation
 
 The easiest way to try this out is to run:
 
-- `npx autocannon-ui`
+```sh
+npx autocannon-ui
+```
 
 - a new browser window will be opened automatically
 
@@ -51,6 +53,22 @@ Options:
 ```
 
 - In some containers like podman, you need to pass host as '0.0.0.0' to listen on all available interfaces. For more information please check this [link](https://fastify.dev/docs/latest/Reference/Server/#listentextresolver).
+
+## Docker
+To build docker image, run once:
+
+```sh
+npm run build-image
+```
+
+To run every time inside docker, run:
+
+```sh
+npm run start-in-docker
+```
+
+- it will run inside container on port 3000
+- visit [http://localhost:3000](http://localhost:3000)
 
 ## Development
 
