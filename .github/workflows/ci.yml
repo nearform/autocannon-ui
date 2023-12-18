@@ -20,7 +20,7 @@ jobs:
       - run: npm run lint
       - run: npm run test
       - run: npm start & npm run test:qa
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: qa-reports
           path: packages/**/.test_results/
