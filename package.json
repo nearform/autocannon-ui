@@ -1,6 +1,6 @@
 {
   "name": "autocannon-ui",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "description": "A Web user interface for autocannon",
   "repository": "nearform/autocannon-ui",
   "type": "module",
