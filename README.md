@@ -69,7 +69,7 @@ This will:
 
 ### Designs
 
-Designs can be found [here](https://www.figma.com/file/f7DQ7Ev8Wk7MQKQehYphSP/Autocannon).
+Designs can be found [here](https://www.figma.com/design/AF0bjU0gReLLY4Rey2K1OE/Autocannon?node-id=3303-280&t=Dbl69bl098In0Y1R-1).
 
 ## Packages
 
