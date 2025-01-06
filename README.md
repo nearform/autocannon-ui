@@ -84,3 +84,5 @@ A standalone Fastify application.
 ### `autocannon-compare-cli`
 
 A CLI tool to compare autocannon results and display them in a readable way.
+
+[![banner](https://raw.githubusercontent.com/nearform/.github/refs/heads/master/assets/os-banner-green.svg)](https://www.nearform.com/contact/?utm_source=open-source&utm_medium=banner&utm_campaign=os-project-pages)
