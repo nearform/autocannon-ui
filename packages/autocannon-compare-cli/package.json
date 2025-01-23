@@ -4,18 +4,14 @@
   "type": "module",
   "description": "",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
-    "test": "tap test/*.test.js",
+    "test": "node --test",
     "lint": "eslint ."
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/optimist": "^0.0.33",
-    "@types/tap": "^15.0.8",
     "chalk": "^5.2.0",
     "chalk-table": "^1.0.2",
     "optimist": "^0.6.1"

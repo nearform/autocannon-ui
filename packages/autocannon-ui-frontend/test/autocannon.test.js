@@ -1,10 +1,11 @@
-const puppeteer = require('puppeteer')
+import { test } from 'node:test'
+import puppeteer from 'puppeteer'
 
-describe('Autocannon UI Puppeteer Test', function () {
+test('Autocannon UI Puppeteer Test', async t => {
   let browser
   let page
 
-  before(async function () {
+  t.before(async () => {
     browser = await puppeteer.launch({
       headless: true,
       slowMo: 0,
@@ -14,36 +15,42 @@ describe('Autocannon UI Puppeteer Test', function () {
     page = await browser.newPage()
   })
 
-  after(async function () {
+  t.after(async () => {
     await browser.close()
   })
 
-  it('should run the test and can see the progress bar', async function () {
+  await t.test('should run the test and can see the progress bar', async () => {
     await page.goto('http://localhost:3000/')
     await page.waitForSelector('span.MuiLinearProgress-bar', { hidden: true })
     await page.click('[data-testid="run-button"]')
     await page.waitForSelector('span.MuiLinearProgress-bar')
   })
 
-  it('should run the test and can cancel the progress bar', async function () {
-    await page.goto('http://localhost:3000/')
-    await page.waitForSelector('span.MuiLinearProgress-bar', { hidden: true })
-    await page.click('[data-testid="run-button"]')
-    await page.waitForSelector('span.MuiLinearProgress-bar')
-    await page.click('[data-testid="cancel-run-button"]')
-    await page.waitForSelector('span.MuiLinearProgress-bar', { hidden: true })
-  })
+  await t.test(
+    'should run the test and can cancel the progress bar',
+    async () => {
+      await page.goto('http://localhost:3000/')
+      await page.waitForSelector('span.MuiLinearProgress-bar', { hidden: true })
+      await page.click('[data-testid="run-button"]')
+      await page.waitForSelector('span.MuiLinearProgress-bar')
+      await page.click('[data-testid="cancel-run-button"]')
+      await page.waitForSelector('span.MuiLinearProgress-bar', { hidden: true })
+    }
+  )
 
-  it('should run the test and can clear the run test results', async function () {
-    await page.goto('http://localhost:3000/')
-    await page.waitForSelector('span.MuiLinearProgress-bar', { hidden: true })
-    await page.click('[data-testid="run-button"]')
-    await page.waitForSelector('span.MuiLinearProgress-bar')
-    await page.waitForSelector('[data-testid="clear-all-button"]')
-    await page.click('[data-testid="clear-all-button"]')
-  })
+  await t.test(
+    'should run the test and can clear the run test results',
+    async () => {
+      await page.goto('http://localhost:3000/')
+      await page.waitForSelector('span.MuiLinearProgress-bar', { hidden: true })
+      await page.click('[data-testid="run-button"]')
+      await page.waitForSelector('span.MuiLinearProgress-bar')
+      await page.waitForSelector('[data-testid="clear-all-button"]')
+      await page.click('[data-testid="clear-all-button"]')
+    }
+  )
 
-  it('should run the two tests and can compare them', async function () {
+  await t.test('should run the two tests and can compare them', async () => {
     const navigationPromise = page.waitForNavigation({
       waitUntil: 'domcontentloaded'
     })

@@ -12,7 +12,6 @@
     "plugin:import/recommended",
     "plugin:prettier/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:mocha/recommended"
   ],
   "plugins": ["import"],
   "env": {

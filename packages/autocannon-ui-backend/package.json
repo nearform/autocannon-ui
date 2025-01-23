@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "npm start -- -P -l info -w",
     "start": "fastify start -p 3001 ./index.js",
-    "test": "tap",
+    "test": "node --test",
     "_test:qa": "newman run ./test/automation/Autocannon.postman_collection.json --bail -r cli,htmlextra --reporter-htmlextra-export .test_results/qa.html --reporter-htmlextra-darkTheme --bail --timeout-request 40000",
     "test:qa": "wait-on tcp:3001 && npm run _test:qa",
     "lint": "eslint ."
@@ -23,7 +23,6 @@
     "newman": "^6.1.0",
     "newman-reporter-htmlextra": "^1.20.4",
     "prettier": "^3.0.1",
-    "tap": "^16.0.0",
     "wait-on": "^8.0.1"
   }
 }
