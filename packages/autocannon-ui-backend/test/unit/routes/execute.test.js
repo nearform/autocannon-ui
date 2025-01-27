@@ -1,10 +1,12 @@
-import t from 'tap'
+import { test } from 'node:test'
+import assert from 'node:assert/strict'
+
 import Fastify from 'fastify'
 
 import index from '../../../index.js'
 
-t.test('execute', async t => {
-  t.test('returns 400 if url is not valid', async t => {
+test('execute', async t => {
+  await t.test('returns 400 if url is not valid', async () => {
     const fastify = Fastify().register(index)
 
     const response = await fastify.inject({
@@ -15,10 +17,10 @@ t.test('execute', async t => {
       }
     })
 
-    t.same(response.statusCode, 400)
+    assert.strictEqual(response.statusCode, 400)
   })
 
-  t.test('supports localhost urls with port', async t => {
+  await t.test('supports localhost urls with port', async () => {
     const fastify = Fastify().register(index)
 
     const response = await fastify.inject({
@@ -29,6 +31,6 @@ t.test('execute', async t => {
       }
     })
 
-    t.same(response.statusCode, 200)
+    assert.strictEqual(response.statusCode, 200)
   })
 })
