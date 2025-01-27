@@ -27,7 +27,7 @@ test('compare', async t => {
         }
       })
 
-      assert.equal(response.statusCode, 200)
+      assert.strictEqual(response.statusCode, 200)
     }
   )
 
@@ -44,7 +44,7 @@ test('compare', async t => {
         }
       })
 
-      assert.equal(response.statusCode, 200)
+      assert.strictEqual(response.statusCode, 200)
     }
   )
 })

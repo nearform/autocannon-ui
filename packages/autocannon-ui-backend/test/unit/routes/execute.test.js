@@ -17,7 +17,7 @@ test('execute', async t => {
       }
     })
 
-    assert.equal(response.statusCode, 400)
+    assert.strictEqual(response.statusCode, 400)
   })
 
   await t.test('supports localhost urls with port', async () => {
@@ -31,6 +31,6 @@ test('execute', async t => {
       }
     })
 
-    assert.equal(response.statusCode, 200)
+    assert.strictEqual(response.statusCode, 200)
   })
 })
