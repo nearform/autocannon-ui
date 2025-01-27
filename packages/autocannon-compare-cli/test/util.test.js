@@ -35,13 +35,13 @@ test('getColor', async () => {
 })
 
 test('formatValue', async t => {
-  await t.test('should format generic integers', async () => {
+  await t.test('should format generic integers', () => {
     assert.strictEqual(formatValue(1300, 'requests.total'), '1,300')
   })
-  await t.test('should format latency value with unit', async () => {
+  await t.test('should format latency value with unit', () => {
     assert.strictEqual(formatValue(100, 'latency.average'), '100ms')
   })
-  await t.test('should format throughput value with unit', async () => {
+  await t.test('should format throughput value with unit', () => {
     assert.strictEqual(formatValue(100, 'throughput.total'), '100 bytes')
   })
 })
