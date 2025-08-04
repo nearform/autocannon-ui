@@ -18,7 +18,7 @@
     "@mui/icons-material": "^6.0.1",
     "@mui/material": "^6.0.2",
     "@mui/system": "^6.0.2",
-    "pretty-bytes": "^6.0.0",
+    "pretty-bytes": "^7.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
