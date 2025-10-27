@@ -23,7 +23,7 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run UI tests
         run: npm start & npm run test:qa
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: qa-reports
           path: packages/**/.test_results/
