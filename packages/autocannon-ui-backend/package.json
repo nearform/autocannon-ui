@@ -23,6 +23,6 @@
     "newman": "^6.1.0",
     "newman-reporter-htmlextra": "^1.20.4",
     "prettier": "^3.0.1",
-    "wait-on": "^8.0.1"
+    "wait-on": "^9.0.3"
   }
 }
