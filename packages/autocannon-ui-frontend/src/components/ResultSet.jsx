@@ -6,6 +6,7 @@ import {
   Box,
   Checkbox,
   Grid,
+  IconButton,
   Paper,
   Table,
   TableBody,
@@ -17,6 +18,7 @@ import {
   Typography
 } from '@mui/material'
 
+import DownloadIcon from '@mui/icons-material/Download'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import T from 'prop-types'
 import prettyBytes from 'pretty-bytes'
@@ -108,6 +110,18 @@ export default function ResultSet({ data, onChangeSelection }) {
     [onChangeSelection, data, isSelected]
   )
 
+  const handleDownload = useCallback(() => {
+    const blob = new Blob([JSON.stringify(data, null, 2)], {
+      type: 'application/json'
+    })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `autocannon-result-${data.resultIndex}.json`
+    a.click()
+    URL.revokeObjectURL(url)
+  }, [data])
+
   return (
     <Root>
       <React.Fragment>
@@ -129,9 +143,23 @@ export default function ResultSet({ data, onChangeSelection }) {
                   <span className={classes.indexText}>#{data.resultIndex}</span>
                   <span>{data.title || data.url}</span>
                 </Typography>
-                <Typography className={classes.accordionHeader}>
-                  {new Date(data.start).toLocaleString()}
-                </Typography>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <Tooltip title="Download results">
+                    <IconButton
+                      size="small"
+                      onClick={e => {
+                        e.stopPropagation()
+                        handleDownload()
+                      }}
+                      data-testid="download-result-button"
+                    >
+                      <DownloadIcon />
+                    </IconButton>
+                  </Tooltip>
+                  <Typography className={classes.accordionHeader}>
+                    {new Date(data.start).toLocaleString()}
+                  </Typography>
+                </Box>
               </Box>
             </AccordionSummary>
             <AccordionDetails>
