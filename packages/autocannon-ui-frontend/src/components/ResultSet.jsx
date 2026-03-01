@@ -118,8 +118,19 @@ export default function ResultSet({ data, onChangeSelection }) {
     const a = document.createElement('a')
     a.href = url
     a.download = `autocannon-result-${data.resultIndex}.json`
+    document.body.appendChild(a)
     a.click()
-    URL.revokeObjectURL(url)
+    if (typeof requestAnimationFrame === 'function') {
+      requestAnimationFrame(() => {
+        URL.revokeObjectURL(url)
+        document.body.removeChild(a)
+      })
+    } else {
+      setTimeout(() => {
+        URL.revokeObjectURL(url)
+        document.body.removeChild(a)
+      }, 0)
+    }
   }, [data])
 
   return (
