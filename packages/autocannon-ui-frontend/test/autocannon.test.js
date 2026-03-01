@@ -28,7 +28,9 @@ test('should run the test and can clear the run test results', async ({
   await page.locator('[data-testid="clear-all-button"]').click()
 })
 
-test('should run the test and download the result as JSON', async ({ page }) => {
+test('should run the test and download the result as JSON', async ({
+  page
+}) => {
   await page.goto('http://localhost:3000/')
   await page.locator('span.MuiLinearProgress-bar').waitFor({ state: 'hidden' })
   await page.locator('[data-testid="run-button"]').click()
