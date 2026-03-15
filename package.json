@@ -26,6 +26,7 @@
     "packages/autocannon-compare-cli/package.json"
   ],
   "scripts": {
+    "prepare": "husky",
     "build": "npm run build --workspaces --if-present",
     "lint": "npm run lint --stream --workspaces",
     "start-backend": "npm run dev --workspace=autocannon-ui-backend",
