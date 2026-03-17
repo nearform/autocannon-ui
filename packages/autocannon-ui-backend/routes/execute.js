@@ -17,6 +17,7 @@ const schema = {
 
 export default async function (fastify) {
   fastify.post('/api/execute', { schema }, function (request, reply) {
+    reply.hijack()
     reply.raw.setHeader('Access-Control-Allow-Origin', '*')
     reply.raw.setHeader('content-type', 'text/event-stream')
     reply.raw.flushHeaders()
@@ -31,7 +32,7 @@ export default async function (fastify) {
 
     function callback(err, result) {
       if (err) {
-        return reply.code(500).send()
+        return reply.raw.end()
       }
 
       reply.raw.end(`result:${JSON.stringify(result)}\n\n`)
