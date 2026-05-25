@@ -59,7 +59,7 @@
     "@babel/preset-env": "^7.19.4",
     "@babel/preset-react": "^7.18.6",
     "@commitlint/cli": "^21.0.1",
-    "@commitlint/config-conventional": "^20.0.0",
+    "@commitlint/config-conventional": "^21.0.1",
     "husky": "^9.0.11",
     "lint-staged": "^17.0.5",
     "markdown-toc": "^1.2.0"
