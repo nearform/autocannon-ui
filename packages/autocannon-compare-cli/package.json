@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/optimist": "^0.0.33",
-    "chalk": "^5.2.0",
+    "chalk": "^6.0.0",
     "chalk-table": "^1.0.2",
     "optimist": "^0.6.1"
   }
