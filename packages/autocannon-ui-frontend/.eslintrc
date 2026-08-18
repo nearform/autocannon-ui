@@ -31,5 +31,15 @@
   },
   "globals": {
     "TextDecoderStream": true
-  }
+  },
+  "overrides": [
+    {
+      // vite 8 and @vitejs/plugin-react 6 expose only an "exports" map with no
+      // "main", which eslint-plugin-import's legacy node resolver cannot follow.
+      "files": ["vite.config.js"],
+      "rules": {
+        "import/no-unresolved": "off"
+      }
+    }
+  ]
 }
