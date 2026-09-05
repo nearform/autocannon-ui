@@ -15,5 +15,13 @@
     "chalk": "^6.0.0",
     "chalk-table": "^1.0.2",
     "optimist": "^0.6.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.7.0",
+    "eslint": "^9.7.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.0.0",
+    "globals": "^15.0.0",
+    "prettier": "^3.8.3"
   }
 }
