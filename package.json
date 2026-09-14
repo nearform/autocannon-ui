@@ -44,7 +44,7 @@
     "autocannon-compare": "^0.4.0",
     "commander": "^14.0.0",
     "concurrently": "^9.0.0",
-    "env-schema": "^7.0.0",
+    "env-schema": "^8.0.0",
     "fastify": "^5.0.0",
     "fastify-cli": "^8.0.0",
     "fastify-plugin": "^6.0.0",
