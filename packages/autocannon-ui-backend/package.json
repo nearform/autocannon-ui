@@ -13,10 +13,10 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@eslint/js": "^9.7.0",
-    "eslint": "^9.7.0",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-import-x": "^4.17.1",
     "eslint-plugin-prettier": "^5.0.0",
     "globals": "^15.0.0",
     "newman": "^6.2.3",
