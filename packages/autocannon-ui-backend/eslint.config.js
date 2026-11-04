@@ -1,5 +1,5 @@
 import js from '@eslint/js'
-import importPlugin from 'eslint-plugin-import'
+import { importX } from 'eslint-plugin-import-x'
 import prettier from 'eslint-config-prettier'
 import globals from 'globals'
 
@@ -8,7 +8,7 @@ export default [
     ignores: ['node_modules/**', '.test_results/**']
   },
   js.configs.recommended,
-  importPlugin.flatConfigs.recommended,
+  importX.flatConfigs.recommended,
   prettier,
   {
     languageOptions: {
@@ -19,7 +19,7 @@ export default [
       }
     },
     rules: {
-      'import/order': [
+      'import-x/order': [
         'error',
         {
           'newlines-between': 'always'

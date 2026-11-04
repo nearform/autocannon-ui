@@ -1,8 +1,7 @@
 import js from '@eslint/js'
-import babelParser from '@babel/eslint-parser'
 import reactPlugin from 'eslint-plugin-react'
 import reactHooksPlugin from 'eslint-plugin-react-hooks'
-import importPlugin from 'eslint-plugin-import'
+import { importX } from 'eslint-plugin-import-x'
 import prettier from 'eslint-config-prettier'
 import globals from 'globals'
 
@@ -14,14 +13,10 @@ export default [
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
-      parser: babelParser,
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       parserOptions: {
-        requireConfigFile: false,
-        babelOptions: {
-          presets: ['@babel/preset-react']
-        },
-        ecmaVersion: 2021,
-        sourceType: 'module'
+        ecmaFeatures: { jsx: true }
       },
       globals: {
         ...globals.browser,
@@ -30,22 +25,16 @@ export default [
       }
     },
     settings: {
-      react: { version: 'detect' },
-      'import/resolver': {
+      // 'detect' calls context.getFilename(), which was removed in ESLint 10
+      // and crashes eslint-plugin-react 7.x. Keep in sync with the react dep.
+      react: { version: '19.2' },
+      'import-x/resolver': {
         node: { extensions: ['.js', '.jsx'] }
       }
     }
   },
   reactPlugin.configs.flat.recommended,
   reactHooksPlugin.configs.flat.recommended,
-  importPlugin.flatConfigs.recommended,
-  prettier,
-  {
-    // vite 8 and @vitejs/plugin-react 6 expose only an "exports" map with no
-    // "main", which eslint-plugin-import's legacy node resolver cannot follow.
-    files: ['vite.config.js'],
-    rules: {
-      'import/no-unresolved': 'off'
-    }
-  }
+  importX.flatConfigs.recommended,
+  prettier
 ]
