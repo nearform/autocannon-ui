@@ -33,7 +33,7 @@
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^15.0.0",
-    "playwright": "^1.50.0",
+    "playwright": "^1.64.1",
     "prop-types": "^15.7.2",
     "vite": "^8.2.4"
   }
