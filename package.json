@@ -40,7 +40,7 @@
   "dependencies": {
     "@fastify/cors": "^11.3.0",
     "@fastify/static": "^10.1.2",
-    "autocannon": "^8.0.0",
+    "autocannon": "^9.0.0",
     "autocannon-compare": "^0.4.0",
     "commander": "^15.0.0",
     "concurrently": "^10.0.5",
