@@ -21,7 +21,7 @@
     "globals": "^15.0.0",
     "newman": "^6.2.3",
     "newman-reporter-htmlextra": "^1.20.4",
-    "prettier": "^3.9.9",
+    "prettier": "^3.10.1",
     "wait-on": "^9.5.1"
   }
 }
