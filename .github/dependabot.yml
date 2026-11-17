@@ -4,6 +4,12 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    groups:
+      playwright:
+        patterns:
+          - "playwright"
+          - "@playwright/test"
+          - "playwright-core"
   - package-ecosystem: github-actions
     directory: /
     schedule:
