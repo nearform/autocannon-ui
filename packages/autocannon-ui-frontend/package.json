@@ -19,7 +19,7 @@
     "@mui/material": "^9.0.1",
     "@mui/system": "^9.5.0",
     "pretty-bytes": "^7.2.0",
-    "react": "^19.2.0",
+    "react": "^19.3.1",
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
