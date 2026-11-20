@@ -18,7 +18,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import-x": "^4.18.1",
     "eslint-plugin-prettier": "^5.0.0",
-    "globals": "^15.0.0",
+    "globals": "^17.14.0",
     "newman": "^6.2.3",
     "newman-reporter-htmlextra": "^1.20.4",
     "prettier": "^3.10.1",
